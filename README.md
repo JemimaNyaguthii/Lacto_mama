@@ -1,6 +1,4 @@
-# Projects Template
-Projects Template
-# LactoMama mobile app
+# LactoMama Mobile App
  The LactoMama App has been designed to facilitate lactionist specialist and the mother interactions.This app entails the booking of appointments,tracking baby feeding,courses and educational materials.
 # Getting Started
 Follow these steps to set up and engage with the LactoMama App:
