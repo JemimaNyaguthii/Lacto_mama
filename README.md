@@ -10,5 +10,22 @@ Navigate to the Project Directory
 ```sh
 cd Ajolla-Mobile
 ```
+
+Build and Test
+```
+* ./gradlew clean build
+```
+
 # Install Dependencies in the gradles
 Enable view bindings in the project directory
+
+ Open the `build.gradle` (app-level) file in your Android project.
+ Within the `android` block, add the following code to enable View Binding:
+   ```gradle
+   android {
+       
+       viewBinding {
+           enabled = true
+       }
+       
+   }
