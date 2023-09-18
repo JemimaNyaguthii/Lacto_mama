@@ -1,0 +1,29 @@
+name: Kotlin Android CI/CD
+on:
+  push:
+    branches:
+      - dev
+jobs:
+  build:
+    runs-on: ubuntu 20.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup Java
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+      - name: Set up Android SDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+          distribution: 'sdk'
+      - name: Grant execute permission to gradlew
+        run: chmod +x ./gradlew
+      - name: Build and Test
+        run: ./gradlew clean build
+      - name: Archive APKs
+        uses: actions/upload-artifact@v2
+        with:
+          name: app-debug
+          path: app/build/outputs/apk/debug/
