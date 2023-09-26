@@ -17,17 +17,26 @@ class MotherSignUp : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         binding.btnSignUp.setOnClickListener {
-            val intent = Intent(this, MotherLogin::class.java)
+            clearErrors()
             validateSignUp()
         }
+        binding.tvNoAccount.setOnClickListener {
+            val intent = Intent(this,MotherLogin::class.java)
+            startActivity(intent)
+        }
+
     }
 
+
     fun validateSignUp() {
+
+
         val fullName = binding.etFulllNames.text.toString()
         val email = binding.etEmail.text.toString()
         val phoneNumber = binding.etPhoneNumber.text.toString()
         val password = binding.etPassword.text.toString()
         val passwordConfirm = binding.etPasswordConfirm.text.toString()
+
         var error = false
 
         if (fullName.isBlank()) {
@@ -35,15 +44,15 @@ class MotherSignUp : AppCompatActivity() {
             error = true
         }
         if (email.isBlank()) {
-            binding.tilEmailSignup.error = "Enter email"
+            binding.tilEmailSignup.error = "Email is required"
             error = true
         }
         if (phoneNumber.isBlank()) {
-            binding.tilPhoneNumber.error = "Enter phone number"
+            binding.tilPhoneNumber.error = "Phone number is required"
             error = true
         }
         if (password.isBlank()) {
-            binding.tilPassword.error = "Enter password"
+            binding.tilPassword.error = "Password is required"
             error = true
         }
         if (passwordConfirm != password) {
@@ -55,7 +64,17 @@ class MotherSignUp : AppCompatActivity() {
             val intent = Intent(this, MotherLogin::class.java)
             startActivity(intent)
             finish()
+
         }
 
+
     }
+
+    fun clearErrors(){
+        binding.tilFullNames.error =null
+        binding.tilEmailSignup.error = null
+        binding.tilPhoneNumber.error = null
+        binding.tilPassword.error = null
+        binding.tilPasswordConfim.error=null
+  }
 }

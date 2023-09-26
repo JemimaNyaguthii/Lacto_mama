@@ -6,4 +6,175 @@
     android:layout_height="match_parent"
     tools:context=".MotherProfile">
 
+    <ImageView
+        android:id="@+id/ivMotherProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="126dp"
+        android:layout_marginEnd="127dp"
+        android:layout_marginBottom="72dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvMotherName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/mother" />
+
+    <TextView
+        android:id="@+id/tvMotherName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="129dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="129dp"
+        android:text="Esther Wanjiku"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivMotherProfile" />
+
+    <TextView
+        android:id="@+id/tvMother"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="176dp"
+        android:text="Mother"
+        android:textColor="#014B6E"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMotherName" />
+
+    <TextView
+        android:id="@+id/tvMotherPhoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="166dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="166dp"
+        android:text="0795678920"
+        android:textColor="#014b6e"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMother" />
+
+    <TextView
+        android:id="@+id/tvMotherEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="50dp"
+        android:text="estherwanjiku@gmail.com"
+        android:textColor="#014b6e"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMotherPhoneNumber" />
+
+    <Button
+        android:id="@+id/btnEdit"
+        android:layout_width="350dp"
+        android:layout_height="67dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="#FFB3E5FC"
+        android:text="Edit Profile"
+        android:textColor="#070707"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMotherEmail" />
+
+    <Button
+        android:id="@+id/btnAppointments"
+        android:layout_width="350dp"
+        android:layout_height="67dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="#FFB3E5FC"
+        android:text="View Appointments"
+        android:textColor="#090808"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnEdit" />
+
+    <Button
+        android:id="@+id/btnCourses"
+        android:layout_width="350dp"
+        android:layout_height="67dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="#FFB3E5FC"
+        android:text="My courses"
+        android:textColor="#0B0A0A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAppointments" />
+
+    <ImageView
+        android:id="@+id/ivEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnEdit"
+        app:layout_constraintEnd_toStartOf="@+id/btnEdit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnEdit"
+        app:srcCompat="@drawable/baseline_mode_edit_24" />
+
+    <ImageView
+        android:id="@+id/tvEditMotherProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tint="#014b6e"
+        app:layout_constraintBottom_toBottomOf="@+id/btnEdit"
+        app:layout_constraintEnd_toEndOf="@+id/btnEdit"
+        app:layout_constraintHorizontal_bias="0.911"
+        app:layout_constraintStart_toStartOf="@+id/btnEdit"
+        app:layout_constraintTop_toTopOf="@+id/btnEdit"
+        app:srcCompat="@drawable/baseline_mode_edit_24" />
+
+    <Button
+        android:id="@+id/btnLogOut"
+        android:layout_width="350dp"
+        android:layout_height="67dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="53dp"
+        android:backgroundTint="#FFB3E5FC"
+        android:text="Log Out"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCourses"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="288dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnLogOut"
+        app:layout_constraintStart_toStartOf="@+id/btnLogOut"
+        app:layout_constraintTop_toTopOf="@+id/btnLogOut"
+        app:layout_constraintVertical_bias="0.651"
+        app:srcCompat="@drawable/baseline_logout_24" />
+
+    <ImageView
+        android:id="@+id/ivArrow"
+        android:layout_width="51dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/outline_arrow_back_24" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
