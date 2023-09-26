@@ -4,15 +4,101 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".SuceessScreen">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/lactitionist" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvTrackingCard"
+        android:layout_width="394dp"
+        android:layout_height="397dp"
+        android:layout_margin="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:alpha="0.7"
+        android:backgroundTint="#d1f2eb"
+        app:cardCornerRadius="16dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.577">
+
+        <!-- Move the TextViews and Button inside the CardView -->
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="129dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="90dp"
+        android:backgroundTint="#29B99B"
+        android:elevation="2dp"
+        android:text="Get Started"
+        app:layout_constraintBottom_toBottomOf="@+id/cvTrackingCard"
+        app:layout_constraintEnd_toEndOf="@+id/cvTrackingCard"
+        app:layout_constraintStart_toStartOf="@+id/cvTrackingCard"
+        app:layout_constraintTop_toBottomOf="@+id/tvSuccess2"
+        android:onClick="openWebsite"/>
+
+
+
+    <TextView
+        android:id="@+id/tvSuccess1"
+        android:layout_width="wrap_content"
+        android:layout_height="34dp"
+        android:layout_margin="60dp"
+        android:elevation="2dp"
+        android:text="Successfully Verified!!"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tvSuccess2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.61"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cvTrackingCard"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tvSuccess2"
+        android:layout_width="114dp"
+        android:layout_height="34dp"
+        android:layout_margin="120dp"
+        android:layout_marginTop="-20dp"
+        android:layout_marginBottom="190dp"
+        android:elevation="2dp"
+        android:text="Welcome onBoard"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/cvTrackingCard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cvTrackingCard" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="267dp"
+        android:layout_marginTop="220dp"
+        android:layout_marginEnd="42dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/cvTrackingCard"
+        app:layout_constraintTop_toTopOf="@+id/cvTrackingCard"
+        app:srcCompat="@drawable/icon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
