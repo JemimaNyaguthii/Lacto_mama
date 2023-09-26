@@ -10,8 +10,8 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
 
-
     private lateinit var binding: ActivityMainBinding
+
 
     private val pagerList = arrayListOf(
         Page("Hello !", R.drawable.mom1, "A Friend that you can rely on to give you \n" +
@@ -25,11 +25,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.GetstartedBtn.setOnClickListener {
+            val intent=Intent(this,MotherSignUp::class.java)
+            startActivity(intent)
+        }
 
 
 
         val onBoardingViewPager2 = binding.Onboarding1viewpager
         val tabLayout = binding.tabLayout
+
 
         val nextBtn = binding.nextBtn
         val prevBtn = binding.previousBtn
@@ -93,8 +98,11 @@ class MainActivity : AppCompatActivity() {
                     startBtn.visibility=View.VISIBLE
                     skipBtn.visibility=View.GONE
                 }
+
             }
         }
+
     }
+
 
 }
