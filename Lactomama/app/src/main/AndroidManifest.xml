@@ -13,10 +13,7 @@
         android:theme="@style/Theme.Lactomama"
         tools:targetApi="31">
         <activity
-            android:name=".onboarding3Activity"
-            android:exported="false" />
-        <activity
-            android:name=".Onboarding2Activity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".Onboarding1Activity"
@@ -25,7 +22,7 @@
             android:name=".UserJourneyActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Onboarding3Activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
