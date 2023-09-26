@@ -1,12 +1,29 @@
 package com.ajolla.lactomama
 
+
+
+
 import android.content.Intent
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.viewpager2.widget.ViewPager2
 import com.ajolla.lactomama.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
+
+
+
+class SuceessScreen : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.success_screen)
+
+    }
+
+
+
+}
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,6 +44,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.GetstartedBtn.setOnClickListener {
             val intent=Intent(this,MotherSignUp::class.java)
+            startActivity(intent)
+        }
+        binding.skip.setOnClickListener {
+            val intent = Intent(this ,MotherSignUp::class.java)
             startActivity(intent)
         }
 
@@ -106,3 +127,4 @@ class MainActivity : AppCompatActivity() {
 
 
 }
+

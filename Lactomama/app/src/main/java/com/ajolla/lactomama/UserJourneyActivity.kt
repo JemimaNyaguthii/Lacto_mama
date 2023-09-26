@@ -19,7 +19,7 @@ class UserJourneyActivity : AppCompatActivity() {
 
         // Set an OnClickListener for the Lactation Specialist button
         lactationButton.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, ActivityUpload::class.java)
             startActivity(intent)
         }
 
