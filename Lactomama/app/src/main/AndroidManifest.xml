@@ -15,22 +15,33 @@
         android:theme="@style/Theme.Lactomama"
         tools:targetApi="31">
         <activity
-            android:name=".EditProfile"
+
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".BabyProfileDisplay"
+            android:name=".Onboarding1Activity"
             android:exported="false" />
+        <activity
+            android:name=".UserJourneyActivity"
+            android:exported="false" />
+        <activity
+
+
+            android:name=".MotherSignUp"
+            android:exported="false" />
+
         <activity
             android:name=".MotherProfile"
             android:exported="false" />
         <activity
-            android:name=".BabyProfile"
+            android:name=".EditProfile"
             android:exported="false" />
         <activity
             android:name=".MotherLogin"
             android:exported="false" />
         <activity
-            android:name=".MotherSignUp"
+            android:name=".Onboarding3Activity"
+
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

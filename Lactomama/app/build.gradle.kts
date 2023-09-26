@@ -33,9 +33,12 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    buildFeatures{
-        viewBinding = true
-        dataBinding = true
+
+    buildFeatures {
+        viewBinding =true
+        dataBinding =true
+
+
     }
 }
 
@@ -52,4 +55,6 @@ dependencies {
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
     implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
     implementation ("androidx.activity:activity-ktx:1.7.2")
+    implementation("androidx.viewpager2:viewpager2:1.0.0")
+
 }

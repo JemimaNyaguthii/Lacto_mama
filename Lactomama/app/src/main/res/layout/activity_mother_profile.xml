@@ -129,13 +129,13 @@
         android:id="@+id/tvEditMotherProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:tint="#014b6e"
+
         app:layout_constraintBottom_toBottomOf="@+id/btnEdit"
         app:layout_constraintEnd_toEndOf="@+id/btnEdit"
         app:layout_constraintHorizontal_bias="0.911"
         app:layout_constraintStart_toStartOf="@+id/btnEdit"
         app:layout_constraintTop_toTopOf="@+id/btnEdit"
-        app:srcCompat="@drawable/baseline_mode_edit_24" />
+        app:srcCompat="@drawable/editing" />
 
     <Button
         android:id="@+id/btnLogOut"
