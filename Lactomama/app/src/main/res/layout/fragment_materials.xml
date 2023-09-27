@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UploadMaterials">
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Upload Courses"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tvtitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ettitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter course title" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tvdes"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvstartdate"
+        app:layout_constraintEnd_toEndOf="@+id/tvtitle"
+        app:layout_constraintStart_toStartOf="@+id/tvtitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvtitle">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etdes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|top"
+            android:gravity="top|start"
+            android:hint="Enter course description"
+            android:inputType="textMultiLine"
+            android:minLines="4"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:scrollbars="vertical" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tvstartdate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvdes"
+        app:layout_constraintStart_toStartOf="@+id/tvdes"
+        app:layout_constraintTop_toBottomOf="@+id/tvdes">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etstartdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter course Start date"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tvenddate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvstartdate"
+        app:layout_constraintStart_toStartOf="@+id/tvstartdate"
+        app:layout_constraintTop_toBottomOf="@+id/tvstartdate">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter course End date
+" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnupload"
+        android:layout_width="325dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="#29B99B"
+        android:text=" Upload Course"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tvprice"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/tvprice"
+        app:layout_constraintTop_toBottomOf="@+id/imageView15" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tvprice"
+        android:layout_width="0dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvenddate"
+        app:layout_constraintStart_toStartOf="@+id/tvenddate"
+        app:layout_constraintTop_toBottomOf="@+id/tvenddate">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etprice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Course Price"
+            android:inputType="numberDecimal"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/imvback3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView15"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/baseline_arrow_back_24" />
+
+    <ImageView
+        android:id="@+id/imvstart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvstartdate"
+        app:layout_constraintEnd_toEndOf="@+id/tvstartdate"
+        app:layout_constraintTop_toTopOf="@+id/tvstartdate"
+        app:srcCompat="@drawable/outline_calendar_month_24" />
+
+    <ImageView
+        android:id="@+id/imvend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvenddate"
+        app:layout_constraintEnd_toEndOf="@+id/tvenddate"
+        app:layout_constraintTop_toTopOf="@+id/tvenddate"
+        app:srcCompat="@drawable/outline_calendar_month_24" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
