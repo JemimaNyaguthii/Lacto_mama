@@ -10,7 +10,7 @@ android {
     defaultConfig {
         applicationId = "com.ajolla.lactomama"
         minSdk = 26
-        targetSdk = 34
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
@@ -33,9 +33,17 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
-buildFeatures{
-    viewBinding =true
-}
+
+
+
+    buildFeatures {
+        viewBinding =true
+//        dataBinding =true
+
+
+
+    }
+
 }
 
 dependencies {
@@ -59,9 +67,7 @@ dependencies {
     implementation ("androidx.navigation:navigation-fragment-ktx:2.7.3")
     implementation ("androidx.navigation:navigation-ui-ktx:2.7.3")
     implementation ("androidx.webkit:webkit:1.8.0")
-
-
-
+    implementation("androidx.viewpager2:viewpager2:1.0.0")
 
 
 }

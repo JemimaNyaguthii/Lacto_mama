@@ -1,10 +1,9 @@
-package com.ajolla.lactomama
+package com.ajolla.lactomama.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.ajolla.lactomama.databinding.ActivityAppointmentsBinding
-import com.ajolla.lactomama.ui.ProfileFragment
 
 class Appointments : AppCompatActivity() {
     lateinit var binding: ActivityAppointmentsBinding

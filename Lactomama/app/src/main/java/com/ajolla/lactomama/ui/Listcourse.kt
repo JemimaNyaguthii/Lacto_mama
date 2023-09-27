@@ -15,10 +15,10 @@ class Listcourse : AppCompatActivity() {
         setContentView(binding.root)
 
 
-
         binding.imvback2.setOnClickListener {
-            val intent = Intent(this,ProfileFragment::class.java)
+            val  intent = Intent(this,ProfileFragment::class.java)
             startActivity(intent)
         }
+
     }
 }

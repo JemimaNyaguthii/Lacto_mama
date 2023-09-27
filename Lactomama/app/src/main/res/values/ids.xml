@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="tilLnumber" type="id" />
+    <item name="tilIssued" type="id" />
+    <item name="etLicenceNumber" type="id" />
+    <item name="textView6" type="id" />
+    <item name="textView7" type="id" />
+    <item name="etIssuedBy" type="id" />
+    <item name="btnVerify" type="id" />
+    <item name="tilDateIssued" type="id" />
+    <item name="textView8" type="id" />
+    <item name="etDateIssued" type="id" />
+    <item name="tilExpiry" type="id" />
+    <item name="textView9" type="id" />
+    <item name="textView10" type="id" />
+    <item name="tilDescription" type="id" />
+    <item name="etExipiry" type="id" />
+    <item name="tvAccount" type="id" />
+    <item name="textView11" type="id" />
+    <item name="ivUpload" type="id" />
+</resources>

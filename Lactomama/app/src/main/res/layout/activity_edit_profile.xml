@@ -11,34 +11,38 @@
         android:id="@+id/imageView16"
         android:layout_width="176dp"
         android:layout_height="125dp"
-        android:layout_marginStart="117dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="118dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13"
         app:srcCompat="@drawable/eclipse" />
+
 
     <TextView
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:text="Edit Profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <EditText
         android:id="@+id/editTextText2"
         android:layout_width="0dp"
         android:layout_height="70dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="text"
         android:text="Second Name"
         app:layout_constraintEnd_toEndOf="@+id/editTextText7"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/editTextText7"
         app:layout_constraintTop_toBottomOf="@+id/editTextText7" />
 
@@ -46,9 +50,13 @@
         android:id="@+id/editTextText4"
         android:layout_width="0dp"
         android:layout_height="70dp"
-        android:layout_marginTop="4dp"
+
+
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="text"
+
+
         android:text="Phone number"
         app:layout_constraintEnd_toEndOf="@+id/editTextText2"
         app:layout_constraintStart_toStartOf="@+id/editTextText2"
@@ -58,7 +66,7 @@
         android:id="@+id/editTextText5"
         android:layout_width="0dp"
         android:layout_height="70dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="text"
         android:text="Email Address"
@@ -71,12 +79,12 @@
         android:id="@+id/editTextText6"
         android:layout_width="0dp"
         android:layout_height="70dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="text"
         android:text="Password"
         app:layout_constraintEnd_toEndOf="@+id/editTextText5"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/editTextText5"
         app:layout_constraintTop_toBottomOf="@+id/editTextText5" />
 
@@ -121,4 +129,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView16" />
+
+    <ImageView
+        android:id="@+id/imvback31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/outline_arrow_back_24" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
