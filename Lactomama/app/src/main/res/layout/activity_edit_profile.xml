@@ -4,76 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditProfile">
+    tools:context=".ui.EditProfile">
 
-    <TextView
-        android:id="@+id/tvEditMotherProfile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="163dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="180dp"
-        android:text="Edit Profile"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/ivEditMotherProfile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/imageView16"
+        android:layout_width="176dp"
+        android:layout_height="125dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvEditMotherProfile"
-        app:srcCompat="@drawable/motherandbaby" />
+        app:layout_constraintTop_toBottomOf="@+id/textView13"
+        app:srcCompat="@drawable/eclipse" />
 
 
-    <Button
-        android:id="@+id/btnCancel"
+    <TextView
+        android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="32dp"
-        android:backgroundTint="@color/white"
-        android:text="Cancel"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEditPhoneNumber"
-        app:layout_constraintVertical_bias="0.0"
-        app:strokeColor="#29b99b"
-        app:strokeWidth="2dp" />
-
-    <Button
-        android:id="@+id/btnSaveEdits"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_marginEnd="20dp"
-        android:backgroundTint="#29B99B"
-        android:text="Save"
-        app:layout_constraintBottom_toBottomOf="@+id/btnCancel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnCancel"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <EditText
-        android:id="@+id/etFirstName"
-        android:layout_width="378dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Jane"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Edit Profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivEditMotherProfile" />
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <EditText
         android:id="@+id/editTextText2"
@@ -82,33 +40,104 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="text"
-        android:text="Wanjiku"
-        app:layout_constraintEnd_toEndOf="@+id/etFirstName"
-        app:layout_constraintStart_toStartOf="@+id/etFirstName"
-        app:layout_constraintTop_toBottomOf="@+id/etFirstName" />
+        android:text="Second Name"
+        app:layout_constraintEnd_toEndOf="@+id/editTextText7"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextText7"
+        app:layout_constraintTop_toBottomOf="@+id/editTextText7" />
 
     <EditText
-        android:id="@+id/etEmailAdress"
+        android:id="@+id/editTextText4"
         android:layout_width="0dp"
         android:layout_height="70dp"
+
+
         android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="text"
-        android:text="janewanjiku@gmail.com"
+
+
+        android:text="Phone number"
         app:layout_constraintEnd_toEndOf="@+id/editTextText2"
         app:layout_constraintStart_toStartOf="@+id/editTextText2"
         app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
 
     <EditText
-        android:id="@+id/etEditPhoneNumber"
+        android:id="@+id/editTextText5"
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="text"
-        android:text="0789056788"
-        app:layout_constraintEnd_toEndOf="@+id/etEmailAdress"
-        app:layout_constraintStart_toStartOf="@+id/etEmailAdress"
-        app:layout_constraintTop_toBottomOf="@+id/etEmailAdress" />
+        android:text="Email Address"
+        app:layout_constraintEnd_toEndOf="@+id/editTextText4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextText4"
+        app:layout_constraintTop_toBottomOf="@+id/editTextText4" />
+
+    <EditText
+        android:id="@+id/editTextText6"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Password"
+        app:layout_constraintEnd_toEndOf="@+id/editTextText5"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextText5"
+        app:layout_constraintTop_toBottomOf="@+id/editTextText5" />
+
+    <Button
+        android:id="@+id/btncancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="Cancel"
+        android:textColor="#000000"
+
+        android:backgroundTint="#ffffff"
+        app:layout_constraintBottom_toBottomOf="@+id/btnsavee"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnsavee"
+        app:strokeColor="#29b99b"
+        app:strokeWidth="2dp" />
+
+    <Button
+        android:id="@+id/btnsavee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="64dp"
+        android:text="Save"
+        android:backgroundTint="#29B99B"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextText6" />
+
+    <EditText
+        android:id="@+id/editTextText7"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView16" />
+
+    <ImageView
+        android:id="@+id/imvback31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/outline_arrow_back_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

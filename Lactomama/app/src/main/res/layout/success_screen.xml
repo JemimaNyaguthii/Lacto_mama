@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SuceessScreen">
+    tools:context=".ui.SuceessScreen">
 
     <ImageView
         android:id="@+id/imageView"
@@ -49,7 +49,8 @@
         app:layout_constraintEnd_toEndOf="@+id/cvTrackingCard"
         app:layout_constraintStart_toStartOf="@+id/cvTrackingCard"
         app:layout_constraintTop_toBottomOf="@+id/tvSuccess2"
-        android:onClick="openWebsite"/>
+        android:onClick="openWebsite"
+        tools:ignore="OnClick" />
 
 
 
