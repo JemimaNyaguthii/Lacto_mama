@@ -1,5 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Lactomama</string>
+<<<<<<< HEAD
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home">Home</string>
@@ -10,4 +12,21 @@
         <item>Mpesa</item>
         <item>In person</item>
     </string-array>
+=======
+
+
+    <string name="home">Home</string>
+    <string name="courses">Courses</string>
+    <string name="materials">Materials</string>
+    <string name="profile">Profile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="swipe_between_screens">Swipe between screens</string>
+    <string name="welcome_to_lactomama">Welcome to LactoMama</string>
+    <!-- TODO: Remove or change this placeholder text -->
+
+
+>>>>>>> 18733763552c09b12d3d06fd4d22c6595161afba
 </resources>
