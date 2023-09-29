@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+<vector android:height="24dp" android:tint="#ffff"
+=======
 <vector android:height="24dp" android:tint="#FFFFFF"
+>>>>>>> 18733763552c09b12d3d06fd4d22c6595161afba
     android:viewportHeight="24" android:viewportWidth="24"
     android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
     <path android:fillColor="@android:color/white" android:pathData="M10,20v-6h4v6h5v-8h3L12,3 2,12h3v8z"/>

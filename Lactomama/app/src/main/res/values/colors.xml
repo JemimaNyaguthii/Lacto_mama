@@ -2,6 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+<<<<<<< HEAD
+    <color name="your_color_primary"></color>
+
+=======
     <color name="active_tab_color">#23BB9B</color>
     <color name="inactive_tab_color">#FFFFFF</color>
 
@@ -9,4 +13,5 @@
 
 
     <color name="maincolor">#D9D9D9</color>
+>>>>>>> 18733763552c09b12d3d06fd4d22c6595161afba
 </resources>

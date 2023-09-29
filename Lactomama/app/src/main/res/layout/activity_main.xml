@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
+    tools:context=".MainActivity"/>
+=======
     tools:context=".ui.Onboarding1Activity">
 
     <androidx.viewpager2.widget.ViewPager2
@@ -85,3 +88,4 @@
 
 
 </RelativeLayout>
+>>>>>>> 18733763552c09b12d3d06fd4d22c6595161afba

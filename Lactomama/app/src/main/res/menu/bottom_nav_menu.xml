@@ -1,3 +1,33 @@
+<<<<<<< HEAD
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <item
+            android:id="@+id/home"
+            android:title="@string/home"
+            android:icon="@drawable/baseline_home_24"
+            android:enabled="true"/>
+        <item
+            android:id="@+id/course"
+            android:title="@string/course"
+            android:icon="@drawable/baseline_collections_24"
+            android:tint="@color/bottom_navigation_icon_colors"
+            android:enabled="true"/>
+        <item
+            android:id="@+id/child"
+            android:title="@string/Child"
+            android:icon="@drawable/baseline_child_care_24"
+            android:iconTint="@color/bottom_navigation_icon_colors"
+            android:enabled="true"/>
+        <item
+            android:id="@+id/booking"
+            android:title="Booking"
+            android:icon="@drawable/outline_medical_services_24"
+            app:tint="#FFFF"
+            android:enabled="true"/>
+</menu>
+=======
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -36,3 +66,4 @@
         android:iconTint="#ffffff"
        android:enabled="true" />
 </menu>
+>>>>>>> 18733763552c09b12d3d06fd4d22c6595161afba

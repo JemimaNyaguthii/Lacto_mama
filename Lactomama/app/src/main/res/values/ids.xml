@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<<<<<<< HEAD
+    <item name="_toast_layout" type="id" />
+    <item name="toast_layout" type="id" />
+=======
     <item name="tilLnumber" type="id" />
     <item name="tilIssued" type="id" />
     <item name="etLicenceNumber" type="id" />
@@ -18,4 +22,5 @@
     <item name="tvAccount" type="id" />
     <item name="textView11" type="id" />
     <item name="ivUpload" type="id" />
+>>>>>>> 18733763552c09b12d3d06fd4d22c6595161afba
 </resources>

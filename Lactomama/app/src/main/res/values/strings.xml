@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Lactomama</string>
+<<<<<<< HEAD
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home</string>
+    <string name="course">Courses</string>
+    <string name="Child">Child Profile</string>
+    <string name="Booking">Summary</string>
+    <string-array name="Pay">
+        <item>Mpesa</item>
+        <item>In person</item>
+    </string-array>
+=======
 
 
     <string name="home">Home</string>
@@ -16,4 +28,5 @@
     <!-- TODO: Remove or change this placeholder text -->
 
 
+>>>>>>> 18733763552c09b12d3d06fd4d22c6595161afba
 </resources>
