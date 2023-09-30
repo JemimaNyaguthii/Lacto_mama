@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.ajolla.lactomama.databinding.ActivityMotherLoginBinding
+import com.ajolla.lactomama.ui.home.HomePageActivity
 
 
 class MotherLogin : AppCompatActivity() {
@@ -17,6 +18,11 @@ class MotherLogin : AppCompatActivity() {
         }
         binding.tvSignUp.setOnClickListener {
             val intent = Intent(this, MotherSignUp::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnLogin.setOnClickListener {
+            val intent = Intent(this, HomePageActivity::class.java)
             startActivity(intent)
         }
 

@@ -98,7 +98,7 @@
         android:id="@+id/btnupload"
         android:layout_width="325dp"
         android:layout_height="50dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         android:layout_marginBottom="32dp"
         android:backgroundTint="#29B99B"
         android:text=" Upload Course"
@@ -106,7 +106,7 @@
         app:layout_constraintEnd_toEndOf="@+id/tvprice"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="@+id/tvprice"
-        app:layout_constraintTop_toBottomOf="@+id/imageView15" />
+        app:layout_constraintTop_toBottomOf="@+id/tvprice" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tvprice"
@@ -159,3 +159,4 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+

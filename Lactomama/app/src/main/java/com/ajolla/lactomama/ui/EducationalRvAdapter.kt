@@ -16,7 +16,6 @@ class EducationalRvAdapter (var articles:List<ArticleData>): RecyclerView.Adapte
             val currentArticles =articles.get(position)
             val binding = holder.binding
             binding.tvTitle.text = currentArticles.title
-
             binding.ivCoverOfArticle.tag=currentArticles.image
                  Picasso
                 .get().load(currentArticles.image)

@@ -14,7 +14,7 @@ class Success : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btncontinue.setOnClickListener {
-            val intent = Intent( this,CoursesFragment::class.java)
+            val intent = Intent( this,UploadCoursesFragment::class.java)
             startActivity(intent)
         }
 

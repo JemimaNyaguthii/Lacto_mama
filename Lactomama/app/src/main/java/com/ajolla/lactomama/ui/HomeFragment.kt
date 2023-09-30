@@ -1,10 +1,12 @@
 package com.ajolla.lactomama.ui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.recyclerview.widget.GridLayoutManager
 import com.ajolla.lactomama.R
 import com.ajolla.lactomama.databinding.FragmentHome2Binding
@@ -24,6 +26,7 @@ private var _binding:FragmentHome2Binding?=null
     override fun onResume() {
         super.onResume()
         displayArticles()
+
     }
     fun displayArticles(){
         var article1=EducationalMaterialData("https://media.istockphoto.com/id/1044543794/photo/beautiful-african-american-mother-holds-newborn-baby-in-the-living-room.jpg?s=612x612&w=0&k=20&c=4ufPnG8hm_pH28iS6knqxvy7gbeLfT-QEHL45f4nNX0= ","Tactics")
@@ -38,4 +41,7 @@ private var _binding:FragmentHome2Binding?=null
         binding.rvArticles.adapter=educationalAdapter
     }
 
+
+
 }
+

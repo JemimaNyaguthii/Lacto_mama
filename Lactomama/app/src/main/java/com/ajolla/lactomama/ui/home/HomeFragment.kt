@@ -1,5 +1,6 @@
 package com.ajolla.lactomama.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import com.ajolla.lactomama.databinding.FragmentHomeBinding
 import com.ajolla.lactomama.ui.EducationalRvAdapter
+import com.ajolla.lactomama.ui.MotherEditProfile
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
@@ -24,6 +26,10 @@ class HomeFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         displayArticles()
+        binding.ivMotherProfile.setOnClickListener {
+            val intent = Intent(requireContext(), MotherEditProfile::class.java)
+            startActivity(intent)
+        }
     }
 
     fun displayArticles(){

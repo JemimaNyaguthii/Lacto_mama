@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/home"
+        android:title="@string/home"
+        android:icon="@drawable/baseline_home_24"
+        app:itemTextColor="#ffffff"
+        android:iconTint="#ffffff"
+        android:enabled="true" />
+    <item
+        android:id="@+id/courses"
+        android:title="@string/materials"
+        android:icon="@drawable/baseline_library_books_24"
+        app:itemTextColor="#ffffff"
+        android:iconTint="#ffffff"
+
+        android:enabled="true" />
+
+    <item
+        android:id="@+id/materials"
+        android:title="@string/courses"
+        android:icon="@drawable/baseline_collections_24"
+        app:itemTextColor="#ffffff"
+        android:iconTint="#ffffff"
+        android:enabled="true" />
+
+    <item
+        android:id="@+id/profile"
+        android:title="@string/profile"
+        android:icon="@drawable/baseline_person_24"
+        app:itemTextColor="#ffffff"
+        android:iconTint="#ffffff"
+        android:enabled="true" />
+</menu>

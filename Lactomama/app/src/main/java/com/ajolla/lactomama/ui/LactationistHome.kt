@@ -31,7 +31,7 @@ class LactationistHome : AppCompatActivity() {
                 R.id.materials->{
                     supportFragmentManager
                         .beginTransaction()
-                        .replace(R.id.fcvHome, MaterialsFragment()).commit()
+                        .replace(R.id.fcvHome,MaterialsFragment()).commit()
                     true
 
 
@@ -45,7 +45,7 @@ class LactationistHome : AppCompatActivity() {
                 R.id.courses->{
                     supportFragmentManager
                         .beginTransaction()
-                        .replace(R.id.fcvHome, CoursesFragment()).commit()
+                        .replace(R.id.fcvHome,UploadCoursesFragment()).commit()
                     true
                 }
                 else->false
