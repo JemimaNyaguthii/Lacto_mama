@@ -18,5 +18,7 @@
 
     <string name="swipe_between_screens">Swipe between screens</string>
     <string name="welcome_to_lactomama">Welcome to LactoMama</string>
+    <string name="material">Materials</string>
+    <string name="upload_course">upload_ course</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

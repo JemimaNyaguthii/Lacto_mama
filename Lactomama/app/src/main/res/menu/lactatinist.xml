@@ -11,17 +11,16 @@
         android:iconTint="#ffffff"
         android:enabled="true" />
     <item
-        android:id="@+id/courses"
-        android:title="@string/materials"
+        android:id="@+id/courses_upload"
+        android:title="@string/upload_course"
         android:icon="@drawable/baseline_library_books_24"
         app:itemTextColor="#ffffff"
         android:iconTint="#ffffff"
-
         android:enabled="true" />
 
     <item
         android:id="@+id/materials"
-        android:title="@string/courses"
+        android:title="@string/material"
         android:icon="@drawable/baseline_collections_24"
         app:itemTextColor="#ffffff"
         android:iconTint="#ffffff"

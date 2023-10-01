@@ -1,4 +1,4 @@
-package com.ajolla.lactomama.ui
+package com.ajolla.lactomama.ui.home
 
     import android.annotation.SuppressLint
     import android.app.Activity
@@ -12,8 +12,9 @@ package com.ajolla.lactomama.ui
     import androidx.fragment.app.Fragment
     import androidx.recyclerview.widget.RecyclerView
     import com.ajolla.lactomama.R
+    import com.ajolla.lactomama.ui.CourseAdapter
 
-    class UploadCoursesFragment : Fragment() {
+class UploadCoursesFragment : Fragment() {
 
         private val fileList = mutableListOf<String>()
         private lateinit var adapter: CourseAdapter

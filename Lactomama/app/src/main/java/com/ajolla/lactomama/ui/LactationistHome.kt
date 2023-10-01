@@ -2,9 +2,9 @@ package com.ajolla.lactomama.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import com.ajolla.lactomama.R
 import com.ajolla.lactomama.databinding.ActivityLactationistHomeBinding
+import com.ajolla.lactomama.ui.home.UploadCoursesFragment
 
 class LactationistHome : AppCompatActivity() {
     lateinit var binding:ActivityLactationistHomeBinding
@@ -42,10 +42,10 @@ class LactationistHome : AppCompatActivity() {
                         .replace(R.id.fcvHome,ProfileFragment()).commit()
                     true
                 }
-                R.id.courses->{
+                R.id.courses_upload->{
                     supportFragmentManager
                         .beginTransaction()
-                        .replace(R.id.fcvHome,UploadCoursesFragment()).commit()
+                        .replace(R.id.fcvHome, UploadCoursesFragment()).commit()
                     true
                 }
                 else->false
