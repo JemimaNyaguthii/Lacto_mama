@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.ajolla.lactomama.databinding.ActivityMotherProfileBinding
+import com.ajolla.lactomama.ui.home.HomePageActivity
 
 
 class MotherProfile : AppCompatActivity() {
@@ -25,7 +26,7 @@ class MotherProfile : AppCompatActivity() {
         super.onResume()
 
         binding.ivArrow.setOnClickListener {
-            val intent = Intent(this, MotherSignUp::class.java)
+            val intent = Intent(this, HomePageActivity::class.java)
             startActivity(intent)
         }
         binding.tvEditMotherProfile.setOnClickListener {

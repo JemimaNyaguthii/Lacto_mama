@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.ajolla.lactomama.databinding.FragmentHomeBinding
 import com.ajolla.lactomama.ui.EducationalRvAdapter
 import com.ajolla.lactomama.ui.MotherEditProfile
+import com.ajolla.lactomama.ui.MotherProfile
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
@@ -27,7 +28,7 @@ class HomeFragment : Fragment() {
         super.onResume()
         displayArticles()
         binding.ivMotherProfile.setOnClickListener {
-            val intent = Intent(requireContext(), MotherEditProfile::class.java)
+            val intent = Intent(requireContext(), MotherProfile::class.java)
             startActivity(intent)
         }
     }

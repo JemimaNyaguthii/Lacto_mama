@@ -65,4 +65,6 @@ dependencies {
     implementation ("androidx.webkit:webkit:1.8.0")
     implementation("androidx.viewpager2:viewpager2:1.0.0")
 
+
+
 }
