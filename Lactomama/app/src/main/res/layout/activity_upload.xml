@@ -10,19 +10,16 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="86dp"
-        android:layout_height="77dp"
+        android:layout_width="73dp"
+        android:layout_height="55dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
         android:src="@drawable/logo"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.093"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.024" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvAccount"
@@ -68,7 +65,7 @@
         android:id="@+id/tilIssued"
         android:layout_width="343dp"
         android:layout_height="63dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         app:boxStrokeColor="#29B99B"
         app:layout_constraintEnd_toEndOf="@+id/tilLnumber"
         app:layout_constraintHorizontal_bias="0.0"
@@ -91,16 +88,17 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="28dp"
-        app:boxStrokeColor="#29B99B"
         android:backgroundTint="#29B99B"
         android:text="Verify"
         android:textColorHighlight="#29B99B"
         android:textColorLink="#29B99B"
         android:textSize="20sp"
+        app:boxStrokeColor="#29B99B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.944"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivUpload" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilDateIssued"
@@ -109,7 +107,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         app:boxStrokeColor="#29B99B"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tilIssued"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tilIssued"
         app:layout_constraintTop_toBottomOf="@+id/textView8">
@@ -127,41 +125,20 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilExpiry"
-        android:layout_width="346dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="16dp"
-        app:boxStrokeColor="#29B99B"
-        app:layout_constraintEnd_toEndOf="@+id/tilDateIssued"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tilDateIssued"
-        app:layout_constraintTop_toBottomOf="@+id/textView9">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etExipiry"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:drawableStart="@drawable/baseline_calendar_month_24"
-            android:onClick="showDatePickerDialog" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilDescription"
         android:layout_width="340dp"
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
         app:boxStrokeColor="#29B99B"
-        app:layout_constraintEnd_toEndOf="@+id/tilExpiry"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/tilExpiry"
+        app:layout_constraintEnd_toEndOf="@+id/tilDateIssued"
+        app:layout_constraintStart_toStartOf="@+id/tilDateIssued"
         app:layout_constraintTop_toBottomOf="@+id/textView10"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etstatus"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
+            android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -211,33 +188,16 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:textColor="#29B99B"
-        android:text="Expiring Date"
-        app:layout_constraintBottom_toTopOf="@+id/tilExpiry"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.119"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilDateIssued"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:text="Lisense Status"
         android:textColor="#29B99B"
-        android:text="Description"
-        app:layout_constraintBottom_toTopOf="@+id/tilDescription"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.119"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilExpiry"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/tilDateIssued" />
 
     <TextView
         android:id="@+id/textView11"
@@ -257,13 +217,10 @@
         android:id="@+id/ivUpload"
         android:layout_width="50dp"
         android:layout_height="48dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toStartOf="parent"
 
+        app:layout_constraintEnd_toEndOf="@+id/textView11"
+        app:layout_constraintStart_toStartOf="@+id/textView11"
         app:layout_constraintTop_toBottomOf="@+id/textView11"
         app:srcCompat="@drawable/icoon" />
 

@@ -50,6 +50,7 @@ class MotherSignUp : AppCompatActivity() {
         val password = binding.etPassword.text.toString()
         val passwordConfirm = binding.etPasswordConfirm.text.toString()
         var error = false
+
            if (userName.isBlank()) {
             binding.tilFullNames.error = "Enter name"
             error = true

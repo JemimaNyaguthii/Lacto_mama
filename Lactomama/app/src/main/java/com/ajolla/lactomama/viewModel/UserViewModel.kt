@@ -3,8 +3,11 @@ package com.ajolla.lactomama.viewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.ajolla.lactomama.Repository.CredentialRepository
 import com.ajolla.lactomama.Repository.LoginRepository
 import com.ajolla.lactomama.Repository.UserRepository
+import com.ajolla.lactomama.model.CredentialRequest
+import com.ajolla.lactomama.model.CredentialResponse
 import com.ajolla.lactomama.model.LoginRequest
 import com.ajolla.lactomama.model.LoginResponse
 import com.ajolla.lactomama.model.UserRequest
@@ -42,6 +45,23 @@ class LoginViewModel : ViewModel() {
         }
     }
 }
+
+class CredentialViewModel : ViewModel() {
+    val credentialRepository = CredentialRepository()
+    val errorLiveData = MutableLiveData<String>()
+    val credLiveData = MutableLiveData<CredentialResponse>()
+    fun credentialUser(credentialRequest: CredentialRequest) {
+        viewModelScope.launch {
+            val response = credentialRepository.credentialUser(credentialRequest)
+            if (response.isSuccessful) {
+                credLiveData.postValue(response.body())
+            } else {
+                errorLiveData.postValue(response.errorBody()?.string())
+            }
+        }
+    }
+}
+
 
 
 
