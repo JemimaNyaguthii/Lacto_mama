@@ -1,4 +1,4 @@
-package com.ajolla.lactomama.ui.home
+package com.ajolla.lactomama.mother
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,7 +6,6 @@ import com.ajolla.lactomama.ChatFragment
 import com.ajolla.lactomama.R
 import com.ajolla.lactomama.databinding.ActivityHomePageBinding
 import com.ajolla.lactomama.ui.bookings.BookingsFragment
-import com.ajolla.lactomama.ui.courses.CoursesFragment
 
 class HomePageActivity : AppCompatActivity() {
 lateinit var binding: ActivityHomePageBinding

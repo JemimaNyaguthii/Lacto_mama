@@ -1,4 +1,4 @@
-package com.ajolla.lactomama.ui.courses
+package com.ajolla.lactomama.mother
 
 import android.os.Bundle
 import android.view.*
@@ -9,7 +9,6 @@ import androidx.viewpager.widget.ViewPager
 import com.ajolla.lactomama.R
 import com.ajolla.lactomama.databinding.FragmentCoursesBinding
 import com.google.android.material.tabs.TabLayout
-import androidx.appcompat.widget.SearchView
 
 class CoursesFragment : Fragment() {
 

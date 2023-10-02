@@ -7,22 +7,24 @@ import com.squareup.picasso.Picasso
 import androidx.recyclerview.widget.RecyclerView
 import com.ajolla.lactomama.databinding.EducationalListItemBinding
 
-class ArticleAdapter (var articles:List<EducationalMaterialData>): RecyclerView.Adapter<ArticleAdapter.EducationalViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EducationalViewHolder{
-        val binding =EducationalListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+class ArticleAdapter(var articles:MutableList<EducationalMaterialData>) : RecyclerView.Adapter<ArticleAdapter.EducationalViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EducationalViewHolder {
+        val binding =
+            EducationalListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return EducationalViewHolder(binding)
     }
-    override fun onBindViewHolder(holder: EducationalViewHolder, position: Int) {
-        val currentArticles =articles.get(position)
-        val binding = holder.binding
-        binding.tvTitle.text = currentArticles.title
-        binding.ivCoverOfArticle.tag=currentArticles.image
-        Picasso
-            .get().load(currentArticles.image)
-            .resize(80, 80)
-            .centerInside()
-            .into(binding.ivCoverOfArticle)
 
+    override fun onBindViewHolder(holder: EducationalViewHolder, position: Int) {
+        val currentArticle = articles[position]
+        val binding = holder.binding
+        binding.tvTitle.text = currentArticle.title
+        binding.tvId.text = currentArticle.toString()
+        binding.tvContent.text = currentArticle.content
+        binding.tvCreated.text = currentArticle.createdAt
+        binding.tvDescription.text = currentArticle.description
+        binding.tvLactationist.text = currentArticle.lactationist.toString()
+        binding.tvUpdated.text = currentArticle.updatedAt
+        binding.ivImage.tag= currentArticle.image
     }
 
     override fun getItemCount(): Int {
@@ -31,5 +33,4 @@ class ArticleAdapter (var articles:List<EducationalMaterialData>): RecyclerView.
 
     class EducationalViewHolder(var binding: EducationalListItemBinding) :
         RecyclerView.ViewHolder(binding.root)
-
 }

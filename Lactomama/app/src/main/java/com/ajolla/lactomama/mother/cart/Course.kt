@@ -1,4 +1,4 @@
-package com.ajolla.lactomama.ui.cart
+package com.ajolla.lactomama.mother.cart
 
 data class Course(
     val image: String,

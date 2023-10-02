@@ -7,9 +7,12 @@ import com.ajolla.lactomama.model.CredentialRequest
 import com.ajolla.lactomama.model.CredentialResponse
 import com.ajolla.lactomama.model.LoginRequest
 import com.ajolla.lactomama.model.LoginResponse
+import com.ajolla.lactomama.model.UploadCoursesRequest
+import com.ajolla.lactomama.model.UploadCoursesResponse
 import com.ajolla.lactomama.model.UserRequest
 import com.ajolla.lactomama.model.UserResponse
 import com.ajolla.lactomama.model.appointmentdata
+import com.ajolla.lactomama.ui.EducationalMaterialData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.Response
@@ -52,8 +55,20 @@ class AppointmentRepository {
     }
 }
 
-//suspend fun getProducts():Response<ProductsResponse>{
-//    return withContext(Dispatchers.IO){
-//        apiClient.getProducts()
-//    }
-//}
+class EducationalMaterialsRepository {
+    private val apiClient= ApiClient.buildClient(ApiInterface::class.java)
+    suspend fun getArticles(): Response<List<EducationalMaterialData>> {
+        return withContext(Dispatchers.IO){
+            apiClient.getArticles()
+        }
+    }
+}
+
+class CoursesRepository {
+    val apiClient= ApiClient.buildClient(ApiInterface::class.java)
+    suspend fun postCourses(coursesRequest: UploadCoursesRequest):Response<UploadCoursesResponse>{
+        return withContext(Dispatchers.IO){
+            apiClient.postCourses(coursesRequest)
+        }
+    }
+}

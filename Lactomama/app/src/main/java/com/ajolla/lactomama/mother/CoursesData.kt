@@ -1,4 +1,4 @@
-package com.ajolla.lactomama.ui.courses
+package com.ajolla.lactomama.mother
 
 import android.widget.TextView
 import java.io.Serializable

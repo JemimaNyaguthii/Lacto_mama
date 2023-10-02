@@ -1,4 +1,4 @@
-package com.ajolla.lactomama.ui.cart
+package com.ajolla.lactomama.mother.cart
 
 import android.view.LayoutInflater
 import android.view.View

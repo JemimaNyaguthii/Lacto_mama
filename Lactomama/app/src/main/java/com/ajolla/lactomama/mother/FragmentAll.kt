@@ -1,4 +1,4 @@
-package com.ajolla.lactomama.ui.courses
+package com.ajolla.lactomama.mother
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,8 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ajolla.lactomama.databinding.FragmentAllBinding
-import com.ajolla.lactomama.ui.PaymentActivity
-import coursesRvAdapter
 import java.io.Serializable
 
 class FragmentAll : Fragment() {

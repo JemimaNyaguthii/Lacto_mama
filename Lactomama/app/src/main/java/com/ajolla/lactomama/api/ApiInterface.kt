@@ -6,9 +6,12 @@ import com.ajolla.lactomama.model.CredentialRequest
 import com.ajolla.lactomama.model.CredentialResponse
 import com.ajolla.lactomama.model.LoginRequest
 import com.ajolla.lactomama.model.LoginResponse
+import com.ajolla.lactomama.model.UploadCoursesRequest
+import com.ajolla.lactomama.model.UploadCoursesResponse
 import com.ajolla.lactomama.model.UserRequest
 import com.ajolla.lactomama.model.UserResponse
 import com.ajolla.lactomama.model.appointmentdata
+import com.ajolla.lactomama.ui.EducationalMaterialData
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -31,6 +34,11 @@ interface ApiInterface {
 
     @GET("/api/appointments/{id}")
     suspend fun getArticlebyId(@Path("id") productId: Int): Response<Article>
+
+    @GET("/api/articles/")
+    suspend fun getArticles():Response<List<EducationalMaterialData>>
+    @POST("/api/courses/")
+    suspend fun postCourses(@Body coursesRequest:UploadCoursesRequest):Response<UploadCoursesResponse>
 
 
 

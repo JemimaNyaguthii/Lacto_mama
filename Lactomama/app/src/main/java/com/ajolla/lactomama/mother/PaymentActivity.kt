@@ -1,4 +1,4 @@
-package com.ajolla.lactomama.ui
+package com.ajolla.lactomama.mother
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,8 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ajolla.lactomama.databinding.ActivityPaymentBinding
-import com.ajolla.lactomama.ui.cart.CartRvAdapter
-import com.ajolla.lactomama.ui.cart.Course
+import com.ajolla.lactomama.ui.PaymentProcedure
+import com.ajolla.lactomama.mother.cart.CartRvAdapter
+import com.ajolla.lactomama.mother.cart.Course
 
 class PaymentActivity : AppCompatActivity() {
     lateinit var binding: ActivityPaymentBinding

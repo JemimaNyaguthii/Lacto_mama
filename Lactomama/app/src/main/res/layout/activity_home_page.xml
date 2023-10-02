@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomePageActivity">
+    tools:context=".mother.HomePageActivity">
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bnvHome"
         android:layout_width="0dp"
@@ -17,7 +17,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fcvHome"
-        android:name="com.ajolla.lactomama.ui.home.HomeFragment"
+        android:name="com.ajolla.lactomama.mother.HomeFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/bnvHome"

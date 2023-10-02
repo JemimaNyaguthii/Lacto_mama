@@ -1,11 +1,12 @@
-package com.ajolla.lactomama.ui
+package com.ajolla.lactomama.model
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.ajolla.lactomama.databinding.ActivityCourseDetailsBinding
-import com.ajolla.lactomama.ui.cart.Course
+import com.ajolla.lactomama.mother.PaymentActivity
+import com.ajolla.lactomama.mother.cart.Course
 import java.io.Serializable
 
 class CourseDetailsActivity : AppCompatActivity() {

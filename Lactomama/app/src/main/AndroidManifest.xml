@@ -26,13 +26,13 @@
             android:name=".ui.LactationistDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.PaymentActivity"
+            android:name=".mother.PaymentActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.CourseDetailsActivity"
+            android:name=".model.CourseDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.home.HomePageActivity"
+            android:name=".mother.HomePageActivity"
             android:exported="false" />
         <activity
             android:name=".ui.MotherEditProfile"

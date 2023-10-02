@@ -1,4 +1,4 @@
-package com.ajolla.lactomama.ui.home
+package com.ajolla.lactomama.mother
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,8 +9,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import com.ajolla.lactomama.databinding.FragmentHomeBinding
 import com.ajolla.lactomama.ui.EducationalRvAdapter
-import com.ajolla.lactomama.ui.MotherEditProfile
 import com.ajolla.lactomama.ui.MotherProfile
+import com.ajolla.lactomama.ui.home.ArticleData
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null

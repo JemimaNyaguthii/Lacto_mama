@@ -1,10 +1,11 @@
+package com.ajolla.lactomama.mother
+
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ajolla.lactomama.databinding.CoursesListItemBinding
-import com.ajolla.lactomama.ui.CourseDetailsActivity
-import com.ajolla.lactomama.ui.courses.CoursesData
+import com.ajolla.lactomama.model.CourseDetailsActivity
 
 class coursesRvAdapter(
     private val courseList: List<CoursesData>,

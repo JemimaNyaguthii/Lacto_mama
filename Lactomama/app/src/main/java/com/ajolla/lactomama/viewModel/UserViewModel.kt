@@ -4,17 +4,20 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ajolla.lactomama.Repository.AppointmentRepository
+import com.ajolla.lactomama.Repository.CoursesRepository
 import com.ajolla.lactomama.Repository.CredentialRepository
+import com.ajolla.lactomama.Repository.EducationalMaterialsRepository
 import com.ajolla.lactomama.Repository.LoginRepository
 import com.ajolla.lactomama.Repository.UserRepository
-import com.ajolla.lactomama.model.Article
 import com.ajolla.lactomama.model.CredentialRequest
 import com.ajolla.lactomama.model.CredentialResponse
 import com.ajolla.lactomama.model.LoginRequest
 import com.ajolla.lactomama.model.LoginResponse
+import com.ajolla.lactomama.model.UploadCoursesRequest
 import com.ajolla.lactomama.model.UserRequest
 import com.ajolla.lactomama.model.UserResponse
 import com.ajolla.lactomama.model.appointmentdata
+import com.ajolla.lactomama.ui.EducationalMaterialData
 import kotlinx.coroutines.launch
 
 class UserViewModel : ViewModel() {
@@ -79,6 +82,39 @@ class AppointmentViewModel:ViewModel (){
             } else {
                 errorLiveData.postValue(response.errorBody()?.string())
             }
+        }
+    }
+}
+
+
+class EducationalMaterialsViewModel:ViewModel(){
+    val eduRepo = EducationalMaterialsRepository()
+    var eduLiveData = MutableLiveData<List<EducationalMaterialData>>()
+    var errorLiveData = MutableLiveData<String>()
+    fun fetchArticles() {
+        viewModelScope.launch {
+            val response = eduRepo.getArticles()
+            if (response.isSuccessful) {
+                val articles=response.body()?: emptyList()
+
+                eduLiveData.postValue(articles)
+            } else {
+                errorLiveData.postValue(response.errorBody()?.string())
+            }
+        }
+    }
+}
+class CoursesViewModel : ViewModel() {
+    private val courseRepo = CoursesRepository()
+    var errorLiveData = MutableLiveData<String>()
+
+    suspend fun uploadCourse(uploadCoursesRequest: UploadCoursesRequest): Boolean {
+        return try {
+            val response = courseRepo.postCourses(uploadCoursesRequest)
+            response.isSuccessful
+        } catch (e: Exception) {
+            errorLiveData.postValue(e.message)
+            false
         }
     }
 }

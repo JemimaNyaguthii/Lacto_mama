@@ -8,7 +8,7 @@ import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.ajolla.lactomama.databinding.ActivityMotherLoginBinding
 import com.ajolla.lactomama.model.LoginRequest
-import com.ajolla.lactomama.ui.home.HomePageActivity
+import com.ajolla.lactomama.mother.HomePageActivity
 import com.ajolla.lactomama.viewModel.LoginViewModel
 
 

@@ -13,8 +13,6 @@ class LactationistHome : AppCompatActivity() {
         binding= ActivityLactationistHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
-
-
     override fun onResume() {
         super.onResume()
         setupBottomNav()
@@ -45,7 +43,7 @@ class LactationistHome : AppCompatActivity() {
                 R.id.courses_upload->{
                     supportFragmentManager
                         .beginTransaction()
-                        .replace(R.id.fcvHome, UploadCoursesFragment()).commit()
+                        .replace(R.id.fcvHome,UploadCoursesFragment()).commit()
                     true
                 }
                 else->false

@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.ajolla.lactomama.databinding.ActivityMotherProfileBinding
-import com.ajolla.lactomama.ui.home.HomePageActivity
+import com.ajolla.lactomama.mother.HomePageActivity
 
 
 class MotherProfile : AppCompatActivity() {
