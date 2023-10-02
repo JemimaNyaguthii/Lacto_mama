@@ -2,12 +2,14 @@ package com.ajolla.lactomama.Repository
 
 import com.ajolla.lactomama.api.ApiClient
 import com.ajolla.lactomama.api.ApiInterface
+import com.ajolla.lactomama.model.AppointmentResponse
 import com.ajolla.lactomama.model.CredentialRequest
 import com.ajolla.lactomama.model.CredentialResponse
 import com.ajolla.lactomama.model.LoginRequest
 import com.ajolla.lactomama.model.LoginResponse
 import com.ajolla.lactomama.model.UserRequest
 import com.ajolla.lactomama.model.UserResponse
+import com.ajolla.lactomama.model.appointmentdata
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.Response
@@ -39,3 +41,19 @@ class CredentialRepository {
     }
 
 }
+
+class AppointmentRepository {
+    val apiClient = ApiClient.buildClient(ApiInterface::class.java)
+
+    suspend fun getAppointment():Response<List<appointmentdata>>{
+        return withContext(Dispatchers.IO){
+            apiClient.getAppointments()
+        }
+    }
+}
+
+//suspend fun getProducts():Response<ProductsResponse>{
+//    return withContext(Dispatchers.IO){
+//        apiClient.getProducts()
+//    }
+//}

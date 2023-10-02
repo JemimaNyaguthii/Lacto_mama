@@ -106,6 +106,7 @@ class ActivityUpload : AppCompatActivity() {
                 lnumber =lnumber,
                 issuedBy =issuedBy,
                 dateIssued = dateIssued,
+                
             )
             credentialViewModel.credentialUser(credentialRequest)
 

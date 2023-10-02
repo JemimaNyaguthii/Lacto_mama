@@ -3,15 +3,18 @@ package com.ajolla.lactomama.viewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.ajolla.lactomama.Repository.AppointmentRepository
 import com.ajolla.lactomama.Repository.CredentialRepository
 import com.ajolla.lactomama.Repository.LoginRepository
 import com.ajolla.lactomama.Repository.UserRepository
+import com.ajolla.lactomama.model.Article
 import com.ajolla.lactomama.model.CredentialRequest
 import com.ajolla.lactomama.model.CredentialResponse
 import com.ajolla.lactomama.model.LoginRequest
 import com.ajolla.lactomama.model.LoginResponse
 import com.ajolla.lactomama.model.UserRequest
 import com.ajolla.lactomama.model.UserResponse
+import com.ajolla.lactomama.model.appointmentdata
 import kotlinx.coroutines.launch
 
 class UserViewModel : ViewModel() {
@@ -62,6 +65,22 @@ class CredentialViewModel : ViewModel() {
     }
 }
 
+class AppointmentViewModel:ViewModel (){
 
+    val appointmentRepo =AppointmentRepository()
+    val appointmentLiveData = MutableLiveData<List<appointmentdata>>()
+    val errorLiveData = MutableLiveData<String>()
+    fun fetchAppointments() {
+        viewModelScope.launch {
+            val response = appointmentRepo.getAppointment()
+            if (response.isSuccessful) {
+                val appointments=response.body()?: emptyList()
+                appointmentLiveData.postValue(appointments)
+            } else {
+                errorLiveData.postValue(response.errorBody()?.string())
+            }
+        }
+    }
+}
 
 
