@@ -17,11 +17,11 @@ class MotherEditProfile : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         binding.btnCancel.setOnClickListener {
-            val intent = Intent(this,MotherEditProfile::class.java)
+            val intent = Intent(this,MotherProfile::class.java)
             startActivity(intent)
         }
         binding.btnSaveEdits.setOnClickListener {
-            val intent = Intent(this,EditProfile::class.java)
+            val intent = Intent(this,MotherEditProfile::class.java)
             startActivity(intent)
         }
     }

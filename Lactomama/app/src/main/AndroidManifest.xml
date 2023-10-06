@@ -2,16 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.ajolla.lactomama">
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
-
-
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission
-        android:name="android.permission.INTERNET"
-        android:targetSdkVersion="31" />
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -21,29 +13,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Lactomama"
-        tools:targetApi="31">
+        tools:targetApi="31"
+        android:hardwareAccelerated="false">
+
         <activity
-<<<<<<< HEAD
             android:name=".PaymentSuccessful"
             android:exported="false" />
         <activity
             android:name=".ui.PaymentProcedure"
             android:exported="false" />
         <activity
-            android:name=".ui.LactationistDetailsActivity"
+            android:name=".lactationist.LactationistDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.PaymentActivity"
+            android:name=".mother.PaymentActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.CourseDetailsActivity"
+            android:name=".model.CourseDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.home.HomePageActivity"
+            android:name=".mother.HomePageActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
-=======
             android:name=".ui.MotherEditProfile"
             android:exported="false" />
         <activity
@@ -68,10 +59,10 @@
             android:name=".ui.Appointments"
             android:exported="false" />
         <activity
-            android:name=".ui.LactationistProfile"
+            android:name=".lactationist.LactationistProfile"
             android:exported="false" />
         <activity
-            android:name=".ui.LactationistHome"
+            android:name=".lactationist.LactationistHome"
             android:exported="false" />
         <activity
             android:name=".ui.SuceessScreen"
@@ -94,11 +85,10 @@
             android:exported="false" />
 
         <activity
-            android:name=".ui.MotherLogin"
+            android:name=".mother.MotherLogin"
             android:exported="false" />
         <activity
             android:name=".ui.Onboarding3Activity"
->>>>>>> 18733763552c09b12d3d06fd4d22c6595161afba
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

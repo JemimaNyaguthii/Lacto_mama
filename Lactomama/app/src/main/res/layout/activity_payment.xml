@@ -3,175 +3,28 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.PaymentActivity">
+        android:layout_height="wrap_content"
+        tools:context=".mother.PaymentActivity">
 
-        <TextView
-            android:id="@+id/tvCart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="171dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="171dp"
-            android:text="Shopping Cart"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.252"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-        <ImageView
-            android:id="@+id/ivCartImage"
-            android:layout_width="198dp"
-            android:layout_height="159dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="84dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/articlee" />
-
-        <ImageView
-            android:id="@+id/ivCartImage2"
-            android:layout_width="192dp"
-            android:layout_height="146dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="14dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvRemove"
-            app:srcCompat="@drawable/learning" />
-
-        <TextView
-            android:id="@+id/tvRemove"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="Remove"
-            android:textColor="#E64980"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivCartImage" />
-
-        <TextView
-            android:id="@+id/tvDelete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="Remove"
-            android:textColor="#E64980"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivCartImage2" />
-
-        <TextView
-            android:id="@+id/tvPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="49dp"
-            android:text="Kshs 3000"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/ivCartImage"
-            app:layout_constraintTop_toBottomOf="@+id/tvCourseName" />
-
-        <TextView
-            android:id="@+id/tvPricee"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="190dp"
-            android:text="Kshs 5000"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/ivCartImage2"
-            app:layout_constraintTop_toBottomOf="@+id/tvPrice" />
-
-        <TextView
-            android:id="@+id/tvCourseName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="13dp"
-            android:layout_marginTop="28dp"
-            android:text="Breastfeeding"
-            app:layout_constraintStart_toEndOf="@+id/ivCartImage"
-            app:layout_constraintTop_toBottomOf="@+id/tvCart" />
-
-        <TextView
-            android:id="@+id/tvTotal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="58dp"
-            android:text="Total:"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvDelete" />
-
-        <TextView
-            android:id="@+id/tvTotalAmount"
-            android:layout_width="82dp"
-            android:layout_height="31dp"
-            android:layout_marginStart="23dp"
-            android:layout_marginEnd="232dp"
-            android:text="8000ksh"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/tvTotal"
-            app:layout_constraintTop_toTopOf="@+id/tvTotal" />
-
-    <Button
-        android:id="@+id/btnPayCourse"
-        android:layout_width="163dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="114dp"
-        android:layout_marginTop="41dp"
-        android:layout_marginEnd="134dp"
-        android:backgroundTint="#22DFBA"
-        android:text="Checkout"
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTotalAmount" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCourses"
         android:layout_width="410dp"
         android:layout_height="616dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.037"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-     />
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/btnCheckout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/outline_shopping_cart_checkout_24"
+        tools:layout_editor_absoluteY="16dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-<!--    <?xml version="1.0" encoding="utf-8"?>-->
-<!--<androidx.constraintlayout.widget.ConstraintLayout-->
-<!--xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--xmlns:tools="http://schemas.android.com/tools"-->
-<!--android:layout_width="match_parent"-->
-<!--android:layout_height="match_parent"-->
-<!--tools:listitem="@layout/cart_list_item"-->
-<!--tools:context=".ui.PaymentActivity">-->
-
-<!--<androidx.recyclerview.widget.RecyclerView-->
-<!--    android:id="@+id/rvCourses"-->
-<!--    android:layout_width="410dp"-->
-<!--    android:layout_height="616dp"-->
-<!--    app:layout_constraintBottom_toBottomOf="parent"-->
-<!--    app:layout_constraintEnd_toEndOf="parent"-->
-<!--    app:layout_constraintHorizontal_bias="0.037"-->
-<!--    app:layout_constraintStart_toStartOf="parent"-->
-<!--    app:layout_constraintTop_toTopOf="parent"-->
-<!--    app:layout_constraintVertical_bias="0.0"-->
-<!--    />-->
-<!--   -->
-
-<!--</androidx.constraintlayout.widget.ConstraintLayout>-->

@@ -6,6 +6,7 @@ import android.content.Intent
 import android.icu.util.Calendar
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,76 +15,85 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.ajolla.lactomama.R
-import com.ajolla.lactomama.databinding.ActivityUploadMaterialsBinding
+import com.ajolla.lactomama.databinding.FragmentMaterialsBinding
+import com.ajolla.lactomama.model.UploadCoursesRequest
+import com.ajolla.lactomama.viewModel.CoursesViewModel
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Locale
 
-
-
 class MaterialsFragment : Fragment() {
-    lateinit var binding: ActivityUploadMaterialsBinding
-    private val Startdate = Calendar.getInstance()
-    private val enddate = Calendar.getInstance()
+    lateinit var binding: FragmentMaterialsBinding
+    private val startDate = Calendar.getInstance()
+    private val endDate = Calendar.getInstance()
+    val coursesViewModel: CoursesViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_materials, container, false)
-
+        binding = FragmentMaterialsBinding.inflate(inflater, container, false)
+        val view = binding.root
         val imvStart = view.findViewById<ImageView>(R.id.imvstart)
         val imvEnd = view.findViewById<ImageView>(R.id.imvend)
-
         imvStart.setOnClickListener {
-            showDatePickerDialog(view.findViewById(R.id.etstartdate))
+            showDatePickerDialog(binding.etstartdate)
         }
-
         imvEnd.setOnClickListener {
-            showDatePickerDialog(view.findViewById(R.id.etend))
+            showDatePickerDialog(binding.etend)
         }
-
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val etTitle = view.findViewById<EditText>(R.id.ettitle)
-        val etDescription = view.findViewById<EditText>(R.id.etdes)
-        val etStartDate = view.findViewById<EditText>(R.id.etstartdate)
-        val etEndDate = view.findViewById<EditText>(R.id.etend)
-        val etPrice = view.findViewById<EditText>(R.id.etprice)
-
         val uploadButton = view.findViewById<Button>(R.id.btnupload)
         uploadButton.setOnClickListener {
-            if (isValidInput(etTitle, etDescription, etStartDate, etEndDate, etPrice)) {
-
-                navigateToSuccess()
-
+            if (isValidInput()) {
+                uploadCourse()
             } else {
-                Toast.makeText(requireContext(), "Failed fill in the form", Toast.LENGTH_SHORT).show()
-
+                Toast.makeText(requireContext(), "Failed to fill in the form", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
-    private fun navigateToSuccess() {
-        val intent = Intent(activity, Success::class.java)
-        startActivity(intent)
-        Toast.makeText(requireContext(), " Successful", Toast.LENGTH_SHORT).show()
+    private fun uploadCourse() {
+        val etTitle = binding.ettitle.text.toString()
+        val etDescription = binding.etdes.text.toString()
+        val etStartDate = binding.etstartdate.text.toString()
+        val etEndDate = binding.etend.text.toString()
+        val etPrice = binding.etprice.text.toString()
+
+        val coursesRequest = UploadCoursesRequest(etTitle, etDescription, etStartDate, etEndDate, etPrice)
+
+        lifecycleScope.launch{
+            try {
+                val isSuccess = coursesViewModel.uploadCourse(coursesRequest)
+                if (isSuccess) {
+                    Toast.makeText(requireContext(), "Uploaded Successfully", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(requireContext(), Success::class.java)
+                    startActivity(intent)
+
+                } else {
+                    Toast.makeText(requireContext(), "Upload failed", Toast.LENGTH_SHORT).show()
+                }
+            } catch (e: Exception) {
+                Log.e("MaterialsFragment", "Error uploading course", e)
+                Toast.makeText(requireContext(), "An error occurred during upload", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
-
     fun showDatePickerDialog(editText: EditText) {
-        val calendar = if (editText.id == R.id.etstartdate) Startdate else enddate
-
+        val calendar = if (editText.id == R.id.etstartdate) startDate else endDate
         val datePickerDialog = DatePickerDialog(
             requireContext(),
             DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
                 calendar.set(year, monthOfYear, dayOfMonth)
-                val formattedDate =
-                    SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(calendar.time)
+                val formattedDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(calendar.time)
                 editText.setText(formattedDate)
             },
             calendar.get(Calendar.YEAR),
@@ -93,62 +103,45 @@ class MaterialsFragment : Fragment() {
         datePickerDialog.show()
     }
 
-    private fun isValidInput(
-        etTitle: EditText,
-        etDescription: EditText,
-        etStartDate: EditText,
-        etEndDate: EditText,
-        etPrice: EditText
-    ): Boolean {
-        val title = etTitle.text.toString()
-        val description = etDescription.text.toString()
-        val startDate = etStartDate.text.toString()
-        val endDate = etEndDate.text.toString()
-        val price = etPrice.text.toString()
-
+    private fun isValidInput(): Boolean {
+        val etTitle = binding.ettitle
+        val etDescription = binding.etdes
+        val etStartDate = binding.etstartdate
+        val etEndDate = binding.etend
+        val etPrice = binding.etprice
         var isValid = true
 
-        if (TextUtils.isEmpty(title)) {
+        if (TextUtils.isEmpty(etTitle.text.toString())) {
             etTitle.error = "Title is required"
             isValid = false
         } else {
             etTitle.error = null
         }
-
-        if (TextUtils.isEmpty(description)) {
+        if (TextUtils.isEmpty(etDescription.text.toString())) {
             etDescription.error = "Description is required"
             isValid = false
         } else {
             etDescription.error = null
         }
-
-        if (TextUtils.isEmpty(startDate)) {
+        if (TextUtils.isEmpty(etStartDate.text.toString())) {
             etStartDate.error = "Start date is required"
             isValid = false
         } else {
             etStartDate.error = null
         }
-
-        if (TextUtils.isEmpty(endDate)) {
+        if (TextUtils.isEmpty(etEndDate.text.toString())) {
             etEndDate.error = "End date is required"
             isValid = false
         } else {
             etEndDate.error = null
         }
-
-        if (TextUtils.isEmpty(price)) {
+        if (TextUtils.isEmpty(etPrice.text.toString())) {
             etPrice.error = "Price is required"
             isValid = false
         } else {
             etPrice.error = null
         }
-
-
-
         return isValid
     }
 }
-
-
-
 

@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
-    tools:context=".ui.LactationistHome">
+    tools:context=".lactationist.LactationistHome">
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bnvHome"
         android:layout_width="0dp"
         android:layout_height="73dp"
         android:background="#29B99B"
-        app:menu="@menu/bottom_nav_menu"
+        app:menu="@menu/lactationist_nav_menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
