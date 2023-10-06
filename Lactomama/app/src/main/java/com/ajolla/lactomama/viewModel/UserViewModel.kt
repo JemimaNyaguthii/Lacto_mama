@@ -1,14 +1,19 @@
 package com.ajolla.lactomama.viewModel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ajolla.lactomama.Repository.AppointmentRepository
+import com.ajolla.lactomama.Repository.ArticleRepository
+import com.ajolla.lactomama.Repository.CartRepository
 import com.ajolla.lactomama.Repository.CoursesRepository
 import com.ajolla.lactomama.Repository.CredentialRepository
 import com.ajolla.lactomama.Repository.EducationalMaterialsRepository
 import com.ajolla.lactomama.Repository.LoginRepository
 import com.ajolla.lactomama.Repository.UserRepository
+import com.ajolla.lactomama.model.ArticleRequest
+import com.ajolla.lactomama.model.ArticleResponse
 import com.ajolla.lactomama.model.CredentialRequest
 import com.ajolla.lactomama.model.CredentialResponse
 import com.ajolla.lactomama.model.LoginRequest
@@ -17,6 +22,8 @@ import com.ajolla.lactomama.model.UploadCoursesRequest
 import com.ajolla.lactomama.model.UserRequest
 import com.ajolla.lactomama.model.UserResponse
 import com.ajolla.lactomama.model.appointmentdata
+import com.ajolla.lactomama.mother.CoursesData
+import com.ajolla.lactomama.mother.cart.Course
 import com.ajolla.lactomama.ui.EducationalMaterialData
 import kotlinx.coroutines.launch
 
@@ -118,5 +125,78 @@ class CoursesViewModel : ViewModel() {
         }
     }
 }
+class CartViewmodel:ViewModel(){
+    val cartRepo = CartRepository()
+    var cartLiveData = MutableLiveData<List<Course>>()
+    var errorLiveData = MutableLiveData<String>()
+    fun fetchCart() {
+        viewModelScope.launch {
+            val response = cartRepo.getCart()
+            if (response.isSuccessful) {
+                val courses=response.body()?: emptyList()
+                cartLiveData.postValue(courses)
+            } else {
+                errorLiveData.postValue(response.errorBody()?.string())
+            }
+        }
+    }
+}
+//class ArticlesViewModel : ViewModel() {
+//    private val articleRepo = ArticleRepository()
+//    var errorLiveData = MutableLiveData<String>()
+//
+//    suspend fun postArticles(articleRequest: ArticleRequest): Boolean {
+//        return try {
+//            val response = articleRepo.postArticles(articleRequest)
+//            response.isSuccessful
+//        } catch (e: Exception) {
+//            errorLiveData.postValue(e.message)
+//            false
+//        }
+//    }
+//}
 
+
+class ArticlesViewModel : ViewModel() {
+    private val articleRepo = ArticleRepository()
+    var errorLiveData = MutableLiveData<String>()
+
+
+    private val articlesLiveData = MutableLiveData<List<ArticleResponse>>()
+
+    fun getArticles(): LiveData<List<ArticleResponse>> {
+        return articlesLiveData
+    }
+
+    fun addArticle(article: ArticleResponse) {
+        val currentList = articlesLiveData.value ?: emptyList()
+        val updatedList = currentList.toMutableList()
+        updatedList.add(article)
+        articlesLiveData.value = updatedList
+    }
+
+    suspend fun postArticles(articleRequest: ArticleRequest): Boolean {
+        return try {
+            val response = articleRepo.postArticles(articleRequest)
+            val success = response.isSuccessful
+
+            if (success) {
+                val postedArticle = response.body()
+                if (postedArticle != null) {
+
+                    addArticle(postedArticle)
+                } else {
+
+                    errorLiveData.postValue("Response body is null")
+                }
+            }
+
+            success
+        } catch (e: Exception) {
+            errorLiveData.postValue(e.message)
+            false
+        }
+    }
+
+}
 

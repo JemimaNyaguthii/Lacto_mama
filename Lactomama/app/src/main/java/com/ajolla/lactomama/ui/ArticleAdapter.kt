@@ -21,7 +21,7 @@ class ArticleAdapter(var articles:MutableList<EducationalMaterialData>) : Recycl
         binding.tvId.text = currentArticle.toString()
         binding.tvContent.text = currentArticle.content
         binding.tvCreated.text = currentArticle.createdAt
-        binding.tvDescription.text = currentArticle.description
+        binding.tvTitlee.text = currentArticle.description
         binding.tvLactationist.text = currentArticle.lactationist.toString()
         binding.tvUpdated.text = currentArticle.updatedAt
         binding.ivImage.tag= currentArticle.image

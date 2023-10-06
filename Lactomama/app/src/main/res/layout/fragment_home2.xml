@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,9 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.HomeFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+
         <TextView
             android:id="@+id/tvUpcomingAppointments"
             android:layout_width="wrap_content"
@@ -132,30 +130,34 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvArticles"
-            android:layout_width="386dp"
-            android:layout_height="196dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvArticles" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvArticles"
+        android:layout_width="386dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvArticles"
+        app:layout_constraintVertical_bias="0.2" />
 
-        <TextView
-            android:id="@+id/tvArticles"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="24dp"
-            android:text="Uploaded Articles"
-            android:textColor="#E64980"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView19" />
+    <TextView
+        android:id="@+id/tvArticles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="32dp"
+        android:text="Uploaded Articles"
+        android:textColor="#E64980"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Appointments" />
 
-        <androidx.appcompat.widget.SearchView
+    <androidx.appcompat.widget.SearchView
             android:id="@+id/searchview"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -182,55 +184,5 @@
             app:layout_constraintBottom_toTopOf="@+id/searchview"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="24dp"
-            android:text="Uploaded Courses"
-            android:textColor="#E64980"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Appointments" />
 
-        <ImageView
-            android:id="@+id/imageView17"
-            android:layout_width="153dp"
-            android:layout_height="178dp"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="16dp"
-            android:src="@drawable/pat"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView10" />
-
-        <ImageView
-            android:id="@+id/imageView14"
-            android:layout_width="153dp"
-            android:layout_height="178dp"
-            android:layout_marginStart="36dp"
-            android:src="@drawable/typ"
-            app:layout_constraintStart_toEndOf="@+id/imageView17"
-            app:layout_constraintTop_toTopOf="@+id/imageView17" />
-
-        <ImageView
-            android:id="@+id/imageView19"
-            android:layout_width="153dp"
-            android:layout_height="178dp"
-            android:layout_marginTop="32dp"
-            android:src="@drawable/pop"
-            app:layout_constraintStart_toStartOf="@+id/imageView17"
-            app:layout_constraintTop_toBottomOf="@+id/imageView17" />
-
-        <ImageView
-            android:layout_width="153dp"
-            android:layout_height="178dp"
-            android:layout_marginStart="36dp"
-            android:src="@drawable/pip"
-            app:layout_constraintEnd_toEndOf="@+id/imageView14"
-            app:layout_constraintStart_toEndOf="@+id/imageView19"
-            app:layout_constraintTop_toTopOf="@+id/imageView19" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

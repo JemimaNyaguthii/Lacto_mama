@@ -1,8 +1,13 @@
 package com.ajolla.lactomama.mother.cart
 
+import com.google.gson.annotations.SerializedName
+
 data class Course(
-    val image: String,
+    val id:Int,
+    @SerializedName("items_name")val itemsName:String,
+    @SerializedName("number_of_items")val numberOfItems:String,
     val price: Double,
-    val name:String,
+    val description:String,
+    val discount: Double,
 )
 

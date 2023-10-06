@@ -3,6 +3,8 @@ package com.ajolla.lactomama.Repository
 import com.ajolla.lactomama.api.ApiClient
 import com.ajolla.lactomama.api.ApiInterface
 import com.ajolla.lactomama.model.AppointmentResponse
+import com.ajolla.lactomama.model.ArticleRequest
+import com.ajolla.lactomama.model.ArticleResponse
 import com.ajolla.lactomama.model.CredentialRequest
 import com.ajolla.lactomama.model.CredentialResponse
 import com.ajolla.lactomama.model.LoginRequest
@@ -12,6 +14,8 @@ import com.ajolla.lactomama.model.UploadCoursesResponse
 import com.ajolla.lactomama.model.UserRequest
 import com.ajolla.lactomama.model.UserResponse
 import com.ajolla.lactomama.model.appointmentdata
+import com.ajolla.lactomama.mother.CoursesData
+import com.ajolla.lactomama.mother.cart.Course
 import com.ajolla.lactomama.ui.EducationalMaterialData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -69,6 +73,22 @@ class CoursesRepository {
     suspend fun postCourses(coursesRequest: UploadCoursesRequest):Response<UploadCoursesResponse>{
         return withContext(Dispatchers.IO){
             apiClient.postCourses(coursesRequest)
+        }
+    }
+}
+class CartRepository {
+    val apiClient = ApiClient.buildClient(ApiInterface::class.java)
+    suspend fun getCart():Response<List<Course>>{
+        return withContext(Dispatchers.IO){
+            apiClient.getCart()
+        }
+    }
+}
+class ArticleRepository {
+    val apiClient= ApiClient.buildClient(ApiInterface::class.java)
+    suspend fun postArticles(articleRequest: ArticleRequest):Response<ArticleResponse>{
+        return withContext(Dispatchers.IO){
+            apiClient.postArticles(articleRequest)
         }
     }
 }

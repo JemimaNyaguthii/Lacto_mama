@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ajolla.lactomama.databinding.LactationistListItemsBinding
-import com.ajolla.lactomama.ui.LactationistDetailsActivity
+import com.ajolla.lactomama.lactationist.LactationistDetailsActivity
 import com.squareup.picasso.Picasso
 
 class BookingsRvAdapter (var bookingList:List<BookingsData>): RecyclerView.Adapter<BookingsRvAdapter.BookingsViewHolder>()  {

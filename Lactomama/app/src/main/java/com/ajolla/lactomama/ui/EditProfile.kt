@@ -5,7 +5,6 @@ import android.widget.Button
 import android.content.Intent
 import com.ajolla.lactomama.R
 import com.ajolla.lactomama.databinding.ActivityEditProfileBinding
-import com.ajolla.lactomama.ui.LactationistProfile
 
 class EditProfile: AppCompatActivity() {
     lateinit var binding: ActivityEditProfileBinding

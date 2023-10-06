@@ -1,4 +1,4 @@
-package com.ajolla.lactomama.ui
+package com.ajolla.lactomama.lactationist
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

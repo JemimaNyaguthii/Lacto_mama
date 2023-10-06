@@ -1,14 +1,15 @@
-package com.ajolla.lactomama.ui
+package com.ajolla.lactomama.mother
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.ajolla.lactomama.databinding.ActivityMotherLoginBinding
 import com.ajolla.lactomama.model.LoginRequest
-import com.ajolla.lactomama.mother.HomePageActivity
+import com.ajolla.lactomama.ui.MotherSignUp
 import com.ajolla.lactomama.viewModel.LoginViewModel
 
 
@@ -30,10 +31,11 @@ class MotherLogin : AppCompatActivity() {
 
         loginViewModel.errorLiveData.observe(this, Observer { err ->
             Toast.makeText(this, err, Toast.LENGTH_LONG).show()
-//            binding.pdLogin.visibility= View.GONE
+            binding.pbLogin.visibility= View.GONE
         })
         loginViewModel.logLiveData.observe(this, Observer { loginResponse ->
-            Toast.makeText(this, "Login successfully", Toast.LENGTH_SHORT).show()            // Navigate to the desired activity (e.g., MotherProfile)
+            Toast.makeText(this, "Login successfully", Toast.LENGTH_SHORT).show()
+            binding.pbLogin.visibility= View.GONE
             val intent = Intent(this, HomePageActivity::class.java)
             startActivity(intent)
             finish()
@@ -64,6 +66,7 @@ class MotherLogin : AppCompatActivity() {
                 email = email,
                 password = password,
             )
+            binding.pbLogin.visibility= View.VISIBLE
             loginViewModel.loginUser(loginRequest)
         }
     }

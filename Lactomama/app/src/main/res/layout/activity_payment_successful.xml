@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".PaymentSuccessful">
 
     <ImageView
         android:id="@+id/imageView"
@@ -21,7 +21,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:alpha="0.7"
-        android:backgroundTint="#d1f2eb"
+        android:backgroundTint="#0E9872"
         app:cardCornerRadius="16dp"
         app:cardPreventCornerOverlap="true"
         app:cardUseCompatPadding="true"

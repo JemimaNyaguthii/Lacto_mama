@@ -73,8 +73,10 @@ class MaterialsFragment : Fragment() {
             try {
                 val isSuccess = coursesViewModel.uploadCourse(coursesRequest)
                 if (isSuccess) {
+                    Toast.makeText(requireContext(), "Uploaded Successfully", Toast.LENGTH_SHORT).show()
                     val intent = Intent(requireContext(), Success::class.java)
                     startActivity(intent)
+
                 } else {
                     Toast.makeText(requireContext(), "Upload failed", Toast.LENGTH_SHORT).show()
                 }

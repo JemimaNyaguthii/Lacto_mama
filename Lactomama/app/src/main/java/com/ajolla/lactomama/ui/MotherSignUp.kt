@@ -3,11 +3,13 @@ package com.ajolla.lactomama.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.ajolla.lactomama.databinding.ActivityMotherSignUpBinding
 import com.ajolla.lactomama.model.UserRequest
+import com.ajolla.lactomama.mother.MotherLogin
 import com.ajolla.lactomama.viewModel.UserViewModel
 
 class MotherSignUp : AppCompatActivity() {
@@ -17,6 +19,10 @@ class MotherSignUp : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMotherSignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.tvNoAccount.setOnClickListener {
+            val intent = Intent(this, MotherLogin::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onResume() {
@@ -27,7 +33,7 @@ class MotherSignUp : AppCompatActivity() {
         }
         userViewModel . errorLiveData . observe (this, Observer { err ->
             Toast.makeText(this, err, Toast.LENGTH_LONG).show()
-//            binding.pbRegister.visibility = View.GONE
+            binding.pbregister.visibility = View.GONE
             val intent = Intent(this, MotherLogin::class.java)
             startActivity(intent)
             finish()
@@ -35,6 +41,7 @@ class MotherSignUp : AppCompatActivity() {
 
         userViewModel.successLiveData.observe(this, Observer { regResponse ->
             Toast.makeText(this, "Signed in successfully", Toast.LENGTH_SHORT).show()
+            binding.pbregister.visibility = View.GONE
             val intent = Intent(this, MotherLogin::class.java)
             startActivity(intent)
             finish()
@@ -51,7 +58,7 @@ class MotherSignUp : AppCompatActivity() {
         val passwordConfirm = binding.etPasswordConfirm.text.toString()
         var error = false
 
-           if (userName.isBlank()) {
+        if (userName.isBlank()) {
             binding.tilFullNames.error = "Enter name"
             error = true
         }
@@ -79,6 +86,7 @@ class MotherSignUp : AppCompatActivity() {
                 fullName = userName,
                 password = password,
             )
+            binding.pbregister.visibility = View.VISIBLE
             userViewModel.registerUser(registerRequest)
         }
     }

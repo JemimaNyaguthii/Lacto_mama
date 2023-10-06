@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
-    tools:context=".ui.LactationistHome">
+    tools:context=".lactationist.LactationistHome">
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bnvHome"
         android:layout_width="0dp"

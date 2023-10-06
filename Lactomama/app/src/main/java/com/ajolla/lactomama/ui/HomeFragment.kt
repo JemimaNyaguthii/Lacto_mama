@@ -36,7 +36,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         educationalAdapter = ArticleAdapter(mutableListOf())
-        binding.rvArticles.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvArticles.layoutManager = GridLayoutManager(requireContext(),2)
         binding.rvArticles.adapter = educationalAdapter
         val animator = DefaultItemAnimator()
         animator.addDuration = 1000

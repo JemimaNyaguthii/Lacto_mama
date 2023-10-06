@@ -39,7 +39,7 @@ class ActivityUpload : AppCompatActivity() {
         }
         credentialViewModel . errorLiveData . observe (this, Observer { err ->
             Toast.makeText(this, err, Toast.LENGTH_LONG).show()
-//            binding.pbRegister.visibility = View.GONE
+            binding.pbRegister.visibility = View.GONE
             val intent = Intent(this,  ActivityUpload::class.java)
             startActivity(intent)
             finish()
@@ -47,6 +47,7 @@ class ActivityUpload : AppCompatActivity() {
 
         credentialViewModel.credLiveData.observe(this, Observer{ credResponse ->
             Toast.makeText(this, "Signed in successfully", Toast.LENGTH_SHORT).show()
+            binding.pbRegister.visibility = View.GONE
             val intent = Intent(this, SuceessScreen::class.java)
             startActivity(intent)
             finish()
@@ -108,6 +109,7 @@ class ActivityUpload : AppCompatActivity() {
                 dateIssued = dateIssued,
                 
             )
+            binding.pbRegister.visibility = View.VISIBLE
             credentialViewModel.credentialUser(credentialRequest)
 
         }

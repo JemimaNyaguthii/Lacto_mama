@@ -12,7 +12,8 @@ import com.ajolla.lactomama.ui.EducationalRvAdapter
 import com.ajolla.lactomama.ui.MotherProfile
 import com.ajolla.lactomama.ui.home.ArticleData
 
-class HomeFragment : Fragment() {
+class
+HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 

@@ -1,16 +1,16 @@
-package com.ajolla.lactomama.ui
+package com.ajolla.lactomama.lactationist
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
 import android.view.View
 import android.widget.DatePicker
 import android.widget.EditText
-import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.ajolla.lactomama.R
 import com.ajolla.lactomama.databinding.ActivityLactationistDetailsBinding
+import com.ajolla.lactomama.ui.bookings.BookingsFragment
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
@@ -27,6 +27,10 @@ class LactationistDetailsActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.btnBookingAppointment.setOnClickListener {
             showBookingSuccessToast()
+        }
+        binding.ivArrowBack.setOnClickListener {
+            val intent = Intent( this,BookingsFragment::class.java)
+            startActivity(intent)
         }
     }
 

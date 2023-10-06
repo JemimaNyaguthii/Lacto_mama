@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ajolla.lactomama.databinding.FragmentAllBinding
+import CoursesRvAdapter
+import com.ajolla.lactomama.model.CourseDetailsActivity
 import java.io.Serializable
 
 class FragmentAll : Fragment() {
@@ -34,7 +36,7 @@ class FragmentAll : Fragment() {
         )
 
         val courseList = listOf(course)
-        val courseAdapter = coursesRvAdapter(courseList) { course ->
+        val courseAdapter = CoursesRvAdapter(courseList) { course ->
             addCourseToCart(course)
         }
 
@@ -43,9 +45,9 @@ class FragmentAll : Fragment() {
     }
 
     private fun addCourseToCart(course: CoursesData) {
-        val paymentIntent = Intent(requireContext(), PaymentActivity::class.java)
-        paymentIntent.putExtra("course", course as Serializable)
-        startActivity(paymentIntent)
+        val detailsIntent = Intent(requireContext(), CourseDetailsActivity::class.java)
+        detailsIntent.putExtra("course", course as Serializable)
+        startActivity(detailsIntent)
     }
 
     override fun onDestroyView() {

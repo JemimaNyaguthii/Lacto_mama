@@ -23,7 +23,7 @@
             android:name=".ui.PaymentProcedure"
             android:exported="false" />
         <activity
-            android:name=".ui.LactationistDetailsActivity"
+            android:name=".lactationist.LactationistDetailsActivity"
             android:exported="false" />
         <activity
             android:name=".mother.PaymentActivity"
@@ -59,10 +59,10 @@
             android:name=".ui.Appointments"
             android:exported="false" />
         <activity
-            android:name=".ui.LactationistProfile"
+            android:name=".lactationist.LactationistProfile"
             android:exported="false" />
         <activity
-            android:name=".ui.LactationistHome"
+            android:name=".lactationist.LactationistHome"
             android:exported="false" />
         <activity
             android:name=".ui.SuceessScreen"
@@ -85,7 +85,7 @@
             android:exported="false" />
 
         <activity
-            android:name=".ui.MotherLogin"
+            android:name=".mother.MotherLogin"
             android:exported="false" />
         <activity
             android:name=".ui.Onboarding3Activity"
