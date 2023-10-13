@@ -7,22 +7,25 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
+import com.ajolla.lactomama.R
+import com.ajolla.lactomama.databinding.ActivityLactationistSignUpBinding
 import com.ajolla.lactomama.databinding.ActivityMotherSignUpBinding
 import com.ajolla.lactomama.model.UserRequest
 import com.ajolla.lactomama.ui.home.MotherLogin
 import com.ajolla.lactomama.viewModel.UserViewModel
 
-class MotherSignUp : AppCompatActivity() {
-    lateinit var binding: ActivityMotherSignUpBinding
+class LactationistSignUp : AppCompatActivity() {
+
+    lateinit var binding: ActivityLactationistSignUpBinding
     val userViewModel: UserViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMotherSignUpBinding.inflate(layoutInflater)
+        binding = ActivityLactationistSignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.tvNoAccount.setOnClickListener {
-            val intent = Intent(this, MotherLogin::class.java)
+            val intent = Intent(this, LactationistLogin::class.java)
             startActivity(intent)
         }
     }
@@ -36,7 +39,7 @@ class MotherSignUp : AppCompatActivity() {
         userViewModel.errorLiveData.observe(this, Observer { err ->
             Toast.makeText(this, err, Toast.LENGTH_LONG).show()
             binding.pbregister.visibility = View.GONE
-            val intent = Intent(this, MotherLogin::class.java)
+            val intent = Intent(this, LactationistLogin::class.java)
             startActivity(intent)
             finish()
         })
@@ -44,7 +47,7 @@ class MotherSignUp : AppCompatActivity() {
         userViewModel.successLiveData.observe(this, Observer { regResponse ->
             Toast.makeText(this, "Sign in success", Toast.LENGTH_SHORT).show()
             binding.pbregister.visibility = View.GONE
-            val intent = Intent(this, MotherLogin::class.java)
+            val intent = Intent(this, ActivityUpload::class.java)
             startActivity(intent)
             finish()
         })
@@ -105,7 +108,4 @@ class MotherSignUp : AppCompatActivity() {
         var error = true
     }
 }
-
-
-
 
