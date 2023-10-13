@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.ajolla.lactomama.R
 import com.ajolla.lactomama.databinding.SuccessScreenBinding
-import com.ajolla.lactomama.lactationist.LactationistHome
 
 
 class SuceessScreen : AppCompatActivity() {
