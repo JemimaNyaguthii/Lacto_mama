@@ -3,6 +3,7 @@ package com.ajolla.lactomama.viewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import com.ajolla.lactomama.Repository.AppointmentRepository
 import com.ajolla.lactomama.Repository.ArticleRepository
@@ -10,12 +11,19 @@ import com.ajolla.lactomama.Repository.CartRepository
 import com.ajolla.lactomama.Repository.CoursesRepository
 import com.ajolla.lactomama.Repository.CredentialRepository
 import com.ajolla.lactomama.Repository.EducationalMaterialsRepository
+import com.ajolla.lactomama.Repository.LactationistLoginRepository
+import com.ajolla.lactomama.Repository.LactationistRepository
 import com.ajolla.lactomama.Repository.LoginRepository
 import com.ajolla.lactomama.Repository.UserRepository
 import com.ajolla.lactomama.model.ArticleRequest
 import com.ajolla.lactomama.model.ArticleResponse
 import com.ajolla.lactomama.model.CredentialRequest
 import com.ajolla.lactomama.model.CredentialResponse
+import com.ajolla.lactomama.model.Lactationist
+import com.ajolla.lactomama.model.LactationistLoginRequest
+import com.ajolla.lactomama.model.LactationistLoginResponse
+import com.ajolla.lactomama.model.LactationistRequest
+import com.ajolla.lactomama.model.LactationistResponse
 import com.ajolla.lactomama.model.LoginRequest
 import com.ajolla.lactomama.model.LoginResponse
 import com.ajolla.lactomama.model.UploadCoursesRequest
@@ -25,6 +33,7 @@ import com.ajolla.lactomama.model.appointmentdata
 import com.ajolla.lactomama.mother.CoursesData
 import com.ajolla.lactomama.mother.cart.Course
 import com.ajolla.lactomama.ui.EducationalMaterialData
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class UserViewModel : ViewModel() {
@@ -141,20 +150,6 @@ class CartViewmodel:ViewModel(){
         }
     }
 }
-//class ArticlesViewModel : ViewModel() {
-//    private val articleRepo = ArticleRepository()
-//    var errorLiveData = MutableLiveData<String>()
-//
-//    suspend fun postArticles(articleRequest: ArticleRequest): Boolean {
-//        return try {
-//            val response = articleRepo.postArticles(articleRequest)
-//            response.isSuccessful
-//        } catch (e: Exception) {
-//            errorLiveData.postValue(e.message)
-//            false
-//        }
-//    }
-//}
 
 
 class ArticlesViewModel : ViewModel() {
@@ -199,4 +194,68 @@ class ArticlesViewModel : ViewModel() {
     }
 
 }
+    class LactationistViewModel : ViewModel() {
+        var lactationistRepo = LactationistRepository()
+        val successLiveData = MutableLiveData<LactationistResponse>()
+        val lactationistLiveData =MutableLiveData<List<Lactationist>>()
+        val errorLiveData = MutableLiveData<String>()
+        fun registerLactationist(lactationistRequest: LactationistRequest) {
+            viewModelScope.launch{
+                val response = lactationistRepo.postLactationist(lactationistRequest)
+                if (response.isSuccessful) {
+                    successLiveData.postValue(response.body())
+                } else {
+                    errorLiveData.postValue(response.errorBody()?.string())
+                }
+            }
+        }
+
+
+        fun fetchLactationists(){
+            viewModelScope.launch {
+                val response = lactationistRepo.getLactationists()
+                if (response.isSuccessful){
+                    val lactationLists= response.body()?: emptyList()
+                    lactationistLiveData.postValue(lactationLists)
+                }
+                else{
+                    errorLiveData.postValue(response.errorBody()?.string())
+                }
+            }
+        }
+    }
+
+class LactationistLoginViewModel : ViewModel() {
+    val lactationistloginRepository = LactationistLoginRepository()
+    val errorLiveData = MutableLiveData<String>()
+    val lactLogLiveData = MutableLiveData<LactationistLoginResponse>()
+    fun loginLactationist(lactationistLoginRequest: LactationistLoginRequest) {
+        viewModelScope.launch {
+            val response = lactationistloginRepository.lactationistlogin(lactationistLoginRequest)
+            if (response.isSuccessful) {
+                lactLogLiveData.postValue(response.body())
+            } else {
+                errorLiveData.postValue(response.errorBody()?.string())
+            }
+        }
+    }
+}
+
+//    class CartViewmodel:ViewModel(){
+//        val cartRepo = CartRepository()
+//        var cartLiveData = MutableLiveData<List<Course>>()
+//        var errorLiveData = MutableLiveData<String>()
+//        fun fetchCart() {
+//            viewModelScope.launch {
+//                val response = cartRepo.getCart()
+//                if (response.isSuccessful) {
+//                    val courses=response.body()?: emptyList()
+//                    cartLiveData.postValue(courses)
+//                } else {
+//                    errorLiveData.postValue(response.errorBody()?.string())
+//                }
+//            }
+//        }
+//    }
+
 

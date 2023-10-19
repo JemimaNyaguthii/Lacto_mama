@@ -10,41 +10,44 @@ import androidx.lifecycle.Observer
 import com.ajolla.lactomama.R
 import com.ajolla.lactomama.databinding.ActivityLactationistSignUpBinding
 import com.ajolla.lactomama.databinding.ActivityMotherSignUpBinding
+import com.ajolla.lactomama.model.LactationistRequest
 import com.ajolla.lactomama.model.UserRequest
 import com.ajolla.lactomama.ui.home.MotherLogin
+import com.ajolla.lactomama.viewModel.ArticlesViewModel
+import com.ajolla.lactomama.viewModel.LactationistViewModel
 import com.ajolla.lactomama.viewModel.UserViewModel
 
 class LactationistSignUp : AppCompatActivity() {
 
     lateinit var binding: ActivityLactationistSignUpBinding
-    val userViewModel: UserViewModel by viewModels()
+    val lactationistViewModel: LactationistViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLactationistSignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.tvNoAccount.setOnClickListener {
-            val intent = Intent(this, LactationistLogin::class.java)
-            startActivity(intent)
+        binding.tvLactaitonistLogin.setOnClickListener {
+          val intent = Intent(this, LactationistLogin::class.java)
+           startActivity(intent)
         }
     }
 
     override fun onResume() {
         super.onResume()
-        binding.btnSignUp.setOnClickListener {
+        binding.btnLactationistsSignUp.setOnClickListener {
             clearErrors()
             validateSignUp()
         }
-        userViewModel.errorLiveData.observe(this, Observer { err ->
+        lactationistViewModel.errorLiveData.observe(this, Observer { err ->
             Toast.makeText(this, err, Toast.LENGTH_LONG).show()
             binding.pbregister.visibility = View.GONE
-            val intent = Intent(this, LactationistLogin::class.java)
+            val intent = Intent(this, LactationistHome::class.java)
             startActivity(intent)
             finish()
         })
 
-        userViewModel.successLiveData.observe(this, Observer { regResponse ->
+        lactationistViewModel.successLiveData.observe(this, Observer { regResponse ->
             Toast.makeText(this, "Sign in success", Toast.LENGTH_SHORT).show()
             binding.pbregister.visibility = View.GONE
             val intent = Intent(this, ActivityUpload::class.java)
@@ -55,56 +58,65 @@ class LactationistSignUp : AppCompatActivity() {
 
 
     fun validateSignUp() {
-        val userName = binding.etFulllNames.text.toString()
-        val email = binding.etEmail.text.toString()
-        val fullName = binding.etPhoneNumber.text.toString()
-        val password = binding.etPassword.text.toString()
-        val passwordConfirm = binding.etPasswordConfirm.text.toString()
+        val FirstName = binding.etFirstName.text.toString()
+        val SecondName = binding.etSecondName.text.toString()
+        val Email = binding.etEmailLactationist.text.toString()
+        val Bio = binding.etBio.text.toString()
+        val password = binding.etLactationistLoginPassword.text.toString()
+        val passwordConfirm = binding.etLactationistLoginConfirm.text.toString()
         var error = false
 
-        if (userName.isBlank()) {
-            binding.tilFullNames.error = "Enter name"
+        if (FirstName.isBlank()) {
+            binding.tilFirstName.error = "Enter First name"
             error = true
         }
 
-        if (email.isBlank() || !email.contains("@")) {
-            binding.tilEmailSignup.error = "Invalid Email"
+        if (SecondName.isBlank() ) {
+            binding.tilSecondName.error = "Enter Second name"
             error = true
         }
 
-        if (fullName.isBlank()) {
-            binding.tilPhoneNumber.error = "Phone number is required"
+        if (Email.isBlank()) {
+            binding.tilFirstName.error = "Email is required"
+            error = true
+        }
+        if (Bio.isBlank()) {
+            binding.tilBio.error = "Bio is required"
             error = true
         }
         if (password.isBlank()) {
-            binding.tilPassword.error = "Password is required"
+            binding.tilLactationistLoginPassword.error = "password is required"
             error = true
+//            tilLactationistLoginPassword
         }
-        if (passwordConfirm != password) {
-            binding.tilPasswordConfim.error = "Confirm your password"
+        if (passwordConfirm.isBlank()) {
+            binding.tilLactationistLoginConfirm.error = "Confrim your password"
             error = true
+//            tilLactationistLoginConfirm
         }
 
         if (!error) {
-            val registerRequest = UserRequest(
-                userName = fullName,
-                email = email,
-                fullName = userName,
-                password = password
+            val lactationistRequest = LactationistRequest(
+                FirstName = FirstName,
+                SecondName = SecondName,
+                email = Email,
+                bio = Bio,
+                password = password,
             )
             binding.pbregister.visibility = View.VISIBLE
-            userViewModel.registerUser(registerRequest)
+            lactationistViewModel.registerLactationist(lactationistRequest)
         }
 
     }
 
 
     fun clearErrors() {
-        binding.tilFullNames.error = null
-        binding.tilEmailSignup.error = null
-        binding.tilPhoneNumber.error = null
-        binding.tilPassword.error = null
-        binding.tilPasswordConfim.error = null
+        binding.tilFirstName.error = null
+        binding.tilSecondName.error = null
+        binding.tilEmailLactationist.error = null
+        binding.tilBio.error = null
+        binding.tilLactationistLoginPassword.error = null
+        binding.tilLactationistLoginConfirm.error = null
         var error = true
     }
 }

@@ -50,7 +50,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvWelcomeBack" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilEmail"
+        android:id="@+id/tilLoginLactationistEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -62,7 +62,7 @@
         app:startIconDrawable="@drawable/outline_email_24">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etEmail"
+            android:id="@+id/etMotherEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter your email"
@@ -70,18 +70,18 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilLoginPasswordConf"
+        android:id="@+id/tilPasswordLactationistLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         app:boxStrokeColor="#29b99b"
         app:endIconMode="password_toggle"
-        app:layout_constraintEnd_toEndOf="@+id/tilEmail"
-        app:layout_constraintStart_toStartOf="@+id/tilEmail"
-        app:layout_constraintTop_toBottomOf="@+id/tilEmail">
+        app:layout_constraintEnd_toEndOf="@+id/tilLoginLactationistEmail"
+        app:layout_constraintStart_toStartOf="@+id/tilLoginLactationistEmail"
+        app:layout_constraintTop_toBottomOf="@+id/tilLoginLactationistEmail">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etLoginPasswordConf"
+            android:id="@+id/etPasswordLactationistsLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:password="true"
@@ -105,7 +105,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilLoginPasswordConf"
+        app:layout_constraintTop_toBottomOf="@+id/tilPasswordLactationistLogin"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView

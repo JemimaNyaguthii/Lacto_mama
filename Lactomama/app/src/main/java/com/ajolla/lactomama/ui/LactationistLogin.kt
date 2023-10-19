@@ -8,12 +8,15 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.ajolla.lactomama.databinding.ActivityLactationistLoginBinding
+import com.ajolla.lactomama.model.LactationistLoginRequest
 import com.ajolla.lactomama.model.LoginRequest
+import com.ajolla.lactomama.viewModel.LactationistLoginViewModel
+import com.ajolla.lactomama.viewModel.LactationistViewModel
 import com.ajolla.lactomama.viewModel.LoginViewModel
 
 class LactationistLogin : AppCompatActivity() {
-    lateinit var binding: ActivityLactationistLoginBinding
-    val loginViewModel: LoginViewModel by viewModels()
+ lateinit var binding: ActivityLactationistLoginBinding
+    val lactationistLoginViewModel: LactationistLoginViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,12 +29,12 @@ class LactationistLogin : AppCompatActivity() {
         binding.btnLoginLact.setOnClickListener {
             validateLogin()
         }
-        loginViewModel.errorLiveData.observe(this, Observer { err ->
+     lactationistLoginViewModel.errorLiveData.observe(this, Observer { err ->
             Toast.makeText(this, err, Toast.LENGTH_LONG).show()
             binding.pbLogin.visibility= View.GONE
         })
 
-        loginViewModel.logLiveData.observe(this, Observer { loginResponse ->
+        lactationistLoginViewModel.lactLogLiveData.observe(this, Observer { logResponse ->
             Toast.makeText(this, "Login successfully", Toast.LENGTH_SHORT).show()
             binding.pbLogin.visibility = View.GONE
             val intent = Intent(this, LactationistHome::class.java)
@@ -46,27 +49,30 @@ class LactationistLogin : AppCompatActivity() {
     }
 
     fun validateLogin() {
-        var email = binding.etEmail.text.toString()
-        var password = binding.etLoginPasswordConf.text.toString()
+        var email = binding.etEmailLactationistLogin.text.toString()
+        var password = binding.etEmailPasswordLogin.text.toString()
         var error = false
         if (email.isBlank()) {
-            binding.tilEmail.error = "Email required"
+            binding.tilEmailLoginLactationist.error = "Email required"
             error = true
         }
-        if (password.isBlank()) {
-            binding.tilLoginPasswordConf.error = "Password required"
-            error = true
-        }
-        if (!error) {
-            val loginRequest = LoginRequest(
 
+        if (password.isBlank()) {
+            binding.tilEmailPasswordLogin.error = "Password required"
+            error = true
+        }
+
+        if(!error){
+            val lactationistLoginRequest = LactationistLoginRequest(
                 email = email,
                 password = password,
                 success = true
+
             )
-            binding.pbLogin.visibility= View.VISIBLE
-            loginViewModel.loginUser(loginRequest)
+            binding.pbLogin.visibility = View.VISIBLE
+            lactationistLoginViewModel.loginLactationist(lactationistLoginRequest)
         }
+
     }
 }
 
