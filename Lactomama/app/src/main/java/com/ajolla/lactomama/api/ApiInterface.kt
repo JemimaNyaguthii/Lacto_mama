@@ -1,11 +1,15 @@
 package com.ajolla.lactomama.api
 
-import com.ajolla.lactomama.model.AppointmentResponse
 import com.ajolla.lactomama.model.Article
 import com.ajolla.lactomama.model.ArticleRequest
 import com.ajolla.lactomama.model.ArticleResponse
 import com.ajolla.lactomama.model.CredentialRequest
 import com.ajolla.lactomama.model.CredentialResponse
+import com.ajolla.lactomama.model.Lactationist
+import com.ajolla.lactomama.model.LactationistLoginRequest
+import com.ajolla.lactomama.model.LactationistLoginResponse
+import com.ajolla.lactomama.model.LactationistRequest
+import com.ajolla.lactomama.model.LactationistResponse
 import com.ajolla.lactomama.model.LoginRequest
 import com.ajolla.lactomama.model.LoginResponse
 import com.ajolla.lactomama.model.UploadCoursesRequest
@@ -13,9 +17,9 @@ import com.ajolla.lactomama.model.UploadCoursesResponse
 import com.ajolla.lactomama.model.UserRequest
 import com.ajolla.lactomama.model.UserResponse
 import com.ajolla.lactomama.model.appointmentdata
-import com.ajolla.lactomama.mother.CoursesData
 import com.ajolla.lactomama.mother.cart.Course
 import com.ajolla.lactomama.ui.EducationalMaterialData
+import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -48,4 +52,14 @@ interface ApiInterface {
 
     @POST("/api/articles/")
     suspend fun postArticles(@Body articleRequest: ArticleRequest): Response<ArticleResponse>
+
+    @POST("/api/lactationists/")
+    suspend fun postLactationists(@Body lactationistRequest:LactationistRequest): Response<LactationistResponse>
+    @POST("/api/lactationists/")
+    suspend fun lactationistlogin(@Body lactationistloginRequest: LactationistLoginRequest): Response<LactationistLoginResponse>
+
+    @GET("/api/lactationists/")
+      suspend fun getLactationists():Response<List<Lactationist>>
+//    suspend fun getLactationists():Response<LactationistResponse>
+//    suspend fun getLactationists():Call<LactationistResponse>
 }

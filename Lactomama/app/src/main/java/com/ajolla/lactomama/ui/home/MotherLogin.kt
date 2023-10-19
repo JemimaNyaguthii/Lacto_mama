@@ -52,20 +52,19 @@ class MotherLogin : AppCompatActivity() {
     }
 
     fun validateLogin() {
-        var email = binding.etEmail.text.toString()
-        var password = binding.etLoginPasswordConf.text.toString()
+        var email = binding.etMotherEmail.text.toString()
+        var password = binding.etPasswordLactationistsLogin.text.toString()
         var error = false
         if (email.isBlank()) {
-            binding.tilEmail.error = "Email required"
+            binding.tilLoginLactationistEmail.error = "Email required"
             error = true
         }
         if (password.isBlank()) {
-            binding.tilLoginPasswordConf.error = "Password required"
+            binding.tilPasswordLactationistLogin.error = "Password required"
             error = true
         }
         if (!error) {
             val loginRequest = LoginRequest(
-
                 email = email,
                 password = password,
                 success = true

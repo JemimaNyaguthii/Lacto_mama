@@ -21,7 +21,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
-        <TextView
+
+    <TextView
         android:id="@+id/tvAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,153 +39,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo"
         app:layout_constraintVertical_bias="0.0" />
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilFullNames"
-            android:layout_width="346dp"
-            android:layout_height="62dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="30dp"
-            android:textColorHint="#000102"
-            app:boxStrokeColor="#29B99B"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.32"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvAccount">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etFulllNames"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/outline_person_24"
-                android:hint="Enter your Full Name"
-                android:linksClickable="true"
-                android:textSize="14sp"
-                app:textInputLayoutFocusedRectEnabled="false" />
-        </com.google.android.material.textfield.TextInputLayout>    <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilEmailSignup"
-            android:layout_width="346dp"
-            android:layout_height="62dp"
-            android:layout_marginTop="32dp"
-            app:boxStrokeColor="#29B99B"
-            app:layout_constraintEnd_toEndOf="@+id/tilFullNames"
-            app:layout_constraintStart_toStartOf="@+id/tilFullNames"
-            app:layout_constraintTop_toBottomOf="@+id/tilFullNames">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/outline_email_24"
-                android:drawablePadding="10dp"
-                android:hint="Enter your email"
-                android:textSize="14sp" />
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilPassword"
-            android:layout_width="346dp"
-            android:layout_height="62dp"
-            android:layout_marginTop="32dp"
-            app:boxStrokeColor="#29B99B"
-            app:endIconMode="password_toggle"
-            app:layout_constraintEnd_toEndOf="@+id/tilPhoneNumber"
-            app:layout_constraintStart_toStartOf="@+id/tilPhoneNumber"
-            app:layout_constraintTop_toBottomOf="@+id/tilPhoneNumber">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawablePadding="10dp"
-                android:password="true"
-                android:hint="Enter password"
-                android:textSize="14sp" />
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilPasswordConfim"
-            android:layout_width="345dp"
-            android:layout_height="62dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="30dp"
-            app:boxStrokeColor="#29B99B"
-            app:endIconMode="password_toggle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.34"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tilPassword"
-            app:passwordToggleTint="#03A9F4">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etPasswordConfirm"
-                android:layout_width="match_parent"
-                android:password="true"
-                android:layout_height="wrap_content"
-                android:hint="Enter password confirmation"
-                android:textSize="14sp" />
-        </com.google.android.material.textfield.TextInputLayout>
-        <Button
-            android:id="@+id/btnSignUp"
-            android:layout_width="343dp"
-            android:layout_height="63dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="28dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="50dp"
-            android:backgroundTint="#29B99B"
-            android:text="Sign up"
-            android:textColorHighlight="#29B99B"
-            android:textColorLink="#29B99B"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tilPasswordConfim" />
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilPhoneNumber"
-            android:layout_width="344dp"
-            android:layout_height="62dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginBottom="32dp"
-            app:boxStrokeColor="#29B993"
-            app:layout_constraintBottom_toTopOf="@+id/tilPassword"
-            app:layout_constraintStart_toStartOf="@+id/tilEmailSignup"
-            app:layout_constraintTop_toBottomOf="@+id/tilEmailSignup">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etPhoneNumber"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/outline_person_24"
-                android:drawablePadding="10dp"
-                android:hint="Enter username"
-                android:textSize="14sp" />
-        </com.google.android.material.textfield.TextInputLayout>
-        <TextView
-            android:id="@+id/tvSignUpLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="90dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="36dp"
-            android:text="Already have an account?"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/tvNoAccount"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnSignUp" />
-        <TextView
-            android:id="@+id/tvNoAccount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="119dp"
-            android:layout_marginBottom="36dp"
-            android:text="Login"
-            android:textColor="#29B99B"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tvSignUpLogin"
-            app:layout_constraintTop_toBottomOf="@+id/btnSignUp" />
 
-        <ProgressBar
+    <!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/tilPasswordConfim"-->
+<!--            android:layout_width="345dp"-->
+<!--            android:layout_height="62dp"-->
+<!--            android:layout_marginStart="30dp"-->
+<!--            android:layout_marginTop="32dp"-->
+<!--            android:layout_marginEnd="30dp"-->
+<!--            app:boxStrokeColor="#29B99B"-->
+<!--            app:endIconMode="password_toggle"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.34"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/tilBio"-->
+<!--            app:passwordToggleTint="#03A9F4">-->
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:id="@+id/etPasswordConfirm"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:password="true"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:hint="Enter password confirmation"-->
+<!--                android:textSize="14sp" />-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+    <ProgressBar
             android:id="@+id/pbregister"
             style="?android:attr/progressBarStyle"
             android:layout_width="wrap_content"
@@ -194,4 +73,159 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilFirstName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAccount">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etFirstName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your First Name" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilSecondName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilFirstName">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etSecondName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your Second Name" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilEmailLactationist"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilSecondName">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etEmailLactationist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter you Email" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilBio"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilEmailLactationist">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etBio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Fill in your Bio" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnLactationistsSignUp"
+        android:layout_width="299dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="36dp"
+        android:backgroundTint="#29B99B"
+        android:text="Sign up"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilLactationistLoginConfirm"
+        app:layout_constraintVertical_bias="0.458" />
+
+    <TextView
+        android:id="@+id/tvLactationistsAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="4dp"
+        android:text="Already have an Account?"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.294"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLactationistsSignUp" />
+
+    <TextView
+        android:id="@+id/tvLactaitonistLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="272dp"
+        android:text="Login"
+        android:textColor="#29b99b"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.009"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLactationistsSignUp"
+        app:layout_constraintVertical_bias="0.448" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilLactationistLoginPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilBio">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etLactationistLoginPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your Password" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilLactationistLoginConfirm"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilLactationistLoginPassword">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etLactationistLoginConfirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Confirm Password" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,7 +21,7 @@ class MotherSignUp : AppCompatActivity() {
         binding = ActivityMotherSignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.tvNoAccount.setOnClickListener {
+        binding.tvNoAccountMother.setOnClickListener {
             val intent = Intent(this, MotherLogin::class.java)
             startActivity(intent)
         }
@@ -29,9 +29,9 @@ class MotherSignUp : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        binding.btnSignUp.setOnClickListener {
+        binding.btnSignUpMother.setOnClickListener {
             clearErrors()
-            validateSignUp()
+            validateMotherSignUp()
         }
         userViewModel.errorLiveData.observe(this, Observer { err ->
             Toast.makeText(this, err, Toast.LENGTH_LONG).show()
@@ -51,42 +51,42 @@ class MotherSignUp : AppCompatActivity() {
     }
 
 
-    fun validateSignUp() {
-        val userName = binding.etFulllNames.text.toString()
-        val email = binding.etEmail.text.toString()
-        val fullName = binding.etPhoneNumber.text.toString()
-        val password = binding.etPassword.text.toString()
-        val passwordConfirm = binding.etPasswordConfirm.text.toString()
+    fun validateMotherSignUp() {
+        val userName = binding.etMotherUsername.text.toString()
+        val email = binding.etMotherEmail.text.toString()
+        val fullName = binding.etFullNames.text.toString()
+        val password = binding.etMotherPassword.text.toString()
+        val passwordConfirm = binding.etPasswordConfirmMother.text.toString()
         var error = false
 
         if (userName.isBlank()) {
-            binding.tilFullNames.error = "Enter name"
+            binding.tilMotherUsername.error = "Enter name"
             error = true
         }
 
         if (email.isBlank() || !email.contains("@")) {
-            binding.tilEmailSignup.error = "Invalid Email"
+            binding.tilMotherEmail.error = "Invalid Email"
             error = true
         }
 
         if (fullName.isBlank()) {
-            binding.tilPhoneNumber.error = "Phone number is required"
+            binding.tilMotherFullName.error = "FullName is required"
             error = true
         }
         if (password.isBlank()) {
-            binding.tilPassword.error = "Password is required"
+            binding.tilMotherPassword.error = "Password is required"
             error = true
         }
         if (passwordConfirm != password) {
-            binding.tilPasswordConfim.error = "Confirm your password"
+            binding.tilPasswordConfimMother.error = "Confirm your password"
             error = true
         }
 
         if (!error) {
             val registerRequest = UserRequest(
-                userName = fullName,
+                userName = userName,
                 email = email,
-                fullName = userName,
+                fullName = fullName,
                 password = password
             )
             binding.pbregister.visibility = View.VISIBLE
@@ -97,11 +97,11 @@ class MotherSignUp : AppCompatActivity() {
 
 
     fun clearErrors() {
-        binding.tilFullNames.error = null
-        binding.tilEmailSignup.error = null
-        binding.tilPhoneNumber.error = null
-        binding.tilPassword.error = null
-        binding.tilPasswordConfim.error = null
+        binding.tilMotherFullName.error = null
+        binding.tilMotherEmail.error = null
+        binding.tilMotherUsername.error = null
+        binding.tilMotherPassword.error = null
+        binding.tilPasswordConfimMother.error = null
         var error = true
     }
 }

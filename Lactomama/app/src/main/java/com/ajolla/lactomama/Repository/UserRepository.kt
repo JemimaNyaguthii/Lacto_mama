@@ -7,6 +7,11 @@ import com.ajolla.lactomama.model.ArticleRequest
 import com.ajolla.lactomama.model.ArticleResponse
 import com.ajolla.lactomama.model.CredentialRequest
 import com.ajolla.lactomama.model.CredentialResponse
+import com.ajolla.lactomama.model.Lactationist
+import com.ajolla.lactomama.model.LactationistLoginRequest
+import com.ajolla.lactomama.model.LactationistLoginResponse
+import com.ajolla.lactomama.model.LactationistRequest
+import com.ajolla.lactomama.model.LactationistResponse
 import com.ajolla.lactomama.model.LoginRequest
 import com.ajolla.lactomama.model.LoginResponse
 import com.ajolla.lactomama.model.UploadCoursesRequest
@@ -89,6 +94,28 @@ class ArticleRepository {
     suspend fun postArticles(articleRequest: ArticleRequest):Response<ArticleResponse>{
         return withContext(Dispatchers.IO){
             apiClient.postArticles(articleRequest)
+        }
+    }
+}
+class LactationistRepository {
+    val apiClient= ApiClient.buildClient(ApiInterface::class.java)
+    suspend fun postLactationist(lactationistRequest: LactationistRequest):Response<LactationistResponse>{
+        return withContext(Dispatchers.IO){
+            apiClient.postLactationists(lactationistRequest)
+        }
+    }
+    suspend fun getLactationists(): Response<List<Lactationist>> {
+        return withContext(Dispatchers.IO){
+            apiClient.getLactationists()
+        }
+    }
+}
+
+class LactationistLoginRepository {
+    val apiClient = ApiClient.buildClient(ApiInterface::class.java)
+    suspend fun lactationistlogin(lactationistLoginRequest: LactationistLoginRequest): Response<LactationistLoginResponse> {
+        return withContext(Dispatchers.IO) {
+            apiClient.lactationistlogin(lactationistLoginRequest)
         }
     }
 }
