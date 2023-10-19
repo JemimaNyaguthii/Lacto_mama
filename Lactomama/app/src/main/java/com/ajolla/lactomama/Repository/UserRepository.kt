@@ -75,6 +75,11 @@ class CoursesRepository {
             apiClient.postCourses(coursesRequest)
         }
     }
+    suspend fun getCourses(): Response<List<Course>> {
+        return withContext(Dispatchers.IO){
+            apiClient.getCourses()
+        }
+    }
 }
 class CartRepository {
     val apiClient = ApiClient.buildClient(ApiInterface::class.java)

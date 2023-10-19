@@ -1,6 +1,5 @@
 package com.ajolla.lactomama.api
 
-import com.ajolla.lactomama.model.AppointmentResponse
 import com.ajolla.lactomama.model.Article
 import com.ajolla.lactomama.model.ArticleRequest
 import com.ajolla.lactomama.model.ArticleResponse
@@ -13,7 +12,6 @@ import com.ajolla.lactomama.model.UploadCoursesResponse
 import com.ajolla.lactomama.model.UserRequest
 import com.ajolla.lactomama.model.UserResponse
 import com.ajolla.lactomama.model.appointmentdata
-import com.ajolla.lactomama.mother.CoursesData
 import com.ajolla.lactomama.mother.cart.Course
 import com.ajolla.lactomama.ui.EducationalMaterialData
 import retrofit2.Response
@@ -46,6 +44,8 @@ interface ApiInterface {
     @GET("/api/carts/")
     suspend fun getCart():Response<List<Course>>
 
-    @POST("/api/articles/")
+    @POST("/api/articles/create/")
     suspend fun postArticles(@Body articleRequest: ArticleRequest): Response<ArticleResponse>
+    @GET("/api/courses/")
+    suspend fun getCourses():Response<List<Course>>
 }

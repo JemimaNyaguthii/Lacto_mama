@@ -186,13 +186,13 @@
                     android:layout_height="30dp"
                     android:layout_marginStart="10dp"
                     android:src="@drawable/outline_calendar_today_24"
-                    app:layout_constraintEnd_toStartOf="@+id/tvDate"
+                    app:layout_constraintEnd_toStartOf="@+id/tvCreatedAt"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/ivTime"
                     app:tint="#22DFBA" />
 
                 <TextView
-                    android:id="@+id/tvDate"
+                    android:id="@+id/tvCreatedAt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
@@ -243,7 +243,7 @@
                     android:background="@color/black"
                     app:layout_constraintEnd_toStartOf="@+id/ivTime"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toEndOf="@+id/tvDate"
+                    app:layout_constraintStart_toEndOf="@+id/tvCreatedAt"
                     app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

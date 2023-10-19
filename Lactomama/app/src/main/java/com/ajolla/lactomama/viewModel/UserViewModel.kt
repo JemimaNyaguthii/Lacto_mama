@@ -113,6 +113,7 @@ class EducationalMaterialsViewModel:ViewModel(){
 }
 class CoursesViewModel : ViewModel() {
     private val courseRepo = CoursesRepository()
+    var coursesLiveData= MutableLiveData<List<Course>>()
     var errorLiveData = MutableLiveData<String>()
 
     suspend fun uploadCourse(uploadCoursesRequest: UploadCoursesRequest): Boolean {
@@ -124,6 +125,19 @@ class CoursesViewModel : ViewModel() {
             false
         }
     }
+    fun fetchCourses(){
+        viewModelScope.launch {
+            val response =courseRepo.getCourses()
+            if (response.isSuccessful){
+                val courses=response.body()?: emptyList()
+                coursesLiveData.postValue(courses)
+            }
+            else{
+                errorLiveData.postValue(response.errorBody()?.string())
+            }
+        }
+    }
+
 }
 class CartViewmodel:ViewModel(){
     val cartRepo = CartRepository()
