@@ -11,8 +11,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
-
+    private lateinit var binding:ActivityMainBinding
 
     private val pagerList = arrayListOf(
         Page("Hello !", R.drawable.mom1, "A Friend that you can rely on to give you \n" +

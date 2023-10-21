@@ -2,13 +2,23 @@ package com.ajolla.lactomama.Repository
 
 import com.ajolla.lactomama.api.ApiClient
 import com.ajolla.lactomama.api.ApiInterface
+import com.ajolla.lactomama.api.NewClient
 import com.ajolla.lactomama.model.AppointmentResponse
 import com.ajolla.lactomama.model.ArticleRequest
 import com.ajolla.lactomama.model.ArticleResponse
+import com.ajolla.lactomama.model.Courses
 import com.ajolla.lactomama.model.CredentialRequest
 import com.ajolla.lactomama.model.CredentialResponse
+import com.ajolla.lactomama.model.DarajaRequest
+import com.ajolla.lactomama.model.DarajaResponse
+import com.ajolla.lactomama.model.Lactationist
+import com.ajolla.lactomama.model.LactationistLoginRequest
+import com.ajolla.lactomama.model.LactationistLoginResponse
+import com.ajolla.lactomama.model.LactationistRequest
+import com.ajolla.lactomama.model.LactationistResponse
 import com.ajolla.lactomama.model.LoginRequest
 import com.ajolla.lactomama.model.LoginResponse
+import com.ajolla.lactomama.model.Product
 import com.ajolla.lactomama.model.UploadCoursesRequest
 import com.ajolla.lactomama.model.UploadCoursesResponse
 import com.ajolla.lactomama.model.UserRequest
@@ -19,6 +29,7 @@ import com.ajolla.lactomama.mother.cart.Course
 import com.ajolla.lactomama.ui.EducationalMaterialData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import retrofit2.Call
 import retrofit2.Response
 
 class UserRepository {
@@ -60,9 +71,10 @@ class AppointmentRepository {
 }
 
 class EducationalMaterialsRepository {
-    private val apiClient= ApiClient.buildClient(ApiInterface::class.java)
+    private val apiClient = ApiClient.buildClient(ApiInterface::class.java)
+
     suspend fun getArticles(): Response<List<EducationalMaterialData>> {
-        return withContext(Dispatchers.IO){
+        return withContext(Dispatchers.IO) {
             apiClient.getArticles()
         }
     }
@@ -75,25 +87,61 @@ class CoursesRepository {
             apiClient.postCourses(coursesRequest)
         }
     }
-    suspend fun getCourses(): Response<List<Course>> {
+    suspend fun getCourses():Call<List<Course>> {
         return withContext(Dispatchers.IO){
             apiClient.getCourses()
         }
     }
 }
-class CartRepository {
-    val apiClient = ApiClient.buildClient(ApiInterface::class.java)
-    suspend fun getCart():Response<List<Course>>{
-        return withContext(Dispatchers.IO){
-            apiClient.getCart()
+//class CartRepository {
+//    val apiClient = NewClient.getRetrofitClient().create(ApiInterface::class.java)
+//
+//    suspend fun getCart(): Call<List<Product>> {
+//        return apiClient.getProducts()
+//    }
+//}
+
+
+
+    class ArticleRepository {
+        val apiClient = ApiClient.buildClient(ApiInterface::class.java)
+        suspend fun postArticles(articleRequest: ArticleRequest): Response<ArticleResponse> {
+            return withContext(Dispatchers.IO) {
+                apiClient.postArticles(articleRequest)
+            }
+
         }
     }
-}
-class ArticleRepository {
+
+    class LactationistRepository {
+        val apiClient = ApiClient.buildClient(ApiInterface::class.java)
+        suspend fun postLactationist(lactationistRequest: LactationistRequest): Response<LactationistResponse> {
+            return withContext(Dispatchers.IO) {
+                apiClient.postLactationists(lactationistRequest)
+            }
+        }
+
+        suspend fun getLactationists(): Response<List<Lactationist>> {
+            return withContext(Dispatchers.IO) {
+                apiClient.getLactationists()
+            }
+        }
+    }
+
+    class LactationistLoginRepository {
+        val apiClient = ApiClient.buildClient(ApiInterface::class.java)
+        suspend fun lactationistlogin(lactationistLoginRequest: LactationistLoginRequest): Response<LactationistLoginResponse> {
+            return withContext(Dispatchers.IO) {
+                apiClient.lactationistlogin(lactationistLoginRequest)
+            }
+        }
+    }
+class DarajaRepository {
     val apiClient= ApiClient.buildClient(ApiInterface::class.java)
-    suspend fun postArticles(articleRequest: ArticleRequest):Response<ArticleResponse>{
+    suspend fun initiateSTKPush(payRequest: DarajaRequest):Response<DarajaResponse>{
         return withContext(Dispatchers.IO){
-            apiClient.postArticles(articleRequest)
+            apiClient.initiatesSTKPush(payRequest)
         }
     }
 }
+

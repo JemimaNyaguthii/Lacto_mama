@@ -4,6 +4,11 @@ import android.icu.text.CaseMap.Title
 import android.media.Image
 
 data class ArticleData(
-    var image: String,
-    var title: String
+    val id: Int,
+    val title: String,
+    val description: String,
+    val createdAt: String,
+    val updatedAt: String,
+    val content: String,
+    val image: String?
 )

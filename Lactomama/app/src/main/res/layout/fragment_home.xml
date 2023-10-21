@@ -8,7 +8,7 @@
     tools:context=".mother.HomeFragment">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
       android:orientation="vertical">
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cvTrackingCard"
@@ -47,11 +47,11 @@
 
                 <TextView
                     android:id="@+id/textView"
-                    android:layout_width="96dp"
+                    android:layout_width="90dp"
                     android:layout_height="36dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="14dp"
-                    android:text="Breastfeeding Times"
+                    android:text="Breastfeeding"
                     android:textColor="@color/white"
                     app:layout_constraintEnd_toStartOf="@+id/textView2"
                     app:layout_constraintStart_toStartOf="parent"
@@ -59,7 +59,7 @@
 
                 <TextView
                     android:id="@+id/textView2"
-                    android:layout_width="60dp"
+                    android:layout_width="96dp"
                     android:layout_height="36dp"
                     android:layout_marginStart="7dp"
                     android:layout_marginEnd="14dp"
@@ -71,12 +71,12 @@
 
                 <TextView
                     android:id="@+id/textView3"
-                    android:layout_width="59dp"
+                    android:layout_width="96dp"
                     android:layout_height="34dp"
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="18dp"
                     android:layout_marginEnd="16dp"
-                    android:text="Time to feed"
+                    android:text="A friend"
                     android:textColor="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/textView2"
@@ -120,14 +120,13 @@
             android:id="@+id/tvUpcomingAppointments"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="144dp"
             android:text="Upcoming Appointments"
             android:textColor="#E64980"
             android:textSize="20dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/searchview" />
+            app:layout_constraintTop_toBottomOf="@+id/ivMotherProfile" />
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/Appointments"
@@ -252,12 +251,11 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvArticles"
             android:layout_width="406dp"
-            android:layout_height="174dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="7dp"
             android:layout_marginTop="4dp"
-
             android:layout_marginEnd="7dp"
-            android:nestedScrollingEnabled="false"
+            android:nestedScrollingEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -276,36 +274,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Appointments" />
 
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/searchview"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            app:tint="#22DFBA"
-            android:layout_marginTop="64dp"
-            android:layout_marginEnd="30dp"
-            android:background="@drawable/searchview_background"
-            app:iconifiedByDefault="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:queryBackground="@android:color/transparent"
-            app:queryHint="Search" >
-
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/profile" />
-        </androidx.appcompat.widget.SearchView>
-
         <ImageView
             android:id="@+id/ivMotherProfile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="7dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginTop="56dp"
+            android:layout_marginEnd="32dp"
             android:src="@drawable/profile"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

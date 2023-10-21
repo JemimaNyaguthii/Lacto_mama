@@ -10,7 +10,6 @@ data class EducationalMaterialData(
     @SerializedName("created_at")val createdAt: String,
     @SerializedName("updated_at")val updatedAt: String,
     val content: String,
-    val lactationist: Int,
     val image:String
 )
 

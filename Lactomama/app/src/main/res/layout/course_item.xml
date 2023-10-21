@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardView"
+    app:cardUseCompatPadding="true"
+    app:cardBackgroundColor="#F5F5F5"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:clickable="true">
+        <ImageView
+            android:id="@+id/course_image"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/kosi" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+            <TextView
+                android:id="@+id/course_title"
+                android:textColor="#333333"
+                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Course Title" />
+            <TextView
+                android:id="@+id/course_price"
+                android:textSize="12sp"
+                android:textColor="#FF4081"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Course Price" />
+            <TextView
+                android:id="@+id/courseDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:text="Course Description" />
+        </LinearLayout>
+        <ImageButton
+            android:id="@+id/addToCart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:padding="16dp"
+            android:src="@drawable/baseline_add_24"
+            android:background="#FF4081"
+            android:contentDescription="Add to Cart" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

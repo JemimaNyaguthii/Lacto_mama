@@ -51,8 +51,6 @@ class HomeFragment : Fragment() {
                 "fetched ${articlesList?.size} articles",
                 Toast.LENGTH_LONG
             ).show()
-            educationalAdapter.articles.clear()
-            educationalAdapter.articles.addAll(articlesList)
             educationalAdapter.notifyDataSetChanged()
         })
         eduViewModel.errorLiveData.observe(this, Observer { error ->
