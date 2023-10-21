@@ -28,10 +28,10 @@ HomeFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         displayArticles()
-        binding.ivMotherProfile.setOnClickListener {
-            val intent = Intent(requireContext(), MotherProfile::class.java)
-            startActivity(intent)
-        }
+//        binding.ivMotherProfile.setOnClickListener {
+//            val intent = Intent(requireContext(), MotherProfile::class.java)
+//            startActivity(intent)
+//        }
     }
 
     fun displayArticles(){

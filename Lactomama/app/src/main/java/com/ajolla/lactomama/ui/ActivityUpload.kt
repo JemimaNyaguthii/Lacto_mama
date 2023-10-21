@@ -3,6 +3,7 @@ package com.ajolla.lactomama.ui
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.icu.util.Calendar
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -21,7 +22,8 @@ import java.util.Locale
 class ActivityUpload : AppCompatActivity() {
     private lateinit var binding: ActivityUploadBinding
     val credentialViewModel:CredentialViewModel by viewModels()
-
+    private var selectedFileUri: Uri? = null
+    private var fileUploaded = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,12 +63,11 @@ class ActivityUpload : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == 1 && resultCode == RESULT_OK) {
-
-            val fileUri = data?.data
-
-            val filePath = fileUri?.path
-            Toast.makeText(this, "file uploaded successfully", Toast.LENGTH_SHORT).show()
+            selectedFileUri = data?.data
+            Toast.makeText(this, "File uploaded successfully", Toast.LENGTH_SHORT).show()
+            fileUploaded = true
         }
+
     }
 
 
@@ -79,7 +80,8 @@ class ActivityUpload : AppCompatActivity() {
         var issuedBy = binding.etIssuedBy.text.toString()
         var dateIssued = binding.etDateIssued.text.toString()
         var status=binding.etstatus.text.toString()
-        var  lisense_file=binding.ivUpload.toString()
+        var selectedFileUri = selectedFileUri.toString()
+
 
 
 
@@ -101,12 +103,19 @@ class ActivityUpload : AppCompatActivity() {
             binding.tilDescription.error = " lisense status required"
             error = true
         }
+        if (selectedFileUri == null) {
+            // Show an error message for missing file
+            Toast.makeText(this, "Please upload a license file", Toast.LENGTH_SHORT).show()
+            error = true
+        }
+
 
         if (!error) {
             val credentialRequest = CredentialRequest(
                 lnumber =lnumber,
                 issuedBy =issuedBy,
                 dateIssued = dateIssued,
+                licenseFile = selectedFileUri?.toString() ?: "pdf"
                 
             )
             binding.pbRegister.visibility = View.VISIBLE

@@ -13,12 +13,7 @@
             android:icon="@drawable/baseline_collections_24"
             android:tint="@color/bottom_navigation_icon_colors"
             android:enabled="true"/>
-        <item
-            android:id="@+id/chat"
-            android:title="Chat"
-            android:icon="@drawable/outline_chat_24"
-            android:iconTint="@color/bottom_navigation_icon_colors"
-            android:enabled="true"/>
+
         <item
             android:id="@+id/booking"
             android:title="Booking"

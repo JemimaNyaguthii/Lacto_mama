@@ -60,6 +60,5 @@ interface ApiInterface {
 
     @GET("/api/lactationists/")
       suspend fun getLactationists():Response<List<Lactationist>>
-//    suspend fun getLactationists():Response<LactationistResponse>
-//    suspend fun getLactationists():Call<LactationistResponse>
+
 }

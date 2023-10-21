@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="42dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="254dp"
         android:layout_marginBottom="579dp"
         android:text="CREATE AN ACCOUNT"
@@ -79,8 +79,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="31dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
+        app:boxStrokeColor="#29B99B"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvAccount">
@@ -89,6 +90,7 @@
             android:id="@+id/etFirstName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableStart="@drawable/outline_person_24"
             android:hint="Enter your First Name" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -97,8 +99,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
+        app:boxStrokeColor="#29B99B"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilFirstName">
@@ -107,6 +110,7 @@
             android:id="@+id/etSecondName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableStart="@drawable/outline_person_24"
             android:hint="Enter your Second Name" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -115,8 +119,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
+        app:boxStrokeColor="#29B99B"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilSecondName">
@@ -125,6 +130,7 @@
             android:id="@+id/etEmailLactationist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableStart="@drawable/outline_email_24"
             android:hint="Enter you Email" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -133,8 +139,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
+        app:boxStrokeColor="#29B99B"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilEmailLactationist">
@@ -197,8 +204,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
+        app:endIconMode="password_toggle"
+        app:boxStrokeColor="#29B99B"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilBio">
@@ -215,9 +224,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
+        app:endIconMode="password_toggle"
         app:layout_constraintEnd_toEndOf="parent"
+        app:boxStrokeColor="#29B99B"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilLactationistLoginPassword">
 

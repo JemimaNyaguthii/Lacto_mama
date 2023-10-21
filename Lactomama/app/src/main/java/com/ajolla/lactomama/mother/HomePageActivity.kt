@@ -39,12 +39,12 @@ lateinit var binding: ActivityHomePageBinding
 
                 }
 
-                R.id.chat -> {
-                    supportFragmentManager
-                        .beginTransaction()
-                        .replace(R.id.fcvHome, ChatFragment()).commit()
-                    true
-                }
+//                R.id.chat -> {
+//                    supportFragmentManager
+//                        .beginTransaction()
+//                        .replace(R.id.fcvHome, ChatFragment()).commit()
+//                    true
+//                }
 
                 R.id.course -> {
                     supportFragmentManager

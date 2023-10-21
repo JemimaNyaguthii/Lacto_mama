@@ -71,7 +71,7 @@ class MaterialsFragment : Fragment() {
 
         lifecycleScope.launch{
             try {
-                val isSuccess = coursesViewModel.uploadCourse(coursesRequest)
+                val isSuccess = coursesViewModel.uploadColactationistLiveDataurse(coursesRequest)
                 if (isSuccess) {
                     Toast.makeText(requireContext(), "Uploaded Successfully", Toast.LENGTH_SHORT).show()
                     val intent = Intent(requireContext(), Success::class.java)

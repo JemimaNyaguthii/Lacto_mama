@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    app:cardCornerRadius="4dp">
+    app:cardBackgroundColor="@color/gray"
+    android:visibility="visible"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="437dp"
-        android:layout_height="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/ivLactationist1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="59dp"
-            android:layout_marginEnd="328dp"
+            android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/lactationist" />
 
@@ -26,35 +26,36 @@
             android:id="@+id/tvFirstName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="12dp"
             android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.142"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textAlignment="textStart"
+            android:textColor="#E91E63"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/ivLactationist1"
+            app:layout_constraintStart_toStartOf="@+id/ivLactationist1"
             app:layout_constraintTop_toBottomOf="@+id/ivLactationist1" />
 
         <TextView
             android:id="@+id/tvEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="8dp"
             android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.142"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="@+id/tvFirstName"
+            app:layout_constraintStart_toStartOf="@+id/tvFirstName"
             app:layout_constraintTop_toBottomOf="@+id/tvFirstName" />
 
         <TextView
             android:id="@+id/tvBio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="37dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="300dp"
+            android:layout_marginTop="12dp"
             android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.404"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/tvEmail"
+            app:layout_constraintStart_toStartOf="@+id/tvEmail"
             app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

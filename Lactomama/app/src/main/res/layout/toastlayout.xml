@@ -15,7 +15,7 @@
         android:layout_marginTop="1dp"
         android:layout_marginEnd="4dp"
         android:gravity="center"
-        android:text="You booked an appointment with        Dr.Maureen."
+        android:text="Successfully booked an appointment with Dr.Maureen!!"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"

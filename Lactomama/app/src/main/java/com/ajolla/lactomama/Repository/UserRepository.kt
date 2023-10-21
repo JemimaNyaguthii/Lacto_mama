@@ -99,7 +99,7 @@ class ArticleRepository {
 }
 class LactationistRepository {
     val apiClient= ApiClient.buildClient(ApiInterface::class.java)
-    suspend fun postLactationist(lactationistRequest: LactationistRequest):Response<LactationistResponse>{
+    suspend fun postLactationist(lactationistRequest: LactationistRequest):Response<LactationistResponse> {
         return withContext(Dispatchers.IO){
             apiClient.postLactationists(lactationistRequest)
         }
