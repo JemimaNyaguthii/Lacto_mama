@@ -1,5 +1,6 @@
 package com.ajolla.lactomama.ui
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,9 +8,11 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
+import com.ajolla.lactomama.Contants
 import com.ajolla.lactomama.databinding.ActivityLactationistLoginBinding
 import com.ajolla.lactomama.model.LactationistLoginRequest
 import com.ajolla.lactomama.model.LoginRequest
+import com.ajolla.lactomama.model.LoginResponse
 import com.ajolla.lactomama.viewModel.LactationistLoginViewModel
 import com.ajolla.lactomama.viewModel.LactationistViewModel
 import com.ajolla.lactomama.viewModel.LoginViewModel
@@ -37,7 +40,7 @@ class LactationistLogin : AppCompatActivity() {
         lactationistLoginViewModel.lactLogLiveData.observe(this, Observer { logResponse ->
             Toast.makeText(this, "Login successfully", Toast.LENGTH_SHORT).show()
             binding.pbLogin.visibility = View.GONE
-            val intent = Intent(this, LactationistHome::class.java)
+            val intent = Intent(this, ActivityUpload::class.java)
             startActivity(intent)
             finish()
         })
@@ -74,5 +77,11 @@ class LactationistLogin : AppCompatActivity() {
         }
 
     }
+//    fun persistLogin(loginResponse: LoginResponse){
+//        val sharedPrefs=getSharedPreferences(Contants.PREFS,Context.MODE_PRIVATE)
+//        val editor= sharedPrefs.edit()
+//        editor.putString(Contants.USER_ID,loginResponse.uesr_id)
+//        editor.putString(Contants.ACCESS_TOKEN,)
+
 }
 

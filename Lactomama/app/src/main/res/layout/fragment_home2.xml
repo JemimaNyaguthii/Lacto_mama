@@ -157,32 +157,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Appointments" />
 
-    <androidx.appcompat.widget.SearchView
-            android:id="@+id/searchview"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-
-            android:layout_marginTop="64dp"
-            android:layout_marginEnd="30dp"
-            android:background="@drawable/searchview_background"
-            app:iconifiedByDefault="false"
-            app:layout_constraintBottom_toTopOf="@+id/tvUpcomingAppointments"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:queryBackground="@android:color/transparent"
-            app:queryHint="Search" />
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="59dp"
-            android:layout_height="59dp"
-            android:layout_marginEnd="30dp"
-            android:src="@drawable/eclipse"
-            app:layout_constraintBottom_toTopOf="@+id/searchview"
-            app:layout_constraintEnd_toEndOf="parent" />
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="59dp"
+        android:layout_height="59dp"
+        android:layout_marginEnd="30dp"
+        android:src="@drawable/eclipse"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="27dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

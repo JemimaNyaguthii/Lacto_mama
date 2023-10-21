@@ -25,7 +25,7 @@ class HomeFragment : Fragment() {
     private lateinit var educationalAdapter: ArticleAdapter
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater, con>>>>>>> devtainer: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
@@ -59,11 +59,18 @@ class HomeFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        displayArticles()
+//        binding.ivMotherProfile.setOnClickListener {
+//            val intent = I>>>>>>> devntent(requireContext(), MotherProfile::class.java)
+//            startActivity(intent)
+//        }
+
 
         binding.ivMotherProfile.setOnClickListener {
             val intent = Intent(requireContext(), MotherProfile::class.java)
             startActivity(intent)
         }
+
     }
 
     override fun onDestroyView() {

@@ -65,6 +65,7 @@ interface ApiInterface {
     suspend fun lactationistlogin(@Body lactationistloginRequest: LactationistLoginRequest): Response<LactationistLoginResponse>
 
     @GET("/api/lactationists/")
+      suspend fun getLactationists():Response<List<Lactationist>>
     suspend fun getLactationists():Response<List<Lactationist>>
     @POST("/darajaapi/stkpush/")
     suspend fun initiatesSTKPush(@Body payRequest: DarajaRequest):Response<DarajaResponse>

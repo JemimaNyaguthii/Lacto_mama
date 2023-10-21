@@ -1,6 +1,8 @@
 package com.ajolla.lactomama.ui
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -22,21 +24,28 @@ class LactationistSignUp : AppCompatActivity() {
     lateinit var binding: ActivityLactationistSignUpBinding
     val lactationistViewModel: LactationistViewModel by viewModels()
 
+
+//    fun isLogged(context: Context):Boolean{
+//        val  sharedPreferences:SharedPreferences=
+//            context.getSharedPreferences("auth_prefs",Context.MODE_PRIVATE)
+//        return sharedPreferences.getBoolean("is_logged_in",false)
+//    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLactationistSignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.tvLactaitonistLogin.setOnClickListener {
-          val intent = Intent(this, LactationistLogin::class.java)
-           startActivity(intent)
+            val intent = Intent(this, LactationistLogin::class.java)
+            startActivity(intent)
         }
     }
 
     override fun onResume() {
         super.onResume()
         binding.btnLactationistsSignUp.setOnClickListener {
-            clearErrors()
+           clearErrors()
             validateSignUp()
         }
         lactationistViewModel.errorLiveData.observe(this, Observer { err ->
@@ -56,61 +65,70 @@ class LactationistSignUp : AppCompatActivity() {
         })
     }
 
-
     fun validateSignUp() {
-        val FirstName = binding.etFirstName.text.toString()
-        val SecondName = binding.etSecondName.text.toString()
-        val Email = binding.etEmailLactationist.text.toString()
-        val Bio = binding.etBio.text.toString()
+        val firstName = binding.etFirstName.text.toString()
+        val secondName = binding.etSecondName.text.toString()
+        val email = binding.etEmailLactationist.text.toString()
+        val bio = binding.etBio.text.toString()
         val password = binding.etLactationistLoginPassword.text.toString()
         val passwordConfirm = binding.etLactationistLoginConfirm.text.toString()
         var error = false
 
-        if (FirstName.isBlank()) {
+        if (firstName.isBlank()) {
             binding.tilFirstName.error = "Enter First name"
             error = true
         }
 
-        if (SecondName.isBlank() ) {
+        if (secondName.isBlank()) {
             binding.tilSecondName.error = "Enter Second name"
             error = true
         }
 
-        if (Email.isBlank()) {
-            binding.tilFirstName.error = "Email is required"
+        if (email.isBlank() || !isValidEmail(email)) { // Check for a valid email
+            binding.tilEmailLactationist.error = "Enter a valid email"
             error = true
         }
-        if (Bio.isBlank()) {
+
+        if (bio.isBlank()) {
             binding.tilBio.error = "Bio is required"
             error = true
         }
+
         if (password.isBlank()) {
-            binding.tilLactationistLoginPassword.error = "password is required"
+            binding.tilLactationistLoginPassword.error = "Password is required"
             error = true
-//            tilLactationistLoginPassword
         }
+
         if (passwordConfirm.isBlank()) {
-            binding.tilLactationistLoginConfirm.error = "Confrim your password"
+            binding.tilLactationistLoginConfirm.error = "Confirm your password"
             error = true
-//            tilLactationistLoginConfirm
+        }
+
+        if (password != passwordConfirm) {
+            binding.tilLactationistLoginPassword.error = "Passwords do not match"
+            binding.tilLactationistLoginConfirm.error = "Passwords do not match"
+            error = true
         }
 
         if (!error) {
             val lactationistRequest = LactationistRequest(
-                FirstName = FirstName,
-                SecondName = SecondName,
-                email = Email,
-                bio = Bio,
-                password = password,
+                FirstName = firstName,
+                SecondName = secondName,
+                email = email,
+                bio = bio,
+                password = password
             )
             binding.pbregister.visibility = View.VISIBLE
             lactationistViewModel.registerLactationist(lactationistRequest)
         }
+    }
 
+    private fun isValidEmail(email: String): Boolean {
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 
 
-    fun clearErrors() {
+   fun clearErrors() {
         binding.tilFirstName.error = null
         binding.tilSecondName.error = null
         binding.tilEmailLactationist.error = null
@@ -120,4 +138,3 @@ class LactationistSignUp : AppCompatActivity() {
         var error = true
     }
 }
-

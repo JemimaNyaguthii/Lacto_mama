@@ -113,6 +113,14 @@ class CoursesRepository {
         }
     }
 
+}
+class LactationistRepository {
+    val apiClient= ApiClient.buildClient(ApiInterface::class.java)
+    suspend fun postLactationist(lactationistRequest: LactationistRequest):Response<LactationistResponse> {
+        return withContext(Dispatchers.IO){
+            apiClient.postLactationists(lactationistRequest)
+
+
     class LactationistRepository {
         val apiClient = ApiClient.buildClient(ApiInterface::class.java)
         suspend fun postLactationist(lactationistRequest: LactationistRequest): Response<LactationistResponse> {
@@ -134,6 +142,7 @@ class CoursesRepository {
             return withContext(Dispatchers.IO) {
                 apiClient.lactationistlogin(lactationistLoginRequest)
             }
+
         }
     }
 class DarajaRepository {

@@ -17,8 +17,8 @@ class MainActivity : AppCompatActivity() {
         Page("Hello !", R.drawable.mom1, "A Friend that you can rely on to give you \n" +
                 "guidance on your lactation journey.", "#22BB9B"),
         Page("Benefits", R.drawable.mom2, "We are the friend that will enable you get reliable information from lactation experts.", "22BB9B"),
-        Page("Track Feeding", R.drawable.mother3
-            , "This will enable you to track the feeding habits of the baby", "22BB9A")
+        Page("Personalized Support", R.drawable.mother3
+            , "Your breastfeeding journey is unique, tailored advice to your specific needs, ensuring confidence and comfort.", "22BB9A")
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

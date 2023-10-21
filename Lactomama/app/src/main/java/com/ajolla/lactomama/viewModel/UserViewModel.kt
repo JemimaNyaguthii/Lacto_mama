@@ -144,7 +144,7 @@ class CoursesViewModel : ViewModel() {
     var coursesLiveData= MutableLiveData<List<Course>>()
     var errorLiveData = MutableLiveData<String>()
 
-    suspend fun uploadCourse(uploadCoursesRequest: UploadCoursesRequest): Boolean {
+    suspend fun uploadColactationistLiveDataurse(uploadCoursesRequest: UploadCoursesRequest): Boolean {
         return try {
             val response = courseRepo.postCourses(uploadCoursesRequest)
             response.isSuccessful
