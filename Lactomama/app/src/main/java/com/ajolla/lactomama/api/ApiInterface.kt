@@ -5,6 +5,8 @@ import com.ajolla.lactomama.model.ArticleRequest
 import com.ajolla.lactomama.model.ArticleResponse
 import com.ajolla.lactomama.model.CredentialRequest
 import com.ajolla.lactomama.model.CredentialResponse
+import com.ajolla.lactomama.model.DarajaRequest
+import com.ajolla.lactomama.model.DarajaResponse
 import com.ajolla.lactomama.model.Lactationist
 import com.ajolla.lactomama.model.LactationistLoginRequest
 import com.ajolla.lactomama.model.LactationistLoginResponse
@@ -12,6 +14,7 @@ import com.ajolla.lactomama.model.LactationistRequest
 import com.ajolla.lactomama.model.LactationistResponse
 import com.ajolla.lactomama.model.LoginRequest
 import com.ajolla.lactomama.model.LoginResponse
+import com.ajolla.lactomama.model.Product
 import com.ajolla.lactomama.model.UploadCoursesRequest
 import com.ajolla.lactomama.model.UploadCoursesResponse
 import com.ajolla.lactomama.model.UserRequest
@@ -19,6 +22,7 @@ import com.ajolla.lactomama.model.UserResponse
 import com.ajolla.lactomama.model.appointmentdata
 import com.ajolla.lactomama.mother.cart.Course
 import com.ajolla.lactomama.ui.EducationalMaterialData
+import com.ajolla.lactomama.ui.home.ArticleData
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Body
@@ -48,10 +52,12 @@ interface ApiInterface {
     @POST("/api/courses/")
     suspend fun postCourses(@Body coursesRequest:UploadCoursesRequest):Response<UploadCoursesResponse>
     @GET("/api/carts/")
-    suspend fun getCart():Response<List<Course>>
+    fun getProducts(): Call<List<Product>>
 
-    @POST("/api/articles/")
+    @POST("/api/articles/create/")
     suspend fun postArticles(@Body articleRequest: ArticleRequest): Response<ArticleResponse>
+    @GET("/api/courses/")
+    fun getCourses():Call<List<Course>>
 
     @POST("/api/lactationists/")
     suspend fun postLactationists(@Body lactationistRequest:LactationistRequest): Response<LactationistResponse>
@@ -60,5 +66,7 @@ interface ApiInterface {
 
     @GET("/api/lactationists/")
       suspend fun getLactationists():Response<List<Lactationist>>
-
+    suspend fun getLactationists():Response<List<Lactationist>>
+    @POST("/darajaapi/stkpush/")
+    suspend fun initiatesSTKPush(@Body payRequest: DarajaRequest):Response<DarajaResponse>
 }

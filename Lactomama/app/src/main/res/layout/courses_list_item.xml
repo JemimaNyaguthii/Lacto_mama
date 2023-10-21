@@ -42,10 +42,9 @@
         android:id="@+id/tvDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
-        android:text="2000Kshs"
-        android:textStyle="bold"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:text="1500kshs"
         app:layout_constraintStart_toEndOf="@+id/ivCareerWoman"
         app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
 

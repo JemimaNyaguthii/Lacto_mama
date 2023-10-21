@@ -33,14 +33,13 @@
             android:layout_width="330dp"
             android:layout_height="50dp"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="40dp"
             android:layout_marginEnd="41dp"
             android:backgroundTint="#23BB9B"
             android:text="Upload files"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvlactate" />
+            tools:layout_editor_absoluteY="619dp" />
 
         <WebView
         android:id="@+id/pdfWebView"
@@ -111,11 +110,12 @@
             android:id="@+id/tilContent"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="42dp"
+            android:layout_marginTop="9dp"
             android:layout_marginEnd="30dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/tildes"
-            app:layout_constraintTop_toBottomOf="@+id/tildes">
+            app:layout_constraintTop_toBottomOf="@+id/tvUpdatedAt">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etContent"
@@ -124,21 +124,59 @@
                 android:hint="Content" />
         </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tvlactate"
-        android:layout_width="360dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintEnd_toEndOf="@+id/tilContent"
-        app:layout_constraintStart_toStartOf="@+id/tilContent"
-        app:layout_constraintTop_toBottomOf="@+id/tilContent">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tvlactate"
+            android:layout_width="360dp"
+            android:layout_height="63dp"
+            android:layout_marginTop="21dp"
+            app:layout_constraintEnd_toEndOf="@+id/tilContent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/tilContent"
+            app:layout_constraintTop_toBottomOf="@+id/tilContent">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etlactate"
-            android:layout_width="match_parent"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etlactate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Lactatinist" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tvCreatedAt"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Lactatinist" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tildes">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etCreatedAt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Created-at" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tvUpdatedAt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCreatedAt">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etUpdatedAt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Updated_at" />
+        </com.google.android.material.textfield.TextInputLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

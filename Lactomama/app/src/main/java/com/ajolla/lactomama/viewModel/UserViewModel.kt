@@ -1,20 +1,20 @@
 package com.ajolla.lactomama.viewModel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import com.ajolla.lactomama.Repository.AppointmentRepository
-import com.ajolla.lactomama.Repository.ArticleRepository
-import com.ajolla.lactomama.Repository.CartRepository
+//import com.ajolla.lactomama.Repository.CartRepository
 import com.ajolla.lactomama.Repository.CoursesRepository
 import com.ajolla.lactomama.Repository.CredentialRepository
 import com.ajolla.lactomama.Repository.EducationalMaterialsRepository
-import com.ajolla.lactomama.Repository.LactationistLoginRepository
-import com.ajolla.lactomama.Repository.LactationistRepository
 import com.ajolla.lactomama.Repository.LoginRepository
 import com.ajolla.lactomama.Repository.UserRepository
+import com.ajolla.lactomama.api.ApiClient
+import com.ajolla.lactomama.api.ApiInterface
+import com.ajolla.lactomama.api.NewClient
 import com.ajolla.lactomama.model.ArticleRequest
 import com.ajolla.lactomama.model.ArticleResponse
 import com.ajolla.lactomama.model.CredentialRequest
@@ -26,15 +26,19 @@ import com.ajolla.lactomama.model.LactationistRequest
 import com.ajolla.lactomama.model.LactationistResponse
 import com.ajolla.lactomama.model.LoginRequest
 import com.ajolla.lactomama.model.LoginResponse
+import com.ajolla.lactomama.model.Product
 import com.ajolla.lactomama.model.UploadCoursesRequest
 import com.ajolla.lactomama.model.UserRequest
 import com.ajolla.lactomama.model.UserResponse
 import com.ajolla.lactomama.model.appointmentdata
-import com.ajolla.lactomama.mother.CoursesData
 import com.ajolla.lactomama.mother.cart.Course
 import com.ajolla.lactomama.ui.EducationalMaterialData
-import kotlinx.coroutines.Dispatchers
+import com.ajolla.lactomama.ui.home.ArticleData
 import kotlinx.coroutines.launch
+import retrofit2.Response
+import retrofit2.Call
+
+
 
 class UserViewModel : ViewModel() {
     var UserRepo = UserRepository()
@@ -103,16 +107,29 @@ class AppointmentViewModel:ViewModel (){
 }
 
 
-class EducationalMaterialsViewModel:ViewModel(){
+class EducationalMaterialsViewModel : ViewModel() {
     val eduRepo = EducationalMaterialsRepository()
-    var eduLiveData = MutableLiveData<List<EducationalMaterialData>>()
+    var eduLiveData = MutableLiveData<List<ArticleData>>() // Use ArticleData
     var errorLiveData = MutableLiveData<String>()
+
     fun fetchArticles() {
+        Log.d("EducationalMaterialsViewModel", "Fetching articles") // Log the fetching process
         viewModelScope.launch {
             val response = eduRepo.getArticles()
             if (response.isSuccessful) {
-                val articles=response.body()?: emptyList()
-
+                val educationalMaterials = response.body() ?: emptyList()
+                // Transform EducationalMaterialData into ArticleData
+                val articles = educationalMaterials.map {
+                    ArticleData(
+                        it.id,
+                        it.title,
+                        it.description,
+                        it.createdAt,
+                        it.updatedAt,
+                        it.content,
+                        it.image
+                    )
+                }
                 eduLiveData.postValue(articles)
             } else {
                 errorLiveData.postValue(response.errorBody()?.string())
@@ -120,8 +137,11 @@ class EducationalMaterialsViewModel:ViewModel(){
         }
     }
 }
+
+
 class CoursesViewModel : ViewModel() {
     private val courseRepo = CoursesRepository()
+    var coursesLiveData= MutableLiveData<List<Course>>()
     var errorLiveData = MutableLiveData<String>()
 
     suspend fun uploadColactationistLiveDataurse(uploadCoursesRequest: UploadCoursesRequest): Boolean {
@@ -133,19 +153,37 @@ class CoursesViewModel : ViewModel() {
             false
         }
     }
+//    fun getProducts(){
+//        viewModelScope.launch {
+//            val response =courseRepo.getCourses()
+//            if (response.isSuccessful){
+//                val courses=response.body()?: emptyList()
+//                coursesLiveData.postValue(courses)
+//            }
+//            else{
+//                errorLiveData.postValue(response.errorBody()?.string())
+//            }
+//        }
+//    }
+
 }
-class CartViewmodel:ViewModel(){
-    val cartRepo = CartRepository()
-    var cartLiveData = MutableLiveData<List<Course>>()
-    var errorLiveData = MutableLiveData<String>()
+class CartViewModel : ViewModel() {
+    private val apiInterface = NewClient.getRetrofitClient().create(ApiInterface::class.java)
+    val cartLiveData = MutableLiveData<List<Product>>()
+    val errorLiveData = MutableLiveData<String>()
+
     fun fetchCart() {
         viewModelScope.launch {
-            val response = cartRepo.getCart()
-            if (response.isSuccessful) {
-                val courses=response.body()?: emptyList()
-                cartLiveData.postValue(courses)
-            } else {
-                errorLiveData.postValue(response.errorBody()?.string())
+            try {
+                val response = apiInterface.getProducts().execute()
+                if (response.isSuccessful) {
+                    val products = response.body() ?: ArrayList()  // or emptyList() if you prefer
+                    cartLiveData.postValue(products)
+                } else {
+                    errorLiveData.postValue(response.errorBody()?.string())
+                }
+            } catch (e: Exception) {
+                errorLiveData.postValue(e.message)
             }
         }
     }
@@ -153,11 +191,10 @@ class CartViewmodel:ViewModel(){
 
 
 class ArticlesViewModel : ViewModel() {
-    private val articleRepo = ArticleRepository()
     var errorLiveData = MutableLiveData<String>()
+    private val apiInterface = ApiClient.buildClient(ApiInterface::class.java)
 
-
-    private val articlesLiveData = MutableLiveData<List<ArticleResponse>>()
+    private val articlesLiveData = MutableLiveData<List<ArticleResponse>>(emptyList())
 
     fun getArticles(): LiveData<List<ArticleResponse>> {
         return articlesLiveData
@@ -167,21 +204,20 @@ class ArticlesViewModel : ViewModel() {
         val currentList = articlesLiveData.value ?: emptyList()
         val updatedList = currentList.toMutableList()
         updatedList.add(article)
-        articlesLiveData.value = updatedList
+        articlesLiveData.postValue(updatedList)
     }
 
     suspend fun postArticles(articleRequest: ArticleRequest): Boolean {
         return try {
-            val response = articleRepo.postArticles(articleRequest)
+            val response = apiInterface.postArticles(articleRequest)
+
             val success = response.isSuccessful
 
             if (success) {
                 val postedArticle = response.body()
                 if (postedArticle != null) {
-
                     addArticle(postedArticle)
                 } else {
-
                     errorLiveData.postValue("Response body is null")
                 }
             }
@@ -193,49 +229,67 @@ class ArticlesViewModel : ViewModel() {
         }
     }
 
+
 }
-    class LactationistViewModel : ViewModel() {
-        var lactationistRepo = LactationistRepository()
-        val successLiveData = MutableLiveData<LactationistResponse>()
-        val lactationistLiveData =MutableLiveData<List<Lactationist>>()
-        val errorLiveData = MutableLiveData<String>()
-        fun registerLactationist(lactationistRequest: LactationistRequest) {
-            viewModelScope.launch{
-                val response = lactationistRepo.postLactationist(lactationistRequest)
+
+
+class LactationistViewModel : ViewModel() {
+    private val apiInterface = ApiClient.buildClient(ApiInterface::class.java)
+
+    val successLiveData = MutableLiveData<LactationistResponse>()
+    val lactationistLiveData = MutableLiveData<List<Lactationist>>()
+    val errorLiveData = MutableLiveData<String>()
+
+    fun registerLactationist(lactationistRequest: LactationistRequest) {
+        viewModelScope.launch {
+            try {
+                val response = apiInterface.postLactationists(lactationistRequest)
                 if (response.isSuccessful) {
                     successLiveData.postValue(response.body())
                 } else {
                     errorLiveData.postValue(response.errorBody()?.string())
                 }
-            }
-        }
-
-
-        fun fetchLactationists(){
-            viewModelScope.launch {
-                val response = lactationistRepo.getLactationists()
-                if (response.isSuccessful){
-                    val lactationLists= response.body()?: emptyList()
-                    lactationistLiveData.postValue(lactationLists)
-                }
-                else{
-                    errorLiveData.postValue(response.errorBody()?.string())
-                }
+            } catch (e: Exception) {
+                errorLiveData.postValue(e.message)
             }
         }
     }
 
+    fun fetchLactationists() {
+        viewModelScope.launch {
+            try {
+                val response = apiInterface.getLactationists()
+                if (response.isSuccessful) {
+                    val lactationLists = response.body() ?: emptyList()
+                    lactationistLiveData.postValue(lactationLists)
+                } else {
+                    errorLiveData.postValue(response.errorBody()?.string())
+                }
+            } catch (e: Exception) {
+                errorLiveData.postValue(e.message)
+            }
+        }
+    }
+}
+
+
 class LactationistLoginViewModel : ViewModel() {
-    val lactationistloginRepository = LactationistLoginRepository()
+    private val apiInterface = ApiClient.buildClient(ApiInterface::class.java)
+
     val errorLiveData = MutableLiveData<String>()
     val lactLogLiveData = MutableLiveData<LactationistLoginResponse>()
+
     fun loginLactationist(lactationistLoginRequest: LactationistLoginRequest) {
         viewModelScope.launch {
-            val response = lactationistloginRepository.lactationistlogin(lactationistLoginRequest)
-            if (response.isSuccessful) {
-                lactLogLiveData.postValue(response.body())
-            } else {
-                errorLiveData.postValue(response.errorBody()?.string())
+            try {
+                val response = apiInterface.lactationistlogin(lactationistLoginRequest)
+                if (response.isSuccessful) {
+                    lactLogLiveData.postValue(response.body())
+                } else {
+                    errorLiveData.postValue(response.errorBody()?.string())
+                }
+            } catch (e: Exception) {
+                errorLiveData.postValue(e.message)
             }
         }
     }

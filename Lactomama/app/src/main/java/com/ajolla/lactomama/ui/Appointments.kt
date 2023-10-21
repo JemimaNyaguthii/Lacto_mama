@@ -13,7 +13,8 @@ import com.ajolla.lactomama.databinding.ActivityAppointmentsBinding
 import com.ajolla.lactomama.ui.home.AppointmentsAdapter
 import com.ajolla.lactomama.viewModel.AppointmentViewModel
 
-class Appointments : AppCompatActivity() {
+class
+Appointments : AppCompatActivity() {
     lateinit var binding: ActivityAppointmentsBinding
     val appointmentViewModel:AppointmentViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
