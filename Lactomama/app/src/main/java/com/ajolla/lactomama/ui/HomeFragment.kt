@@ -34,7 +34,6 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         educationalAdapter = ArticleAdapter(mutableListOf())
         binding.rvArticles.layoutManager = GridLayoutManager(requireContext(),2)
         binding.rvArticles.adapter = educationalAdapter
@@ -52,16 +51,12 @@ class HomeFragment : Fragment() {
                 "fetched ${articlesList?.size} articles",
                 Toast.LENGTH_LONG
             ).show()
-            educationalAdapter.articles.clear()
-            educationalAdapter.articles.addAll(articlesList)
             educationalAdapter.notifyDataSetChanged()
         })
-
         eduViewModel.errorLiveData.observe(this, Observer { error ->
             Toast.makeText(requireContext(), error, Toast.LENGTH_LONG).show()
         })
     }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

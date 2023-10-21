@@ -18,7 +18,8 @@ import com.ajolla.lactomama.viewModel.CredentialViewModel
 import java.text.SimpleDateFormat
 import java.util.Locale
 
-class ActivityUpload : AppCompatActivity() {
+class
+ActivityUpload : AppCompatActivity() {
     private lateinit var binding: ActivityUploadBinding
     val credentialViewModel:CredentialViewModel by viewModels()
 

@@ -1,36 +1,45 @@
 package com.ajolla.lactomama.ui
 
-
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.squareup.picasso.Picasso
 import androidx.recyclerview.widget.RecyclerView
 import com.ajolla.lactomama.databinding.EducationalListItemBinding
+import com.ajolla.lactomama.ui.home.ArticleData
+import com.squareup.picasso.Picasso
 
-class ArticleAdapter(var articles:MutableList<EducationalMaterialData>) : RecyclerView.Adapter<ArticleAdapter.EducationalViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EducationalViewHolder {
-        val binding =
-            EducationalListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return EducationalViewHolder(binding)
+class ArticleAdapter(private var articles: List<ArticleData>) : RecyclerView.Adapter<ArticleAdapter.ArticleViewHolder>() {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
+        val binding = EducationalListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ArticleViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: EducationalViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
         val currentArticle = articles[position]
         val binding = holder.binding
+
+        // Set the data to the views
         binding.tvTitle.text = currentArticle.title
-        binding.tvId.text = currentArticle.toString()
-        binding.tvContent.text = currentArticle.content
-        binding.tvCreated.text = currentArticle.createdAt
-        binding.tvTitlee.text = currentArticle.description
-        binding.tvLactationist.text = currentArticle.lactationist.toString()
-        binding.tvUpdated.text = currentArticle.updatedAt
-        binding.ivImage.tag= currentArticle.image
+
+        // Load the image only if it's not null
+        currentArticle.image?.let { imageUrl ->
+            Picasso.get()
+                .load(imageUrl)
+                .resize(80, 80)
+                .centerInside()
+                .into(binding.ivImage)
+        }
     }
 
     override fun getItemCount(): Int {
         return articles.size
     }
 
-    class EducationalViewHolder(var binding: EducationalListItemBinding) :
-        RecyclerView.ViewHolder(binding.root)
+    // Update the articles in the adapter
+    fun updateArticles(newArticles: List<ArticleData>) {
+        articles = newArticles
+        notifyDataSetChanged()
+    }
+
+    class ArticleViewHolder(var binding: EducationalListItemBinding) : RecyclerView.ViewHolder(binding.root)
 }

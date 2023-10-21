@@ -22,15 +22,9 @@ class onBoardingfragment(val page: Page) : Fragment() {
         val titleTxt = view.findViewById<TextView>(R.id.titleTxt)
         val descTxt = view.findViewById<TextView>(R.id.descTxt)
         val imageView = view.findViewById<ImageView>(R.id.imageView)
-
-
         titleTxt.text = page.title
         descTxt.text  = page.desc
         imageView.setImageResource(page.image)
-
-
-
-
         return view
 
     }
