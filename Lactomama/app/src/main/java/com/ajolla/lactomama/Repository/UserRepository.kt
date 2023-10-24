@@ -2,11 +2,8 @@ package com.ajolla.lactomama.Repository
 
 import com.ajolla.lactomama.api.ApiClient
 import com.ajolla.lactomama.api.ApiInterface
-import com.ajolla.lactomama.api.NewClient
-import com.ajolla.lactomama.model.AppointmentResponse
 import com.ajolla.lactomama.model.ArticleRequest
 import com.ajolla.lactomama.model.ArticleResponse
-import com.ajolla.lactomama.model.Courses
 import com.ajolla.lactomama.model.CredentialRequest
 import com.ajolla.lactomama.model.CredentialResponse
 import com.ajolla.lactomama.model.DarajaRequest
@@ -18,13 +15,11 @@ import com.ajolla.lactomama.model.LactationistRequest
 import com.ajolla.lactomama.model.LactationistResponse
 import com.ajolla.lactomama.model.LoginRequest
 import com.ajolla.lactomama.model.LoginResponse
-import com.ajolla.lactomama.model.Product
 import com.ajolla.lactomama.model.UploadCoursesRequest
 import com.ajolla.lactomama.model.UploadCoursesResponse
 import com.ajolla.lactomama.model.UserRequest
 import com.ajolla.lactomama.model.UserResponse
 import com.ajolla.lactomama.model.appointmentdata
-import com.ajolla.lactomama.mother.CoursesData
 import com.ajolla.lactomama.mother.cart.Course
 import com.ajolla.lactomama.ui.EducationalMaterialData
 import kotlinx.coroutines.Dispatchers
@@ -103,23 +98,22 @@ class CoursesRepository {
 
 
 
-    class ArticleRepository {
-        val apiClient = ApiClient.buildClient(ApiInterface::class.java)
-        suspend fun postArticles(articleRequest: ArticleRequest): Response<ArticleResponse> {
-            return withContext(Dispatchers.IO) {
-                apiClient.postArticles(articleRequest)
-            }
-
+class ArticleRepository {
+    val apiClient = ApiClient.buildClient(ApiInterface::class.java)
+    suspend fun postArticles(articleRequest: ArticleRequest): Response<ArticleResponse> {
+        return withContext(Dispatchers.IO) {
+            apiClient.postArticles(articleRequest)
         }
     }
-
 }
-class LactationistRepository {
-    val apiClient= ApiClient.buildClient(ApiInterface::class.java)
-    suspend fun postLactationist(lactationistRequest: LactationistRequest):Response<LactationistResponse> {
-        return withContext(Dispatchers.IO){
-            apiClient.postLactationists(lactationistRequest)
 
+class LactationistRepository {
+    val apiClient = ApiClient.buildClient(ApiInterface::class.java)
+    suspend fun postLactationist(lactationistRequest: LactationistRequest): Response<LactationistResponse> {
+        return withContext(Dispatchers.IO) {
+            apiClient.postLactationists(lactationistRequest)
+        }
+    }
 
     class LactationistRepository {
         val apiClient = ApiClient.buildClient(ApiInterface::class.java)
@@ -135,22 +129,27 @@ class LactationistRepository {
             }
         }
     }
+}
 
-    class LactationistLoginRepository {
-        val apiClient = ApiClient.buildClient(ApiInterface::class.java)
-        suspend fun lactationistlogin(lactationistLoginRequest: LactationistLoginRequest): Response<LactationistLoginResponse> {
-            return withContext(Dispatchers.IO) {
-                apiClient.lactationistlogin(lactationistLoginRequest)
-            }
-
+class LactationistLoginRepository {
+    val apiClient = ApiClient.buildClient(ApiInterface::class.java)
+    suspend fun lactationistlogin(lactationistLoginRequest: LactationistLoginRequest): Response<LactationistLoginResponse> {
+        return withContext(Dispatchers.IO) {
+            apiClient.lactationistlogin(lactationistLoginRequest)
         }
     }
+}
+
 class DarajaRepository {
-    val apiClient= ApiClient.buildClient(ApiInterface::class.java)
-    suspend fun initiateSTKPush(payRequest: DarajaRequest):Response<DarajaResponse>{
-        return withContext(Dispatchers.IO){
+    val apiClient = ApiClient.buildClient(ApiInterface::class.java)
+    suspend fun initiateSTKPush(payRequest: DarajaRequest): Response<DarajaResponse> {
+        return withContext(Dispatchers.IO) {
             apiClient.initiatesSTKPush(payRequest)
         }
     }
 }
+
+
+
+
 

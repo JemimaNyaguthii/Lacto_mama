@@ -18,6 +18,9 @@
         android:theme="@style/Theme.Lactomama"
         tools:targetApi="31">
         <activity
+            android:name=".mother.ArticlesDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".mother.cart.ShoppingCartActivity"
             android:exported="false" />
         <activity

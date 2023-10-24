@@ -7,6 +7,7 @@ import android.view.View
 import androidx.viewpager2.widget.ViewPager2
 import com.ajolla.lactomama.R
 import com.ajolla.lactomama.databinding.ActivityMainBinding
+import com.ajolla.lactomama.ui.home.MotherLogin
 import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
@@ -23,14 +24,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.GetstartedBtn.setOnClickListener {
-            val intent= Intent(this, MotherSignUp::class.java)
+            val intent= Intent(this, MotherLogin::class.java)
             startActivity(intent)
         }
         binding.skip.setOnClickListener {
-            val intent = Intent(this , MotherSignUp::class.java)
+            val intent = Intent(this , MotherLogin::class.java)
             startActivity(intent)
         }
 

@@ -11,14 +11,16 @@
     </string-array>
 
     <!--    <string name="home">Home</string>-->
-    <string name="courses">Courses</string>
-    <string name="materials">Materials</string>
+    <string name="Upload_courses">Upload_ course</string>
+    <string name="Upload_materials">upload_materials</string>
     <string name="profile">Profile</string>
 
 
     <string name="swipe_between_screens">Swipe between screens</string>
     <string name="welcome_to_lactomama">Welcome to LactoMama</string>
     <string name="material">Materials</string>
-    <string name="upload_course">upload_ course</string>
+<!--    <string name="upload_course">upload_ course</string>-->
+<!--    <string name="upload_article" />-->
+<!--    <string name="upload_courses" />-->
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

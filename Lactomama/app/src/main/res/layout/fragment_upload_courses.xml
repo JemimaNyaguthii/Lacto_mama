@@ -12,34 +12,32 @@
         android:layout_height="wrap_content">
 
 
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Upload Materials"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="48dp"
-        android:layout_marginStart="16dp"
-        android:textColor="#000000"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:layout_marginEnd="16dp" />
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="16dp"
+            android:text="Upload Articles"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <Button
             android:id="@+id/btnupload2"
             android:layout_width="330dp"
             android:layout_height="50dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="41dp"
+            android:layout_marginTop="16dp"
             android:backgroundTint="#23BB9B"
-            android:text="Upload files"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="619dp" />
+            android:text="Upload Article"
+            app:layout_constraintEnd_toEndOf="@+id/tvlactate"
+            app:layout_constraintStart_toStartOf="@+id/tvlactate"
+            app:layout_constraintTop_toBottomOf="@+id/tvlactate" />
 
         <WebView
         android:id="@+id/pdfWebView"
@@ -90,29 +88,28 @@
             android:hint="Article title" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tildes"
-        android:layout_width="0dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="@+id/tiltitle"
-        app:layout_constraintStart_toStartOf="@+id/tiltitle"
-        app:layout_constraintTop_toBottomOf="@+id/tiltitle">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tildes"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/tiltitle"
+            app:layout_constraintStart_toStartOf="@+id/tiltitle"
+            app:layout_constraintTop_toBottomOf="@+id/tiltitle">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etdes"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="Article description" />
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etdes"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Article description" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilContent"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="9dp"
-            android:layout_marginEnd="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/tvUpdatedAt"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/tildes"
             app:layout_constraintTop_toBottomOf="@+id/tvUpdatedAt">
@@ -126,9 +123,9 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tvlactate"
-            android:layout_width="360dp"
+            android:layout_width="0dp"
             android:layout_height="63dp"
-            android:layout_marginTop="21dp"
+            android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="@+id/tilContent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/tilContent"
@@ -145,11 +142,9 @@
             android:id="@+id/tvCreatedAt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/tildes"
+            app:layout_constraintStart_toStartOf="@+id/tildes"
             app:layout_constraintTop_toBottomOf="@+id/tildes">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -163,12 +158,10 @@
             android:id="@+id/tvUpdatedAt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/tvCreatedAt"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvCreatedAt"
             app:layout_constraintTop_toBottomOf="@+id/tvCreatedAt">
 
             <com.google.android.material.textfield.TextInputEditText

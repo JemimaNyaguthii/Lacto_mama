@@ -19,8 +19,7 @@ import com.ajolla.lactomama.viewModel.CredentialViewModel
 import java.text.SimpleDateFormat
 import java.util.Locale
 
-class
-ActivityUpload : AppCompatActivity() {
+class ActivityUpload : AppCompatActivity() {
     private lateinit var binding: ActivityUploadBinding
     val credentialViewModel:CredentialViewModel by viewModels()
     private var selectedFileUri: Uri? = null
@@ -83,9 +82,6 @@ ActivityUpload : AppCompatActivity() {
         var status=binding.etstatus.text.toString()
         var selectedFileUri = selectedFileUri.toString()
 
-
-
-
         var error = false
         if (lnumber.isBlank()) {
             binding.tilLnumber.error = "Email required"
@@ -117,15 +113,11 @@ ActivityUpload : AppCompatActivity() {
                 issuedBy =issuedBy,
                 dateIssued = dateIssued,
                 licenseFile = selectedFileUri?.toString() ?: "pdf"
-                
             )
             binding.pbRegister.visibility = View.VISIBLE
             credentialViewModel.credentialUser(credentialRequest)
-
         }
     }
-
-
     private val dateIssuedCalendar = Calendar.getInstance()
     private val expiryCalendar = Calendar.getInstance()
 

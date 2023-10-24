@@ -13,7 +13,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="320dp"
         android:clickable="true">
         <ImageView
             android:id="@+id/course_image"
@@ -26,20 +26,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp">
+
             <TextView
                 android:id="@+id/course_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Course Title"
                 android:textColor="#333333"
                 android:textSize="14sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Course Title" />
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/course_price"
-                android:textSize="12sp"
-                android:textColor="#FF4081"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Course Price" />
+                android:text="Course Price"
+                android:textColor="#FF4081"
+                android:textSize="12sp"
+                android:textStyle="italic" />
             <TextView
                 android:id="@+id/courseDescription"
                 android:layout_width="wrap_content"
@@ -49,8 +53,8 @@
         </LinearLayout>
         <ImageButton
             android:id="@+id/addToCart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="22dp"
             android:layout_gravity="end"
             android:padding="16dp"
             android:src="@drawable/baseline_add_24"

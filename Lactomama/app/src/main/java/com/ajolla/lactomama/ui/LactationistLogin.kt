@@ -40,7 +40,7 @@ class LactationistLogin : AppCompatActivity() {
         lactationistLoginViewModel.lactLogLiveData.observe(this, Observer { logResponse ->
             Toast.makeText(this, "Login successfully", Toast.LENGTH_SHORT).show()
             binding.pbLogin.visibility = View.GONE
-            val intent = Intent(this, ActivityUpload::class.java)
+            val intent = Intent(this, LactationistHome::class.java)
             startActivity(intent)
             finish()
         })

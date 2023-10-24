@@ -4,17 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="16dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".mother.HomeFragment">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-      android:orientation="vertical"
-        android:layout_marginTop="20dp">
-
-
         android:layout_height="match_parent"
-      android:orientation="vertical">
+
+        android:orientation="vertical">
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cvTrackingCard"
@@ -24,7 +21,8 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="0dp"
             android:layout_marginEnd="30dp"
-            app:cardBackgroundColor="#E64980"
+            app:cardBackgroundColor="#E64980
+"
             app:cardCornerRadius="16dp"
             app:cardPreventCornerOverlap="true"
             app:cardUseCompatPadding="true"
@@ -40,9 +38,7 @@
                     android:id="@+id/tvHeadline"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="81dp"
                     android:layout_marginTop="8dp"
-                    android:layout_marginEnd="81dp"
                     android:text="Elevate your Motherhood Journey"
                     android:textColor="@color/white"
                     android:textSize="22sp"
@@ -53,117 +49,90 @@
 
                 <TextView
                     android:id="@+id/textView"
-                    android:layout_width="90dp"
+                    android:layout_width="96dp"
                     android:layout_height="36dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="14dp"
-
                     android:text="Appointments"
 
-                    android:text="Breastfeeding"
-
+                    android:textAlignment="center"
                     android:textColor="@color/white"
-                    app:layout_constraintEnd_toStartOf="@+id/textView2"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/ivFrequency"
+                    app:layout_constraintStart_toStartOf="@+id/ivFrequency"
                     app:layout_constraintTop_toTopOf="@+id/textView2" />
 
                 <TextView
                     android:id="@+id/textView2"
-
                     android:layout_width="75dp"
                     android:layout_height="45dp"
-                    android:layout_marginStart="5dp"
-
-                    android:layout_width="96dp"
-                    android:layout_height="36dp"
-                    android:layout_marginStart="7dp"
-
-                    android:layout_marginEnd="14dp"
                     android:text="Guidance"
+                    android:textAlignment="center"
                     android:textColor="@color/white"
-                    app:layout_constraintEnd_toStartOf="@+id/textView3"
-                    app:layout_constraintStart_toEndOf="@+id/textView"
+                    app:layout_constraintEnd_toEndOf="@+id/ivAmount"
+                    app:layout_constraintStart_toStartOf="@+id/ivAmount"
                     app:layout_constraintTop_toTopOf="@+id/textView3" />
 
                 <TextView
                     android:id="@+id/textView3"
-                    android:layout_width="96dp"
+                    android:layout_width="59dp"
                     android:layout_height="34dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="16dp"
-
+                    android:layout_marginTop="10dp"
                     android:text="Courses"
-
-                    android:text="A friend"
-
+                    android:textAlignment="center"
                     android:textColor="@color/white"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/textView2"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView3"
+                    app:layout_constraintStart_toStartOf="@+id/imageView3"
                     app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
                 <ImageView
                     android:id="@+id/ivFrequency"
                     android:layout_width="66dp"
                     android:layout_height="52dp"
-                    android:layout_marginStart="44dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="16dp"
                     android:src="@drawable/frequency"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvHeadline" />
+                    app:layout_constraintBottom_toTopOf="@+id/textView2"
+                    app:layout_constraintStart_toStartOf="@+id/tvHeadline"
+                    app:layout_constraintTop_toTopOf="@+id/ivAmount" />
 
                 <ImageView
                     android:id="@+id/ivAmount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginTop="11dp"
+                    android:layout_marginStart="16dp"
                     android:src="@drawable/amountofmilk"
-                    app:layout_constraintStart_toEndOf="@+id/ivFrequency"
-                    app:layout_constraintTop_toBottomOf="@+id/tvHeadline" />
+                    app:layout_constraintBottom_toTopOf="@+id/textView3"
+                    app:layout_constraintEnd_toEndOf="@+id/tvHeadline"
+                    app:layout_constraintStart_toStartOf="@+id/tvHeadline"
+                    app:layout_constraintTop_toTopOf="@+id/imageView3" />
 
                 <ImageView
                     android:id="@+id/imageView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="65dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
                     android:src="@drawable/elie"
-                    app:layout_constraintStart_toEndOf="@+id/ivAmount"
+                    app:layout_constraintEnd_toEndOf="@+id/tvHeadline"
                     app:layout_constraintTop_toBottomOf="@+id/tvHeadline" />
-
             </androidx.constraintlayout.widget.ConstraintLayout>
-
         </com.google.android.material.card.MaterialCardView>
-
-
         <TextView
             android:id="@+id/tvUpcomingAppointments"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="152dp"
-
-            android:layout_marginEnd="144dp"
-
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="92dp"
             android:text="Upcoming Appointments"
             android:textColor="#E64980"
             android:textSize="20dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-
+            app:layout_constraintStart_toStartOf="@+id/cvTrackingCard"
             app:layout_constraintTop_toBottomOf="@+id/cvTrackingCard" />
-
-            app:layout_constraintTop_toBottomOf="@+id/ivMotherProfile" />
-
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/Appointments"
             android:layout_width="375dp"
             android:layout_height="150dp"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="8dp"
             app:cardBackgroundColor="#ffff"
             app:cardCornerRadius="16dp"
             app:cardPreventCornerOverlap="true"
@@ -171,11 +140,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvUpcomingAppointments">
 
-
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="364dp"
-                android:layout_height="141dp">
-
+                android:layout_width="368dp"
+                android:layout_height="136dp">
 
                 <ImageView
                     android:id="@+id/imageView4"
@@ -253,6 +220,17 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/ivTime" />
 
+                <ImageView
+                    android:id="@+id/ivNotification"
+                    android:layout_width="50dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="116dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/outline_notifications_24"
+                    app:layout_constraintStart_toEndOf="@+id/tvName"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="#22DFBA" />
+
                 <View
                     android:id="@+id/divider"
                     android:layout_width="1dp"
@@ -273,12 +251,9 @@
             android:id="@+id/rvArticles"
             android:layout_width="406dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="7dp"
             android:layout_marginTop="4dp"
-            android:layout_marginEnd="7dp"
             android:nestedScrollingEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvArticles" />
 
@@ -286,7 +261,7 @@
             android:id="@+id/tvArticles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="92dp"
             android:text="Articles Recommended For You"
             android:textColor="#E64980"
@@ -294,19 +269,6 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Appointments" />
-
-
-
-        <ImageView
-            android:id="@+id/ivMotherProfile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="56dp"
-            android:layout_marginEnd="32dp"
-            android:src="@drawable/profile"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

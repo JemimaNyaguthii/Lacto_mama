@@ -1,13 +1,15 @@
 package com.ajolla.lactomama.ui
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ajolla.lactomama.databinding.EducationalListItemBinding
+import com.ajolla.lactomama.mother.ArticlesDetailsActivity
 import com.ajolla.lactomama.ui.home.ArticleData
 import com.squareup.picasso.Picasso
-
-class ArticleAdapter(private var articles: List<ArticleData>) : RecyclerView.Adapter<ArticleAdapter.ArticleViewHolder>() {
+class ArticleAdapter(var articles: List<ArticleData>,private val context: Context) : RecyclerView.Adapter<ArticleAdapter.ArticleViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
         val binding = EducationalListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -18,16 +20,19 @@ class ArticleAdapter(private var articles: List<ArticleData>) : RecyclerView.Ada
         val currentArticle = articles[position]
         val binding = holder.binding
 
-        // Set the data to the views
         binding.tvTitle.text = currentArticle.title
-
-        // Load the image only if it's not null
+        binding.tvArticleDescription.text=currentArticle.description
         currentArticle.image?.let { imageUrl ->
             Picasso.get()
                 .load(imageUrl)
                 .resize(80, 80)
                 .centerInside()
                 .into(binding.ivImage)
+        }
+        holder.binding.rvArticles.setOnClickListener {
+            val intent =Intent(context,ArticlesDetailsActivity::class.java)
+            intent.putExtra("CONTENT", currentArticle.content)
+            context.startActivity(intent)
         }
     }
 

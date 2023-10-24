@@ -21,8 +21,18 @@
             android:backgroundTint="#23BB9B"
             app:titleTextColor="#ffffff"
             android:background="@android:color/white" />
-    </com.google.android.material.appbar.AppBarLayout>
 
+    </com.google.android.material.appbar.AppBarLayout>
+    <ImageView
+        android:id="@+id/ivBackHome"
+        android:layout_width="43dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="18dp"
+        android:backgroundTint="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/arrow_back"
+        app:tint="@android:color/black" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/shopping_cart_recyclerView"
         android:layout_width="411dp"
@@ -45,6 +55,8 @@
             android:layout_marginLeft="15dp"
             android:layout_centerVertical="true"
             tools:ignore="RtlCompat">
+
+
 
             <TextView
                 android:id="@+id/totalLabel"

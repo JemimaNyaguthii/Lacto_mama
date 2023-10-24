@@ -13,7 +13,9 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.GridLayoutManager
 import com.ajolla.lactomama.databinding.FragmentHomeBinding
+import com.ajolla.lactomama.mother.cart.ShoppingCartActivity
 import com.ajolla.lactomama.ui.ArticleAdapter
+import com.ajolla.lactomama.ui.HomeFragment
 import com.ajolla.lactomama.ui.MotherProfile
 import com.ajolla.lactomama.ui.home.ArticleData
 import com.ajolla.lactomama.viewModel.EducationalMaterialsViewModel
@@ -25,7 +27,7 @@ class HomeFragment : Fragment() {
     private lateinit var educationalAdapter: ArticleAdapter
 
     override fun onCreateView(
-        inflater: LayoutInflater, con>>>>>>> devtainer: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
@@ -34,9 +36,11 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        educationalAdapter = ArticleAdapter(mutableListOf())
+
+        educationalAdapter = ArticleAdapter(emptyList(), requireContext())
         binding.rvArticles.layoutManager = GridLayoutManager(requireContext(), 2)
-        binding.rvArticles.adapter = educationalAdapter
+        binding.rvArticles.adapter = educationalAdapter // Set the adapter
+
         val animator = DefaultItemAnimator()
         animator.addDuration = 1000
         binding.rvArticles.itemAnimator = animator
@@ -47,34 +51,16 @@ class HomeFragment : Fragment() {
                 educationalAdapter.updateArticles(articlesList)
             }
         })
-
-
         eduViewModel.errorLiveData.observe(viewLifecycleOwner, Observer { error ->
             Toast.makeText(requireContext(), error, Toast.LENGTH_LONG).show()
         })
-
         eduViewModel.fetchArticles()
+
     }
 
-
-    override fun onResume() {
-        super.onResume()
-        displayArticles()
-//        binding.ivMotherProfile.setOnClickListener {
-//            val intent = I>>>>>>> devntent(requireContext(), MotherProfile::class.java)
-//            startActivity(intent)
-//        }
-
-
-        binding.ivMotherProfile.setOnClickListener {
-            val intent = Intent(requireContext(), MotherProfile::class.java)
-            startActivity(intent)
+        override fun onDestroyView() {
+            super.onDestroyView()
+            _binding = null
         }
-
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-}

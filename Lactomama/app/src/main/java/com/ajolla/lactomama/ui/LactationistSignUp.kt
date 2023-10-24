@@ -37,7 +37,7 @@ class LactationistSignUp : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.tvLactaitonistLogin.setOnClickListener {
-            val intent = Intent(this, LactationistLogin::class.java)
+            val intent = Intent(this, ActivityUpload::class.java)
             startActivity(intent)
         }
     }

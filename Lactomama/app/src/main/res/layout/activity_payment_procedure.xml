@@ -5,6 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.PaymentProcedure">
+    <ImageView
+        android:id="@+id/ivBackShopping"
+        android:layout_width="43dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="18dp"
+        android:backgroundTint="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/arrow_back"
+        app:tint="@android:color/black" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilPhoneNumber"
@@ -68,7 +78,8 @@
             android:id="@+id/etAmount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="hint" />
+            />
+
     </com.google.android.material.textfield.TextInputLayout>
 
 

@@ -28,7 +28,7 @@ class ShoppingCartAdapter(
     inner class ViewHolder(private val binding: CartListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bindItem(cartItem: CartItem) {
-            binding.productName.text = cartItem.product.name
+            binding.productName.text = cartItem.product.title
             binding.productPrice.text = "ksh${cartItem.product.price}"
             binding.productQuantity.text = cartItem.quantity.toString()
             binding.productDescription.text = cartItem.product.description
@@ -42,6 +42,7 @@ class ShoppingCartAdapter(
             }
         }
     }
+
     private class CartItemsDiffCallback : DiffUtil.ItemCallback<CartItem>() {
         override fun areItemsTheSame(oldItem: CartItem, newItem: CartItem): Boolean {
             return oldItem.product.id == newItem.product.id
@@ -51,8 +52,8 @@ class ShoppingCartAdapter(
             return oldItem == newItem
         }
     }
+
     fun updateCartItems(cartItems: List<CartItem>) {
         submitList(cartItems)
     }
-
 }

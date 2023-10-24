@@ -6,6 +6,8 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.ajolla.lactomama.PaymentSuccessful
 import com.ajolla.lactomama.databinding.ActivityPaymentProcedureBinding
+import com.ajolla.lactomama.mother.FragmentAll
+import com.ajolla.lactomama.mother.cart.ShoppingCartActivity
 import com.example.amalimobile.ui.home.donation.DarajaViewModel
 
 class PaymentProcedure : AppCompatActivity() {
@@ -33,4 +35,12 @@ class PaymentProcedure : AppCompatActivity() {
             }
         }
     }
+        override fun onResume() {
+            super.onResume()
+            binding.ivBackShopping.setOnClickListener {
+                val intent = Intent( this,ShoppingCartActivity::class.java)
+                startActivity(intent)
+            }
+        }
+
 }

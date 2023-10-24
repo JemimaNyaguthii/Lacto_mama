@@ -1,7 +1,6 @@
 package com.ajolla.lactomama.mother.cart
 
 import android.content.Context
-import com.ajolla.lactomama.model.Product
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
@@ -9,15 +8,15 @@ class ShoppingCart {
     companion object {
         private const val CART_PREFS = "cart_prefs"
 
-        fun addItem(product: Product, context: Context) {
+        fun addItem(cartItem: CartItem, context: Context) {
             val cart = getCart(context)
 
-            val targetItem = cart.singleOrNull { it.product.id == product.id }
+            val targetItem = cart.singleOrNull { it.product.id == cartItem.product.id }
 
             if (targetItem == null) {
-                val cartItem = CartItem(product)
-                cartItem.quantity++
-                cart.add(cartItem)
+                val newCartItem = CartItem(cartItem.product)
+                newCartItem.quantity++
+                cart.add(newCartItem)
             } else {
                 targetItem.quantity++
             }
@@ -25,10 +24,10 @@ class ShoppingCart {
             saveCart(cart, context)
         }
 
-        fun removeFromCart(product: Product, context: Context) {
+        fun removeFromCart(cartItem: CartItem, context: Context) {
             val cart = getCart(context)
 
-            val targetItem = cart.singleOrNull { it.product.id == product.id }
+            val targetItem = cart.singleOrNull { it.product.id == cartItem.product.id }
 
             if (targetItem != null) {
                 if (targetItem.quantity > 0) {

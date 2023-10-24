@@ -29,7 +29,7 @@ class ProductAdapter(
         RecyclerView.ViewHolder(binding.root) {
 
         fun bindProduct(product: Product) {
-            binding.productName.text = product.name
+            binding.productName.text = product.itemsName
             binding.productPrice.text = "$${product.price}"
 
 
