@@ -30,10 +30,10 @@ Appointments : AppCompatActivity() {
         super.onResume()
         appointmentViewModel.fetchAppointments()
         appointmentViewModel.appointmentLiveData.observe(this, Observer { appointmentlist ->
-            Toast.makeText(baseContext,
-                "fetched ${appointmentlist?.size}posts",
-                Toast.LENGTH_LONG
-            ).show()
+//            Toast.makeText(baseContext,
+//                "fetched ${appointmentlist?.size}posts",
+//                Toast.LENGTH_LONG
+//            ).show()
             binding.rvappointments.layoutManager=LinearLayoutManager(this@Appointments)
             binding.rvappointments.adapter=AppointmentsAdapter(appointmentlist)
         })

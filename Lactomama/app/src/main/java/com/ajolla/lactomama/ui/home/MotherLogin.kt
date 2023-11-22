@@ -22,7 +22,8 @@ class MotherLogin : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMotherLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-    }
+    }//            intent.putExtra("USER_NAME",userName)
+
 
     override fun onResume() {
         super.onResume()
@@ -39,8 +40,11 @@ class MotherLogin : AppCompatActivity() {
             Toast.makeText(this, "Login successfully", Toast.LENGTH_SHORT).show()
             binding.pbLogin.visibility = View.GONE
             val intent = Intent(this, HomePageActivity::class.java)
+            val userName = intent.getStringExtra("USER_NAME")
+            intent.putExtra("USER_NAME",userName)
             startActivity(intent)
             finish()
+
         })
 
 

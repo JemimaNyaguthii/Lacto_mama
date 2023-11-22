@@ -12,29 +12,22 @@ class ArticlesDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
       binding= ActivityArticlesDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         val articleId = intent.getStringExtra("ARTICLE_ID")
         val content = intent.getStringExtra("CONTENT")
         populateArticleDetails(
             articleId,content,
         )
+        binding.ivBackCourse.setOnClickListener {
+            onBackPressed()
+            val intent = Intent(this,HomeFragment::class.java)
+            startActivity(intent)
+        }
     }
-
     private fun populateArticleDetails(
         articleId:String?,
         content: String?,
-
     ) {
         binding.tvId.text=articleId
         binding.tvContent.text=content
-
-    }
-
-    override fun onResume() {
-        super.onResume()
-        binding.ivBackCourse.setOnClickListener {
-            val intent = Intent( this,FragmentAll::class.java)
-            startActivity(intent)
-        }
     }
 }

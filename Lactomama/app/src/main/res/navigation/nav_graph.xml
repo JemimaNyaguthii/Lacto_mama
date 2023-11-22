@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph">
+    <fragment
+        android:id="@+id/childFragment"
+        android:name="com.ajolla.lactomama.ui.status.ChildFragment"
+        android:label="fragment_child"
+        tools:layout="@layout/fragment_child" >
+        <action
+            android:id="@+id/action_childFragment_to_feedingFragment"
+            app:destination="@id/feedingFragment" />
+        <action
+            android:id="@+id/action_childFragment_to_diaperFragment"
+            app:destination="@id/diaperFragment" />
+        <action
+            android:id="@+id/action_childFragment_to_sleepFragment"
+            app:destination="@id/sleepFragment" />
+        <action
+            android:id="@+id/action_childFragment_to_calenderFragment"
+            app:destination="@id/calenderFragment" />
+        <action
+            android:id="@+id/action_childFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.ajolla.lactomama.ui.status.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_childFragment"
+            app:destination="@id/childFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/diaperFragment"
+        android:name="com.ajolla.lactomama.ui.status.DiaperFragment"
+        android:label="fragment_diaper"
+        tools:layout="@layout/fragment_diaper" >
+        <action
+            android:id="@+id/action_diaperFragment_to_childFragment"
+            app:destination="@id/childFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/feedingFragment"
+        android:name="com.ajolla.lactomama.ui.status.FeedingFragment"
+        android:label="fragment_feeding"
+        tools:layout="@layout/fragment_feeding" >
+        <action
+            android:id="@+id/action_feedingFragment_to_childFragment"
+            app:destination="@id/childFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sleepFragment"
+        android:name="com.ajolla.lactomama.ui.status.SleepFragment"
+        android:label="fragment_sleep"
+        tools:layout="@layout/fragment_sleep" >
+        <action
+            android:id="@+id/action_sleepFragment_to_childFragment"
+            app:destination="@id/childFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/calenderFragment"
+        android:name="com.ajolla.lactomama.ui.status.CalenderFragment"
+        android:label="fragment_calender"
+        tools:layout="@layout/fragment_calender" >
+        <action
+            android:id="@+id/action_calenderFragment_to_childFragment"
+            app:destination="@id/childFragment" />
+    </fragment>
+
+    </navigation>

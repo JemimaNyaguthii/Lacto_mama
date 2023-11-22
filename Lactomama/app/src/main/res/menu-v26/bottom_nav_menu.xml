@@ -20,4 +20,12 @@
             android:icon="@drawable/outline_medical_services_24"
             app:tint="#FFFF"
             android:enabled="true"/>
+        <item
+            android:id="@+id/childFragment"
+            android:title="Child Profile"
+            android:icon="@drawable/baseline_child_care_24"
+            app:tint="#FFFF"
+            android:enabled="true"/>
+
+
 </menu>

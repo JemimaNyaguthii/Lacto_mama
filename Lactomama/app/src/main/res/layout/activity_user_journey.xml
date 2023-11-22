@@ -15,7 +15,7 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="50dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/ivProfilee"
         app:srcCompat="@drawable/lactation" />
 
     <ImageView
@@ -63,7 +63,6 @@
         android:text="I'm a Lactationist"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
-
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="@+id/textView4"
         app:layout_constraintStart_toStartOf="@+id/textView4"
@@ -84,7 +83,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/ivProfilee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
@@ -95,10 +94,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/intro" />
 
-
-
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tvDiaperChange"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
@@ -107,8 +104,8 @@
         android:textColorHint="#F6FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-        app:layout_constraintEnd_toEndOf="@+id/imageView2"
-        app:layout_constraintStart_toStartOf="@+id/imageView2" />
+        app:layout_constraintBottom_toBottomOf="@+id/ivProfilee"
+        app:layout_constraintEnd_toEndOf="@+id/ivProfilee"
+        app:layout_constraintStart_toStartOf="@+id/ivProfilee" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

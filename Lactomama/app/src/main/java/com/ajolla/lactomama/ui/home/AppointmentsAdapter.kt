@@ -22,8 +22,6 @@ class AppointmentsAdapter(var appointmentlist:List<appointmentdata>):RecyclerVie
         binding.textView20.text=currentAppointment.available
         binding.textView21.text=currentAppointment.firstName
         binding.textView22.text=currentAppointment.need
-        binding.textView23.text=currentAppointment.secondName
-        binding.textView24.text= currentAppointment.mother.toString()
 
     }
 

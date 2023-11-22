@@ -20,7 +20,6 @@ class CourseDetailsActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnPay.setOnClickListener {
-
             val paymentIntent = Intent(this, PaymentActivity::class.java)
             startActivity(paymentIntent)
         }

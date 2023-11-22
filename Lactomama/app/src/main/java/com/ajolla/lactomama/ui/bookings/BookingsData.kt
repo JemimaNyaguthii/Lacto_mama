@@ -1,6 +1,8 @@
 package com.ajolla.lactomama.ui.bookings
 
+import com.google.gson.annotations.SerializedName
+
 data class BookingsData(
-    var image: String,
-    var title: String
+    var need:String,
+    @SerializedName("available_slot")var availableSlot :String
 )

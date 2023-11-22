@@ -2,15 +2,17 @@
 <androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nestedScrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="16dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:navGraph="@navigation/nav_graph"
     tools:context=".mother.HomeFragment">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         android:orientation="vertical">
 
         <com.google.android.material.card.MaterialCardView
@@ -21,8 +23,7 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="0dp"
             android:layout_marginEnd="30dp"
-            app:cardBackgroundColor="#E64980
-"
+            app:cardBackgroundColor="#E64980"
             app:cardCornerRadius="16dp"
             app:cardPreventCornerOverlap="true"
             app:cardUseCompatPadding="true"
@@ -35,83 +36,86 @@
                 android:layout_height="165dp">
 
                 <TextView
-                    android:id="@+id/tvHeadline"
+                    android:id="@+id/tvTrackingHeading"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Elevate your Motherhood Journey"
+                    android:layout_marginStart="76dp"
+                    android:layout_marginTop="16dp"
+                    android:text="What You’re Tracking"
                     android:textColor="@color/white"
-                    android:textSize="22sp"
-                    android:textStyle="normal"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="23dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/tvFeeding"
                     android:layout_width="96dp"
                     android:layout_height="36dp"
-                    android:text="Appointments"
+                    android:layout_marginEnd="7dp"
 
+                    android:text="Breastfeeeding times"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     app:layout_constraintEnd_toEndOf="@+id/ivFrequency"
                     app:layout_constraintStart_toStartOf="@+id/ivFrequency"
-                    app:layout_constraintTop_toTopOf="@+id/textView2" />
+                    app:layout_constraintTop_toTopOf="@+id/tvSleep" />
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/tvSleep"
                     android:layout_width="75dp"
                     android:layout_height="45dp"
-                    android:text="Guidance"
+                    android:layout_marginEnd="30dp"
+                    android:text="Sleep"
                     android:textAlignment="center"
                     android:textColor="@color/white"
-                    app:layout_constraintEnd_toEndOf="@+id/ivAmount"
-                    app:layout_constraintStart_toStartOf="@+id/ivAmount"
-                    app:layout_constraintTop_toTopOf="@+id/textView3" />
+                    app:layout_constraintEnd_toStartOf="@+id/tvDiaperChange"
+                    app:layout_constraintTop_toTopOf="@+id/tvDiaperChange" />
 
                 <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="59dp"
-                    android:layout_height="34dp"
-                    android:layout_marginTop="10dp"
-                    android:text="Courses"
+                    android:id="@+id/tvDiaperChange"
+                    android:layout_width="64dp"
+                    android:layout_height="44dp"
+                    android:layout_marginStart="132dp"
+                    android:layout_marginBottom="21dp"
+                    android:text="Diaper Change"
                     android:textAlignment="center"
                     android:textColor="@color/white"
-                    app:layout_constraintEnd_toEndOf="@+id/imageView3"
-                    app:layout_constraintStart_toStartOf="@+id/imageView3"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tvFeeding" />
 
                 <ImageView
                     android:id="@+id/ivFrequency"
                     android:layout_width="66dp"
                     android:layout_height="52dp"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="40dp"
+                    android:layout_marginBottom="4dp"
                     android:src="@drawable/frequency"
-                    app:layout_constraintBottom_toTopOf="@+id/textView2"
-                    app:layout_constraintStart_toStartOf="@+id/tvHeadline"
-                    app:layout_constraintTop_toTopOf="@+id/ivAmount" />
+                    app:layout_constraintBottom_toTopOf="@+id/tvSleep"
+                    app:layout_constraintEnd_toStartOf="@+id/ivSleep"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTrackingHeading" />
 
                 <ImageView
-                    android:id="@+id/ivAmount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:src="@drawable/amountofmilk"
-                    app:layout_constraintBottom_toTopOf="@+id/textView3"
-                    app:layout_constraintEnd_toEndOf="@+id/tvHeadline"
-                    app:layout_constraintStart_toStartOf="@+id/tvHeadline"
-                    app:layout_constraintTop_toTopOf="@+id/imageView3" />
+                    android:id="@+id/ivSleep"
+                    android:layout_width="67dp"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="50dp"
+                    android:src="@drawable/sleep"
+                    app:layout_constraintStart_toEndOf="@+id/ivFrequency"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTrackingHeading" />
 
                 <ImageView
-                    android:id="@+id/imageView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:src="@drawable/elie"
-                    app:layout_constraintEnd_toEndOf="@+id/tvHeadline"
-                    app:layout_constraintTop_toBottomOf="@+id/tvHeadline" />
+                    android:id="@+id/ivDiaper"
+                    android:layout_width="148dp"
+                    android:layout_height="85dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="1dp"
+                    android:src="@drawable/diaper_select"
+                    app:layout_constraintBottom_toTopOf="@+id/tvSleep"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTrackingHeading" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
         <TextView

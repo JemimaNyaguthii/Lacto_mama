@@ -16,35 +16,12 @@
         app:srcCompat="@drawable/arrow_back"
         app:tint="@android:color/black" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilPhoneNumber"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="270dp"
-        android:layout_marginEnd="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:prefixText="+254"
-        app:startIconDrawable="@drawable/round_phone_24"
-        app:startIconTint="#22DFBA">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etPhoneNumber"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Phone Number" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
     <Button
         android:id="@+id/btnFinish"
         android:layout_width="124dp"
         android:layout_height="45dp"
         android:layout_marginStart="130dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="81dp"
         android:layout_marginEnd="193dp"
         android:backgroundTint="#22DFBA"
         android:text="Finish"
@@ -52,7 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilPhoneNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/tilAmount" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -67,18 +44,18 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="255dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="20dp"
         android:hint="Input total amount"
-        app:layout_constraintBottom_toTopOf="@+id/tilPhoneNumber"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivBackShopping">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etAmount"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
+            android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

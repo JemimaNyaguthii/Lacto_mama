@@ -17,7 +17,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="Shopping Cart"
+            app:title="                       Shopping Cart"
             android:backgroundTint="#23BB9B"
             app:titleTextColor="#ffffff"
             android:background="@android:color/white" />

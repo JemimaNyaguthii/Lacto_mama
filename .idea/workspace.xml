@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6d583b29-ff98-46fb-b35f-1c1c919f584c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Lactomama/app/src/main/java/com/ajolla/lactomama/mother/FragmentAll.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Lactomama/app/src/main/java/com/ajolla/lactomama/mother/FragmentAll.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lactomama/app/src/main/java/com/ajolla/lactomama/ui/Listcourse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Lactomama/app/src/main/java/com/ajolla/lactomama/ui/Listcourse.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lactomama/app/src/main/java/com/ajolla/lactomama/ui/UserJourneyActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Lactomama/app/src/main/java/com/ajolla/lactomama/ui/UserJourneyActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lactomama/app/src/main/res/layout/activity_listcourse.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Lactomama/app/src/main/res/layout/activity_listcourse.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lactomama/app/src/main/res/layout/activity_user_journey.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Lactomama/app/src/main/res/layout/activity_user_journey.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2XDMFKgIN0ucXqeSkmhPOkSQoVa" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/user/Ajolla-Mobile/Lactomama&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6d583b29-ff98-46fb-b35f-1c1c919f584c" name="Changes" comment="" />
+      <created>1698159092142</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1698159092142</updated>
+    </task>
+    <servers />
+  </component>
+</project>

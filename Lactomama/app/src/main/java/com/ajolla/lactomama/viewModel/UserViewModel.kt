@@ -1,22 +1,29 @@
 package com.ajolla.lactomama.viewModel
 
+import android.app.Application
 import android.util.Log
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ajolla.lactomama.Repository.AppointmentRepository
+import com.ajolla.lactomama.Repository.BookingsRepository
 //import com.ajolla.lactomama.Repository.CartRepository
 import com.ajolla.lactomama.Repository.CoursesRepository
 import com.ajolla.lactomama.Repository.CredentialRepository
 import com.ajolla.lactomama.Repository.EducationalMaterialsRepository
 import com.ajolla.lactomama.Repository.LoginRepository
+import com.ajolla.lactomama.Repository.Repository
 import com.ajolla.lactomama.Repository.UserRepository
 import com.ajolla.lactomama.api.ApiClient
 import com.ajolla.lactomama.api.ApiInterface
 import com.ajolla.lactomama.api.NewClient
+import com.ajolla.lactomama.database.BabyDatabase
+import com.ajolla.lactomama.database.StatusDatabase
 import com.ajolla.lactomama.model.ArticleRequest
 import com.ajolla.lactomama.model.ArticleResponse
+import com.ajolla.lactomama.model.BabyDataClass
 import com.ajolla.lactomama.model.CredentialRequest
 import com.ajolla.lactomama.model.CredentialResponse
 import com.ajolla.lactomama.model.Lactationist
@@ -27,12 +34,16 @@ import com.ajolla.lactomama.model.LactationistResponse
 import com.ajolla.lactomama.model.LoginRequest
 import com.ajolla.lactomama.model.LoginResponse
 import com.ajolla.lactomama.model.Product
+import com.ajolla.lactomama.model.StatusDataClass
 import com.ajolla.lactomama.model.UploadCoursesRequest
 import com.ajolla.lactomama.model.UserRequest
 import com.ajolla.lactomama.model.UserResponse
 import com.ajolla.lactomama.model.appointmentdata
 import com.ajolla.lactomama.mother.cart.Course
 import com.ajolla.lactomama.ui.EducationalMaterialData
+import com.ajolla.lactomama.ui.bookings.BookingsData
+import com.ajolla.lactomama.ui.bookings.BookingsRequest
+import com.ajolla.lactomama.ui.bookings.BookingsResponse
 import com.ajolla.lactomama.ui.home.ArticleData
 import kotlinx.coroutines.launch
 import retrofit2.Response
@@ -275,7 +286,6 @@ class LactationistViewModel : ViewModel() {
 
 class LactationistLoginViewModel : ViewModel() {
     private val apiInterface = ApiClient.buildClient(ApiInterface::class.java)
-
     val errorLiveData = MutableLiveData<String>()
     val lactLogLiveData = MutableLiveData<LactationistLoginResponse>()
 
@@ -294,22 +304,48 @@ class LactationistLoginViewModel : ViewModel() {
         }
     }
 }
+class BookingsViewModel : ViewModel() {
 
-//    class CartViewmodel:ViewModel(){
-//        val cartRepo = CartRepository()
-//        var cartLiveData = MutableLiveData<List<Course>>()
-//        var errorLiveData = MutableLiveData<String>()
-//        fun fetchCart() {
-//            viewModelScope.launch {
-//                val response = cartRepo.getCart()
-//                if (response.isSuccessful) {
-//                    val courses=response.body()?: emptyList()
-//                    cartLiveData.postValue(courses)
-//                } else {
-//                    errorLiveData.postValue(response.errorBody()?.string())
-//                }
-//            }
-//        }
-//    }
+    private val bookRepo = BookingsRepository()
+    var bookingLiveData = MutableLiveData<BookingsResponse>()
+    var errorLiveData = MutableLiveData<String>()
 
+    suspend fun bookingLactationist(bookingRequest: BookingsRequest, lactationistName: Int) {
+        try {
+            val response = bookRepo.postBookings(bookingRequest)
+            if (response.isSuccessful) {
+                val responseBody = response.body()
+                responseBody?.let {
+                    bookingLiveData.postValue(it)
+                    val successMessage = "Booking with $lactationistName was successful."
+                    errorLiveData.postValue(successMessage)
+                } ?: run {
+                    errorLiveData.postValue("Booking response is null. Please try again later.")
+                }
+            } else {
+                errorLiveData.postValue("Booking failed.")
+            }
+        } catch (e: Exception) {
+            errorLiveData.postValue(e.message ?: "Booking failed.")
+        }
+    }
+}
+class Viewmodel (application: Application): AndroidViewModel(application){
+    private val repository : Repository
 
+    init{
+        val babyDao = BabyDatabase.getDatabase(application).babyDao()
+        val statusDao = StatusDatabase.getInstance(application).statusDao()
+        repository = Repository(babyDao,statusDao)
+    }
+
+    suspend fun getData() = repository.getBaby()
+    suspend fun getStatus() = repository.getStatus()
+    fun insertBaby(babyDataClass: BabyDataClass) = viewModelScope.launch {
+        repository.insert(babyDataClass)
+    }
+
+    fun insertSleep(statusDataClass: StatusDataClass) = viewModelScope.launch {
+        repository.insertStatus(statusDataClass)
+    }
+}

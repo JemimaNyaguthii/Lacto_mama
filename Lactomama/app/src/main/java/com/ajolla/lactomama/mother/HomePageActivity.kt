@@ -2,10 +2,10 @@ package com.ajolla.lactomama.mother
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.ajolla.lactomama.ChatFragment
 import com.ajolla.lactomama.R
 import com.ajolla.lactomama.databinding.ActivityHomePageBinding
 import com.ajolla.lactomama.ui.bookings.BookingsFragment
+import com.ajolla.lactomama.ui.status.LoginFragment
 
 class HomePageActivity : AppCompatActivity() {
 lateinit var binding: ActivityHomePageBinding
@@ -50,6 +50,12 @@ lateinit var binding: ActivityHomePageBinding
                     supportFragmentManager
                         .beginTransaction()
                         .replace(R.id.fcvHome, CoursesFragment()).commit()
+                    true
+                }
+                R.id.childFragment -> {
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.fcvHome, LoginFragment()).commit()
                     true
                 }
 

@@ -97,7 +97,8 @@ class FragmentAll : Fragment() {
 
                     adapter.updateCartItems(cartItems)  // Update the adapter with the fetched cart items
                 } else {
-                    val errorMessage = "Request was not successful. Status code: ${response.code()}"
+                          // Set an OnClickListener for the Lactation Specialist button
+  val errorMessage = "Request was not successful. Status code: ${response.code()}"
                     Log.d("Data error", errorMessage)
                     Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show()
                 }

@@ -2,8 +2,11 @@ package com.ajolla.lactomama.Repository
 
 import com.ajolla.lactomama.api.ApiClient
 import com.ajolla.lactomama.api.ApiInterface
+import com.ajolla.lactomama.dao.BabyDao
+import com.ajolla.lactomama.dao.StatusDao
 import com.ajolla.lactomama.model.ArticleRequest
 import com.ajolla.lactomama.model.ArticleResponse
+import com.ajolla.lactomama.model.BabyDataClass
 import com.ajolla.lactomama.model.CredentialRequest
 import com.ajolla.lactomama.model.CredentialResponse
 import com.ajolla.lactomama.model.DarajaRequest
@@ -15,6 +18,7 @@ import com.ajolla.lactomama.model.LactationistRequest
 import com.ajolla.lactomama.model.LactationistResponse
 import com.ajolla.lactomama.model.LoginRequest
 import com.ajolla.lactomama.model.LoginResponse
+import com.ajolla.lactomama.model.StatusDataClass
 import com.ajolla.lactomama.model.UploadCoursesRequest
 import com.ajolla.lactomama.model.UploadCoursesResponse
 import com.ajolla.lactomama.model.UserRequest
@@ -22,6 +26,8 @@ import com.ajolla.lactomama.model.UserResponse
 import com.ajolla.lactomama.model.appointmentdata
 import com.ajolla.lactomama.mother.cart.Course
 import com.ajolla.lactomama.ui.EducationalMaterialData
+import com.ajolla.lactomama.ui.bookings.BookingsRequest
+import com.ajolla.lactomama.ui.bookings.BookingsResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.Call
@@ -148,6 +154,28 @@ class DarajaRepository {
         }
     }
 }
+class BookingsRepository {
+    val apiClient = ApiClient.buildClient(ApiInterface::class.java)
+    suspend fun postBookings(bookingsRequest:BookingsRequest): Response<BookingsResponse> =
+         withContext(Dispatchers.IO){
+             var resp = apiClient.bookingLactationist(bookingsRequest)
+             return@withContext resp
+        }
+
+    }
+class Repository(private val babyDao: BabyDao, private val statusDao: StatusDao) {
+
+    suspend fun getBaby() = babyDao.getBaby()
+    suspend fun getStatus() = statusDao.getStatus()
+
+    suspend fun insert(babyDataClass: BabyDataClass){
+        babyDao.insertBaby(babyDataClass)
+    }
+    suspend fun insertStatus(statusDataClass: StatusDataClass){
+        statusDao.insertStatus(statusDataClass)
+    }
+}
+
 
 
 

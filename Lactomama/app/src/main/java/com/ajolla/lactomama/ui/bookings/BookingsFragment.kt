@@ -33,11 +33,8 @@ class BookingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
    lactationistAdapter = LactationistAdapter(emptyList())
-//        val layoutmanager= LinearLayoutManager(requireContext())
         binding.rvLactationists.layoutManager = GridLayoutManager(requireContext(),2)
         binding.rvLactationists.adapter = lactationistAdapter
-//        binding.rvLactationists.layoutManager = layoutmanager
-
 
     }
 
@@ -49,7 +46,7 @@ class BookingsFragment : Fragment() {
             binding.rvLactationists.adapter = adapterHolder
 //            Toast.makeText(
 //                requireContext(),
-//                "Fetched ${lactationists?.size} mothers",
+////                "Fetched ${lactationists?.size} mothers",
 //                Toast.LENGTH_LONG
 //            ).show()
         }

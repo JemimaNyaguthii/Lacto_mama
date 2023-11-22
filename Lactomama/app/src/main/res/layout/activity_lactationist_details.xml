@@ -9,92 +9,103 @@
 
     <ImageView
         android:id="@+id/imageView12"
-        android:layout_width="432dp"
-        android:layout_height="375dp"
-        android:layout_marginTop="-5dp"
+        android:layout_width="420dp"
+        android:layout_height="290dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="-1dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/ivLactationist"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintHorizontal_bias="0.625"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.141"
         app:srcCompat="@drawable/lactattionist_detail" />
+
+    <!-- TextViews -->
 
     <ImageView
         android:id="@+id/ivLactationist"
-        android:layout_width="270dp"
-        android:layout_height="225dp"
-        android:layout_marginTop="70dp"
+        android:layout_width="304dp"
+        android:layout_height="246dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/round"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLactationistName"
         app:srcCompat="@drawable/maureen" />
 
-    <!-- TextViews -->
     <TextView
         android:id="@+id/tvLactationistName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
         android:layout_marginTop="16dp"
+        android:textColor="@color/white"
         android:text="Dr. Maureen"
-        android:textColor="#DFFFFFFF"
-        android:textSize="24sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="@+id/ivLactationist"
-        app:layout_constraintStart_toStartOf="@+id/ivLactationist"
-        app:layout_constraintTop_toBottomOf="@+id/ivLactationist" />
-
-    <TextView
-        android:id="@+id/tvWorkingHours"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Working Hours"
-        android:textColor="#23BB9B"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvCreatedAt"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvDescription"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        android:textStyle="bold"
-        android:textSize="15sp"
-        android:text="Mondays     11:00 AM - 12:15 PM"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="10dp"
+        android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvWorkingHours" />
+        app:layout_constraintTop_toBottomOf="@+id/ivLactationist" />
 
-    <TextView
-        android:id="@+id/tvDayDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
-        android:textStyle="bold"
-        android:textSize="15sp"
-        android:text="Wednesday     11:00 AM - 12:15 PM"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvWorkingHours" />
+<!--    <TextView-->
+<!--        android:id="@+id/tvWorkingHours"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:text="Working Hours"-->
+<!--        android:textColor="#23BB9B"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        tools:layout_editor_absoluteY="335dp" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/tvDate"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:text="Mondays     11:00 AM - 12:15 PM"-->
+<!--        android:textSize="15sp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        tools:layout_editor_absoluteY="358dp" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/tvDayDate"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:text="Wednesday     11:00 AM - 12:15 PM"-->
+<!--        android:textSize="15sp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        tools:layout_editor_absoluteY="382dp" />-->
 
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilDate"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="353dp"
+        android:layout_height="59dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="23dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="30dp"
-        android:hint="Select a day"
+        android:hint=" 2023-11-13T12:00:00Z"
         app:boxStrokeColor="#29B99B"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDayDate">
+        app:layout_constraintTop_toBottomOf="@+id/tvDescription">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etDate"
@@ -102,7 +113,6 @@
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/outline_calendar_today_24"
             android:drawablePadding="10dp"
-            android:hint="hint"
             android:onClick="showDatePickerDialog" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -111,22 +121,79 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="101dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="58dp"
         android:layout_marginEnd="101dp"
         android:backgroundTint="#23BB9B"
         android:text="Book An Appointment"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilDate" />
+        app:layout_constraintTop_toBottomOf="@+id/tilLactationist" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilNeed"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilDate">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etNeed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Input your need" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <ImageView
         android:id="@+id/ivArrowBack"
-        android:layout_width="43dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="18dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView12"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView12"
-        app:srcCompat="@drawable/arrow_back"
-        />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/arrow_back" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilFiirstName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilNeed">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etFiirstName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter First Name" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilLactationist"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilFiirstName">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etLactationist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter id of the lactationist" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,15 +20,10 @@ class PaymentProcedure : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnFinish.setOnClickListener {
-            if (binding.etPhoneNumber.text.isNullOrBlank() || binding.etAmount.text.isNullOrBlank()) {
-                if (binding.etPhoneNumber.text.isNullOrBlank()) {
-                    binding.etPhoneNumber.error = "Please enter a phone number"
-                }
                 if (binding.etAmount.text.isNullOrBlank()) {
                     binding.etAmount.error = "Please enter an amount"
                 }
-            } else {
-                val phone: String = binding.etPhoneNumber.text.toString()
+             else {
                 val amount = "10"
                 val intent = Intent(this, PaymentSuccessful::class.java)
                 startActivity(intent)

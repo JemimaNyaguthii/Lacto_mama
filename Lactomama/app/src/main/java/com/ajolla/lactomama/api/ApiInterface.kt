@@ -22,7 +22,10 @@ import com.ajolla.lactomama.model.UserResponse
 import com.ajolla.lactomama.model.appointmentdata
 import com.ajolla.lactomama.mother.cart.Course
 import com.ajolla.lactomama.ui.EducationalMaterialData
+import com.ajolla.lactomama.ui.bookings.BookingsRequest
+import com.ajolla.lactomama.ui.bookings.BookingsResponse
 import com.ajolla.lactomama.ui.home.ArticleData
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Body
@@ -43,6 +46,7 @@ interface ApiInterface {
 
     @GET("/api/appointments/")
     suspend fun getAppointments(): Response<List<appointmentdata>>
+
 
     @GET("/api/appointments/{id}")
     suspend fun getArticlebyId(@Path("id") productId: Int): Response<Article>
@@ -71,4 +75,10 @@ interface ApiInterface {
 
     @POST("/darajaapi/stkpush/")
     suspend fun initiatesSTKPush(@Body payRequest: DarajaRequest):Response<DarajaResponse>
+
+    @POST("/api/appointments/")
+    suspend fun bookingLactationist(@Body bookingsRequest: BookingsRequest): Response<BookingsResponse>
+    @POST("logout/")
+    suspend fun logout(): Response<ResponseBody>
+
 }

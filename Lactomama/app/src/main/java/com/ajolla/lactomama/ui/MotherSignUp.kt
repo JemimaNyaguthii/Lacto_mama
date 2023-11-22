@@ -44,13 +44,12 @@ class MotherSignUp : AppCompatActivity() {
         userViewModel.successLiveData.observe(this, Observer { regResponse ->
             Toast.makeText(this, "Sign in success", Toast.LENGTH_SHORT).show()
             binding.pbregister.visibility = View.GONE
+//            intent.putExtra("USER_NAME",username)
             val intent = Intent(this, MotherLogin::class.java)
             startActivity(intent)
             finish()
         })
     }
-
-
     fun validateMotherSignUp() {
         val userName = binding.etMotherUsername.text.toString()
         val email = binding.etMotherEmail.text.toString()
@@ -58,6 +57,7 @@ class MotherSignUp : AppCompatActivity() {
         val password = binding.etMotherPassword.text.toString()
         val passwordConfirm = binding.etPasswordConfirmMother.text.toString()
         var error = false
+
 
         if (userName.isBlank()) {
             binding.tilMotherUsername.error = "Enter name"

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import com.ajolla.lactomama.R
 import com.ajolla.lactomama.databinding.ActivityUserJourneyBinding
+import com.ajolla.lactomama.mother.HomePageActivity
 
 class UserJourneyActivity : AppCompatActivity() {
     lateinit var binding: ActivityUserJourneyBinding
@@ -17,21 +18,15 @@ class UserJourneyActivity : AppCompatActivity() {
 
         val lactationButton = findViewById<Button>(R.id.lactationButton)
         val motherButton = findViewById<Button>(R.id.motherButton)
-
-        // Set an OnClickListener for the Lactation Specialist button
         lactationButton.setOnClickListener {
-            val intent = Intent(this, LactationistLogin::class.java)
+            val intent = Intent(this,LactationistLogin::class.java)
             startActivity(intent)
         }
-
         // Set an OnClickListener for the Mother button
         motherButton.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
         }
     }
-
-    override fun onResume() {
-        super.onResume()
-    }
 }
+//mainactivity
